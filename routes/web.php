@@ -35,6 +35,18 @@ Route::post('/register/teacher', 'Auth\RegisterController@createTeacher');
 Route::post('/register/student', 'Auth\RegisterController@createStudent');
 
 Route::view('/home', 'home')->middleware('auth');
-Route::view('/admin', 'admin');
-Route::view('/teacher', 'teacher');
-Route::view('/student', 'student');
+//Route::view('/admin', 'admin');
+//Route::view('/teacher', 'teacher');
+//Route::view('/student', 'student');
+
+Route::group(['middleware' => 'auth:admin'], function () {
+    Route::view('/admin', 'admin');
+});
+
+Route::group(['middleware' => 'auth:teacher'], function () {
+    Route::view('/teacher', 'teacher');
+});
+
+Route::group(['middleware' => 'auth:student'], function () {
+    Route::view('/student', 'student');
+});
