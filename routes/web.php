@@ -40,7 +40,7 @@ Route::view('/home', 'home')->middleware('auth');
 //Route::view('/student', 'student');
 
 Route::group(['middleware' => 'auth:admin'], function () {
-    Route::view('/admin', 'admin');
+    Route::view('/admin', 'admin.index');
 });
 
 Route::group(['middleware' => 'auth:teacher'], function () {
