@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Admin;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use App\Student;
 use App\Teacher;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -44,6 +45,7 @@ class RegisterController extends Controller
         $this->middleware('guest');
         $this->middleware('guest:admin');
         $this->middleware('guest:teacher');
+        $this->middleware('guest:student');
     }
 
     /**
@@ -86,6 +88,11 @@ class RegisterController extends Controller
         return view('auth.register', ['url' => 'teacher']);
     }
 
+    public function showStudentRegisterForm()
+    {
+        return view('auth.register', ['url' => 'student']);
+    }
+
     protected function createAdmin(Request $request)
     {
         $this->validator($request->all())->validate();
@@ -108,5 +115,15 @@ class RegisterController extends Controller
         return redirect()->intended('login/teacher');
     }
 
+    protected function createStudent(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        $student = Student::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+        ]);
+        return redirect()->intended('login/student');
+    }
 
 }
