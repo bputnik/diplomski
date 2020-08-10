@@ -11,16 +11,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b35680eb-e88a-4fce-908b-aec6e26bc4ee" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/css/sb-admin-2.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/sb-admin-2.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/demo/chart-area-demo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/demo/chart-bar-demo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/demo/chart-pie-demo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/demo/datatables-demo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/sb-admin-2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/sb-admin-2.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/partials/_sidebar.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/admin/master.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -151,11 +145,14 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.externalDependencies" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\laragon\www\diplomski\resources\views\components\admin" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\laragon\www\diplomski\public" />
     </key>
@@ -179,7 +176,8 @@
       <workItem from="1596947945102" duration="2686000" />
       <workItem from="1596951155998" duration="11299000" />
       <workItem from="1596967870361" duration="9000" />
-      <workItem from="1596990562074" duration="5822000" />
+      <workItem from="1596990562074" duration="7613000" />
+      <workItem from="1597036454619" duration="3938000" />
     </task>
     <servers />
   </component>
@@ -196,12 +194,13 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="413" y="147" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1596997830017">
+    <state x="413" y="147" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1596998900259">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="147" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728/1366.0.1536.824@0.0.1366.728" timestamp="1596997830017" />
+    <state x="413" y="147" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728/1366.0.1536.824@0.0.1366.728" timestamp="1596998900259" />
     <state x="347" y="60" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1596957401712">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

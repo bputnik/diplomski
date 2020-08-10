@@ -41,6 +41,8 @@ Route::view('/home', 'home')->middleware('auth');
 
 Route::group(['middleware' => 'auth:admin'], function () {
     Route::view('/admin', 'admin.index');
+    Route::view('/admin/teachers/create', 'admin.teachers.create')->name('admin.teachers.create');
+
 });
 
 Route::group(['middleware' => 'auth:teacher'], function () {
@@ -50,3 +52,6 @@ Route::group(['middleware' => 'auth:teacher'], function () {
 Route::group(['middleware' => 'auth:student'], function () {
     Route::view('/student', 'student');
 });
+
+
+
