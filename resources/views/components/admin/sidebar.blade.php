@@ -26,17 +26,32 @@
         Administracija
     </div>
 
-    <!-- Nav Item - Pages Collapse Menu -->
+    <!-- Nav Item - Pages Collapse Menu TEACHERS-->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTeachers" aria-expanded="true" aria-controls="collapseTeachers">
             <i class="fas fa-fw fa-cog"></i>
             <span>Profesori</span>
         </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapseTeachers" class="collapse" aria-labelledby="headingTeachers" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
 {{--                <h6 class="collapse-header">Custom Components:</h6>--}}
                 <a class="collapse-item" href="{{route('admin.teachers.create')}}">Dodavanje profesora</a>
                 <a class="collapse-item" href="cards.html">Pregled svih profesora</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Nav Item - Pages Collapse Menu LANGUAGES -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLanguages" aria-expanded="true" aria-controls="collapseLanguages">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Jezici</span>
+        </a>
+        <div id="collapseLanguages" class="collapse" aria-labelledby="headingLanguages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                {{--                <h6 class="collapse-header">Custom Components:</h6>--}}
+                <a class="collapse-item" href="{{route('admin.languages.create')}}">Dodavanje jezika</a>
+                <a class="collapse-item" href="{{route('admin.language.index')}}">Pregled svih jezika</a>
             </div>
         </div>
     </li>
