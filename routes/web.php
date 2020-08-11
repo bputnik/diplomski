@@ -42,7 +42,6 @@ Route::view('/home', 'home')->middleware('auth');
 Route::group(['middleware' => 'auth:admin'], function () {
     Route::view('/admin', 'admin.index');
     Route::view('/admin/teachers/create', 'admin.teachers.create')->name('admin.teachers.create');
-
     Route::view('/admin/languages/create', 'admin.languages.create')->name('admin.languages.create');
     Route::view('/admin/language/index', 'admin.languages.index')->name('admin.language.index');
 });
