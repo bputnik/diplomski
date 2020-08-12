@@ -1,5 +1,6 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,12 +40,16 @@ Route::view('/home', 'home')->middleware('auth');
 //Route::view('/teacher', 'teacher');
 //Route::view('/student', 'student');
 
+
 Route::group(['middleware' => 'auth:admin'], function () {
     Route::view('/admin', 'admin.index');
     Route::view('/admin/teachers/create', 'admin.teachers.create')->name('admin.teachers.create');
     Route::view('/admin/languages/create', 'admin.languages.create')->name('admin.languages.create');
-    Route::view('/admin/language/index', 'admin.languages.index')->name('admin.language.index');
+    Route::view('/admin/languages/index', 'admin.languages.index')->name('admin.languages.index');
+    Route::post('/admin/languages', 'LanguageController@store')->name('admin.languages.store');
+
 });
+
 
 Route::group(['middleware' => 'auth:teacher'], function () {
     Route::view('/teacher', 'teacher');
