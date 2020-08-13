@@ -3,9 +3,22 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
-class Language extends Authenticatable
+
+class Language extends Model
 {
-    //
+    use Notifiable;
+
+    protected $fillable = [
+        'name'
+    ];
+
+    protected $table = 'languages';
+
+    public function admins(){
+        return $this->belongsToMany(Admin::class);
+    }
+
+
 }

@@ -19,4 +19,10 @@ class Admin  extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    public function languages(){
+        return $this->belongsToMany(Language::class);
+    }
+
 }

@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Veb sistem za poslovanje škole stranih jezika">
     <meta name="author" content="Branimir Putnik, bputnik@gmail.com, 0642050561">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Administratorski panel</title>
 

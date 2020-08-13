@@ -50,7 +50,7 @@
         <div id="collapseLanguages" class="collapse" aria-labelledby="headingLanguages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 {{--                <h6 class="collapse-header">Custom Components:</h6>--}}
-                <a class="collapse-item" href="{{route('admin.languages.create')}}">Dodavanje jezika</a>
+
                 <a class="collapse-item" href="{{route('admin.languages.index')}}">Pregled svih jezika</a>
             </div>
         </div>
