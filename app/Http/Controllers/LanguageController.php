@@ -24,12 +24,12 @@ class LanguageController extends Controller
     public function store(Request $request)
     {
         // $this->authorize('create', Language::class);
-        $name = $request->input('name');
-        $name = Str::lower($name);
-
         $request->validate([
             'name' => 'required'
         ]);
+
+        $name = $request->input('name');
+        $name = Str::lower($name);
 
         $languages = Language::all();
 
@@ -42,7 +42,10 @@ class LanguageController extends Controller
             }
         }
                 session()->flash('language-inserted', Str::ucfirst(request('name')) . ' je uspešno dodat u bazu.');
-                DB::insert('insert into languages (name) values (?)', [$name]);
+              //  DB::insert('insert into languages (name) values (?)', [$name]);
+                Language::create([
+                    'name'=>$name,
+                ]);
                 return redirect()->route('admin.languages.index');
 
     }

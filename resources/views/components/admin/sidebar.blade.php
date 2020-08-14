@@ -26,6 +26,22 @@
         Administracija
     </div>
 
+
+    <!-- Nav Item - Pages Collapse Menu Students-->
+    <li class="nav-item" >
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseStudents" aria-expanded="true" aria-controls="collapseStudents">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Polaznici</span>
+        </a>
+        <div id="collapseStudents" class="collapse" aria-labelledby="headingStudents" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                {{--                <h6 class="collapse-header">Custom Components:</h6>--}}
+                <a class="collapse-item" href="#" >Dodavanje polaznika</a>
+                <a class="collapse-item" href="#">Pregled svih polaznika</a>
+            </div>
+        </div>
+    </li>
+
     <!-- Nav Item - Pages Collapse Menu TEACHERS-->
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTeachers" aria-expanded="true" aria-controls="collapseTeachers">
@@ -40,6 +56,24 @@
             </div>
         </div>
     </li>
+
+
+    <!-- Nav Item - Pages Collapse Menu GROUPS-->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseGroups" aria-expanded="true" aria-controls="collapseGroups">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Grupe</span>
+        </a>
+        <div id="collapseGroups" class="collapse" aria-labelledby="headingGroups" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                {{--                <h6 class="collapse-header">Custom Components:</h6>--}}
+                <a class="collapse-item" href="#">Dodavanje nove grupe</a>
+                <a class="collapse-item" href="cards.html">Pregled, izmena, brisanje</a>
+            </div>
+        </div>
+    </li>
+
+
 
     <!-- Nav Item - Pages Collapse Menu LANGUAGES -->
     <li class="nav-item">
@@ -87,8 +121,8 @@
             <i class="fas fa-fw fa-folder"></i>
             <span>Pages</span>
         </a>
-        <div id="collapsePages" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
+        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner  rounded">
                 <h6 class="collapse-header">Login Screens:</h6>
                 <a class="collapse-item" href="login.html">Login</a>
                 <a class="collapse-item" href="register.html">Register</a>

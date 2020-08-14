@@ -12,14 +12,9 @@
   <component name="ChangeListManager">
     <list default="true" id="b35680eb-e88a-4fce-908b-aec6e26bc4ee" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LanguageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LanguageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Language.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Language.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_10_072339_create_languages_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_10_072339_create_languages_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/languages/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/languages/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/languages/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/languages/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/admin/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/admin/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/teachers/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/teachers/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/components/admin/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/admin/sidebar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -151,7 +146,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../new-cms-system" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.externalDependencies" />
   </component>
@@ -187,7 +182,9 @@
       <workItem from="1597131451720" duration="637000" />
       <workItem from="1597297561415" duration="611000" />
       <workItem from="1597299320264" duration="2533000" />
-      <workItem from="1597335183241" duration="8734000" />
+      <workItem from="1597335183241" duration="9837000" />
+      <workItem from="1597379565712" duration="7228000" />
+      <workItem from="1597391688191" duration="985000" />
     </task>
     <servers />
   </component>
@@ -207,6 +204,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="393" y="145" key="#Notifications" timestamp="1597351452455">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="393" y="145" key="#Notifications/0.0.1366.728/1366.0.1536.824@0.0.1366.728" timestamp="1597351452455" />
     <state x="413" y="147" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1596998900259">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -219,10 +220,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="410" y="60" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1536.824@0.0.1366.728" timestamp="1597335269754" />
-    <state x="255" y="159" key="run.anything.popup" timestamp="1597350384307">
+    <state x="175" y="32" key="Vcs.Push.Dialog.v2" timestamp="1597351392683">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="255" y="159" key="run.anything.popup/0.0.1366.728/1366.0.1536.824@0.0.1366.728" timestamp="1597350384307" />
+    <state x="175" y="32" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.0.1536.824@0.0.1366.728" timestamp="1597351392683" />
+    <state x="255" y="159" key="run.anything.popup" timestamp="1597381150641">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="255" y="159" key="run.anything.popup/0.0.1366.728/1366.0.1536.824@0.0.1366.728" timestamp="1597381150641" />
     <state x="262" y="-1" width="840" height="1034" key="search.everywhere.popup" timestamp="1596961256199">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

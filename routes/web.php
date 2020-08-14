@@ -43,7 +43,7 @@ Route::view('/home', 'home')->middleware('auth');
 
 Route::group(['middleware' => 'auth:admin'], function () {
     Route::view('/admin', 'admin.index');
-    Route::view('/admin/teachers/create', 'admin.teachers.create')->name('admin.teachers.create');
+    Route::get('/admin/teachers/create', 'TeacherController@index')->name('admin.teachers.create');
     Route::view('/admin/languages/create', 'admin.languages.create')->name('admin.languages.create');
 
     Route::get('/admin/languages/index', 'LanguageController@index')->name('admin.languages.index');
