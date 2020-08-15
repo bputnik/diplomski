@@ -21,4 +21,9 @@ class Language extends Model
     }
 
 
+    public function teachers(){
+        return $this->belongsToMany('App\Teacher');
+    }
+
+
 }

@@ -1,6 +1,7 @@
 <?php
 
 
+//use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,9 +44,13 @@ Route::view('/home', 'home')->middleware('auth');
 
 Route::group(['middleware' => 'auth:admin'], function () {
     Route::view('/admin', 'admin.index');
-    Route::get('/admin/teachers/create', 'TeacherController@index')->name('admin.teachers.create');
-    Route::view('/admin/languages/create', 'admin.languages.create')->name('admin.languages.create');
+    Route::get('/admin/teachers/create', 'TeacherController@create')->name('admin.teachers.create');
+    Route::post('/admin/teachers/store', 'TeacherController@store')->name('admin.teachers.store');
+    Route::get('admin/teachers/show', 'TeacherController@show')->name('admin.teachers.show');
+    Route::get('/admin/teachers/{teacher}/edit', 'TeacherController@edit')->name('admin.teachers.edit');
+    Route::delete('/admin/teachers/{teacher}/destroy', 'TeacherController@destroy')->name('admin.teachers.destroy');
 
+    Route::view('/admin/languages/create', 'admin.languages.create')->name('admin.languages.create');
     Route::get('/admin/languages/index', 'LanguageController@index')->name('admin.languages.index');
     Route::post('/admin/languages', 'LanguageController@store')->name('admin.languages.store');
     Route::get('/admin/languages/{language}/edit', 'LanguageController@edit')->name('admin.languages.edit');
@@ -59,6 +64,7 @@ Route::group(['middleware' => 'auth:admin'], function () {
 Route::group(['middleware' => 'auth:teacher'], function () {
     Route::view('/teacher', 'teacher');
 });
+
 
 Route::group(['middleware' => 'auth:student'], function () {
     Route::view('/student', 'student');

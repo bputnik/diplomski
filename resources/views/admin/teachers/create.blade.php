@@ -4,7 +4,7 @@
 
         <h1>Kreiranje novog nastavničkog profila</h1>
 
-        <form action="" method="post" >
+        <form action="{{route('admin.teachers.store')}}" method="post" >
             @csrf
 
             <div class="form-group ">
@@ -60,7 +60,7 @@
 
             <div class="form-group">
                 <label for="dob">Datum rođenja</label>
-                <input type="text"
+                <input type="date"
                        name="dob"
                        class="form-control col-lg-4"
                        id="dob">
@@ -86,7 +86,8 @@
 
             <div class="form-group">
                 <label for="language">Jezik koji predaje</label>
-            <select class="form-control col-lg-4" name="language">
+            <select class="form-control col-lg-4" name="language" id="language">
+                <option> -- izaberite jezik -- </option>
                     @foreach($languages as $key => $language)
                         <option value="{{$key}}">
                             {{$language}}

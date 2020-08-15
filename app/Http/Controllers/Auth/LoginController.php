@@ -6,8 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
-use Illuminate\Support\Facades\Auth;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -24,6 +23,15 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
+    public function __construct()
+    {
+        $this->middleware('guest')->except('logout');
+        $this->middleware('guest:admin')->except('logout');
+        $this->middleware('guest:teacher')->except('logout');
+        $this->middleware('guest:student')->except('logout');
+
+    }
+
     /**
      * Where to redirect users after login.
      *
@@ -36,14 +44,7 @@ class LoginController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('guest')->except('logout');
-        $this->middleware('guest:admin')->except('logout');
-        $this->middleware('guest:teacher')->except('logout');
-        $this->middleware('guest:student')->except('logout');
 
-    }
 
 
     public function showAdminLoginForm()
@@ -83,7 +84,8 @@ class LoginController extends Controller
 
             return redirect()->intended('/teacher');
         }
-        return back()->withInput($request->only('email', 'remember'));
+       // return back()->withInput($request->only('email', 'remember'));
+        dd(Auth::guard('teacher'));
     }
 
     // student login

@@ -22,4 +22,9 @@ class Teacher extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function languages(){
+        return $this->belongsToMany('App\Language');
+    }
+
 }
