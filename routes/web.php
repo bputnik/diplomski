@@ -49,6 +49,9 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('admin/teachers/show', 'TeacherController@show')->name('admin.teachers.show');
     Route::get('/admin/teachers/{teacher}/edit', 'TeacherController@edit')->name('admin.teachers.edit');
     Route::delete('/admin/teachers/{teacher}/destroy', 'TeacherController@destroy')->name('admin.teachers.destroy');
+    Route::put('/admin/teachers/{teacher}/attach', 'TeacherController@attach_language')->name('admin.teachers.attach_language');
+    Route::put('/admin/teachers/{teacher}/detach', 'TeacherController@detach_language')->name('admin.teachers.detach_language');
+    Route::put('/admin/teachers/{teacher}/update', 'TeacherController@update')->name('admin.teachers.update');
 
     Route::view('/admin/languages/create', 'admin.languages.create')->name('admin.languages.create');
     Route::get('/admin/languages/index', 'LanguageController@index')->name('admin.languages.index');

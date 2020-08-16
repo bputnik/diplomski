@@ -13,9 +13,12 @@ class TeacherController extends Controller
 
     public function create(){
 
-        $languages = Language::pluck('name', 'id');
+        //$languages = Language::pluck('name', 'id');
 
-        return view('admin.teachers.create', compact('languages'));
+        return view('admin.teachers.create', //compact('languages')
+             [
+            'languages' => Language::all()
+        ]);
     }
 
 
@@ -31,14 +34,20 @@ class TeacherController extends Controller
 
     public function store(Request $request){
         //dd(request()->all());
+
+        $request->name = Str::ucfirst(request('name'));
+        $request->surname = Str::ucfirst(request('surname'));
+
             $request->validate([
-            'name' => 'required | min:2',
-            'surname' => 'required | min:2',
-            'jmbg' => 'required | min:13 | max:13',
-            'email' => 'required',
+            'name' => 'required | min:3',
+            'surname' => 'required | min:3',
+            'jmbg' => 'required | unique:teachers| min:13 | max:13',
+            'email' => 'required | unique:teachers',
             'password' => 'required | min:6 | max:20',
             'address' => 'required',
             'phone' => 'required',
+            'dob' => 'nullable | date',
+            'bank-account' => 'nullable',
             'start-work' => 'required',
             'language' => 'required'
         ]);
@@ -55,6 +64,7 @@ class TeacherController extends Controller
             'bank_account_number' => $request->get('bank-account'),
             'start_work' => $request->get('start-work'),
         ];
+
 
          Teacher::create($inputTeacher);
 
@@ -73,7 +83,7 @@ class TeacherController extends Controller
 
 
         return view('admin.teachers.show', [
-            'teachers'=>Teacher::all()
+            'teachers'=>Teacher::all(),
         ]);
     }
 
@@ -81,7 +91,8 @@ class TeacherController extends Controller
     public function edit(Teacher $teacher){
 
         return view('admin.teachers.edit', [
-            'teacher' => $teacher
+            'teacher' => $teacher,
+            'languages' => Language::all()
         ]);
 
     }
@@ -93,6 +104,39 @@ class TeacherController extends Controller
         return back();
     }
 
+    public function attach_language(Teacher $teacher){
+        $teacher->languages()->attach(request('language'));
+        session()->flash('language-attached', 'Profesoru je dodat jezik: ' .  Language::findOrFail(request('language'))->name);
+        return back();
 
+    }
+
+    public function detach_language(Teacher $teacher){
+        $teacher->languages()->detach(request('language'));
+        session()->flash('language-detached', 'Profesor više ne predaje: ' . Language::findOrFail(request('language'))->name);
+        return back();
+    }
+
+    public function update(Teacher $teacher) {
+
+
+        $teacher->name = Str::ucfirst(request('name'));
+        $teacher->surname = Str::ucfirst(request('surname'));
+
+        if($teacher->isDirty('name', 'surname', 'jmbg', 'dob', 'email', 'phone', 'address',
+                                      'bank-account', 'start-work'))
+        {
+            session()->flash('teacher-updated', 'Podaci su uspešno izmenjeni.');
+            $teacher->save();
+            return back();
+
+        } else {
+            session()->flash('teacher-not-updated', 'Nema izmena');
+            return back();
+        }
+
+
+
+    }
 
 }
