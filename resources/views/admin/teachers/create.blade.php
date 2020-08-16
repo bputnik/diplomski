@@ -24,6 +24,14 @@
             </div>
 
             <div class="form-group">
+                <label for="jmbg">JMBG</label>
+                <input type="text"
+                       name="jmbg"
+                       class="form-control col-lg-4"
+                       id="jmbg">
+            </div>
+
+            <div class="form-group">
                 <label for="email">email</label>
                 <input type="email"
                        name="email"

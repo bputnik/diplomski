@@ -20,6 +20,17 @@
             </div>
 
             <div class="row">
+                  <div class="form-group col">
+                      <label for="jmbg">JMBG</label>
+                      <input type="text" id="jmbg" name="jmbg" class="form-control"  readonly value="{{$teacher->jmbg}}">
+                  </div>
+                  <div class="form group col">
+                      <label for="dob">Datum rođenja</label>
+                      <input type="text" id="dob" name="dob" class="form-control" readonly value="{{$teacher->dob->format('d-m-Y')}}">
+                  </div>
+            </div>
+
+            <div class="row">
                 <div class="form-group col">
                     <label for="email">email</label>
                     <input type="text" id="email" name="email" class="form-control" value="{{$teacher->email}}">

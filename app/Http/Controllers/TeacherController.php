@@ -34,6 +34,7 @@ class TeacherController extends Controller
             $request->validate([
             'name' => 'required | min:2',
             'surname' => 'required | min:2',
+            'jmbg' => 'required | min:13 | max:13',
             'email' => 'required',
             'password' => 'required | min:6 | max:20',
             'address' => 'required',
@@ -45,6 +46,7 @@ class TeacherController extends Controller
         $inputTeacher = [
             'name' => $request->get('name'),
             'surname' => $request->get('surname'),
+            'jmbg'=>$request->get('jmbg'),
             'email' => $request->get('email'),
             'password' => $request->get('password'),
             'address' => $request->get('address'),

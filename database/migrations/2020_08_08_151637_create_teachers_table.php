@@ -17,6 +17,7 @@ class CreateTeachersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('surname');
+            $table->bigInteger('jmbg')->unsigned()->unique();
             $table->string('email')->unique();
             $table->string('password');
             $table->string('address')->nullable();

@@ -14,7 +14,7 @@ class Teacher extends Authenticatable
     protected $guard = 'teacher';
 
     protected $fillable = [
-        'name', 'surname', 'email', 'password',
+        'name', 'surname', 'jmbg', 'email', 'password',
         'bank_account_number', 'start_work',
         'address', 'phone', 'dob',
     ];
@@ -24,7 +24,7 @@ class Teacher extends Authenticatable
     ];
 
     protected $dates=[
-        'start_work', 'created_at', 'updated_at'
+        'start_work', 'created_at', 'updated_at', 'dob'
     ];
 
 
