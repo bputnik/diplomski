@@ -23,6 +23,11 @@ class Teacher extends Authenticatable
         'password', 'remember_token',
     ];
 
+    protected $dates=[
+        'start_work', 'created_at', 'updated_at'
+    ];
+
+
     public function languages(){
         return $this->belongsToMany('App\Language');
     }

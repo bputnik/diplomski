@@ -12,15 +12,9 @@
   <component name="ChangeListManager">
     <list default="true" id="b35680eb-e88a-4fce-908b-aec6e26bc4ee" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Language.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Language.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Teacher.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Teacher.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/teachers/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/teachers/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/admin/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/admin/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +183,8 @@
       <workItem from="1597335183241" duration="9837000" />
       <workItem from="1597379565712" duration="7228000" />
       <workItem from="1597391688191" duration="12133000" />
-      <workItem from="1597493803737" duration="9362000" />
+      <workItem from="1597493803737" duration="10775000" />
+      <workItem from="1597554026076" duration="1065000" />
     </task>
     <servers />
   </component>
@@ -225,10 +220,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="410" y="60" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1536.824@0.0.1366.728" timestamp="1597335269754" />
-    <state x="175" y="32" key="Vcs.Push.Dialog.v2" timestamp="1597351392683">
+    <state x="175" y="32" key="Vcs.Push.Dialog.v2" timestamp="1597506530737">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="175" y="32" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.0.1536.824@0.0.1366.728" timestamp="1597351392683" />
+    <state x="175" y="32" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.0.1536.824@0.0.1366.728" timestamp="1597506530737" />
+    <state x="460" y="259" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597506514474">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="460" y="259" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728/1366.0.1536.824@0.0.1366.728" timestamp="1597506514474" />
     <state x="255" y="159" key="run.anything.popup" timestamp="1597381150641">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
