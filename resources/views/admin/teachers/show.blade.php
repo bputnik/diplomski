@@ -1,5 +1,7 @@
 <x-admin.master>
 
+
+
 @section('content')
 
         @if(session()->has('teacher-created'))
@@ -44,7 +46,7 @@
                     <tr>
                         <td>{{$teacher->id}}</td>
                         <td><a href="{{route('admin.teachers.edit', $teacher->id)}}">{{$teacher->name}} {{$teacher->surname}}</a></td>
-                        <td>{{$teacher->start_work}}</td>
+                        <td>{{$teacher->start_work->format('d-m-Y')}}</td>
                         <td>
                             <form method="post" action="{{route('admin.teachers.destroy', $teacher->id)}}">
                                 @csrf

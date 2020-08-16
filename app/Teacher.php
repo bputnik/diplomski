@@ -32,4 +32,5 @@ class Teacher extends Authenticatable
         return $this->belongsToMany('App\Language');
     }
 
+
 }

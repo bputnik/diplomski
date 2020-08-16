@@ -76,8 +76,11 @@ class TeacherController extends Controller
     }
 
 
-    public function edit(){
+    public function edit(Teacher $teacher){
 
+        return view('admin.teachers.edit', [
+            'teacher' => $teacher
+        ]);
 
     }
 
