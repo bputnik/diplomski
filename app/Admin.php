@@ -13,7 +13,7 @@ class Admin  extends Authenticatable
     protected $guard = 'admin';
 
     protected $fillable = [
-        'name', 'surname', 'email', 'password',
+        'name', 'surname', 'avatar', 'email', 'password',
     ];
 
     protected $hidden = [
@@ -25,4 +25,9 @@ class Admin  extends Authenticatable
         return $this->belongsToMany(Language::class);
     }
 
+//    public function setPasswordAttribute($value){
+//        $this->attributes['password'] = bcrypt($value);
+//    }
+
 }
+

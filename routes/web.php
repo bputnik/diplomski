@@ -61,7 +61,7 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::delete('/admin/languages/{language}/destroy', 'LanguageController@destroy')->name('admin.languages.destroy');
 
     Route::get('/admin/{admin}/profile', 'AdminController@show')->name('admin.admin-profile');
-    Route::put('/admin/{admin}/update', 'AdminController@update')->name('admin.admin-profile-update');
+    Route::put('/admin/{admin}/profile/update', 'AdminController@update')->name('admin.admin-profile-update');
 
 
 });
