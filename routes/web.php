@@ -58,8 +58,11 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::post('/admin/languages', 'LanguageController@store')->name('admin.languages.store');
     Route::get('/admin/languages/{language}/edit', 'LanguageController@edit')->name('admin.languages.edit');
     Route::put('/admin/languages/{language}/update', 'LanguageController@update')->name('admin.languages.update');
-
     Route::delete('/admin/languages/{language}/destroy', 'LanguageController@destroy')->name('admin.languages.destroy');
+
+    Route::get('/admin/{admin}/profile', 'AdminController@show')->name('admin.admin-profile');
+    Route::put('/admin/{admin}/update', 'AdminController@update')->name('admin.admin-profile-update');
+
 
 });
 

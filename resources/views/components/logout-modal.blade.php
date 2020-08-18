@@ -4,16 +4,16 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Odlazite...?</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <div class="modal-body">Potvrdite da želite da napustite administratorski panel.</div>
+            <div class="modal-body">Potvrdite da želite da se izlogujete.</div>
             <div class="modal-footer">
                 <form action="{{route('logout')}}" method="POST">
                     @csrf
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Otkaži</button>
                     <button class="btn btn-danger">Logout</button>
                 </form>
 
