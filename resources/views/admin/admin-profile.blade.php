@@ -56,20 +56,27 @@
 
     <div class="col">
             <div class="form-group">
-                <label for="avatar">Izaberite sliku</label>
-                <input type="file"
-                       class="form-control-file @error('avatar') is-invalid @enderror"
-                       name="avatar"
-                       id="avatar">
+
+
+                <div class="card" style="width:18rem">
+                    <img class="img-profile rounded-circle mt-3 ml-auto mr-auto" height="150px" width="150px" src="{{$admin->avatar}}">
+                    <div class="card-body">
+                        <label for="avatar" class="h5 card-title">Izaberite sliku</label>
+                        <input type="file"
+                               class="form-control-file @error('avatar') is-invalid @enderror"
+                               name="avatar"
+                               id="avatar">
+                    </div>
+                </div>
 
                 @error('avatar')
                 <div class="invalid-feedback">{{$message}}</div>
                 @enderror
             </div>
 
-            <div class="form-group">
-                <img class="img-profile rounded-circle" height="150px" src="{{$admin->avatar}}">
-            </div>
+{{--            <div class="form-group">--}}
+{{--                <img class="img-profile rounded-circle" height="150px" src="{{$admin->avatar}}">--}}
+{{--            </div>--}}
 
     </div>
 </div>
