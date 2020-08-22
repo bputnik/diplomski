@@ -68,7 +68,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 {{--                <h6 class="collapse-header">Custom Components:</h6>--}}
                 <a class="collapse-item" href="#">Dodavanje nove grupe</a>
-                <a class="collapse-item" href="cards.html">Pregled, izmena, brisanje</a>
+                <a class="collapse-item" href="#">Pregled, izmena, brisanje</a>
             </div>
         </div>
     </li>
@@ -86,6 +86,22 @@
                 {{--                <h6 class="collapse-header">Custom Components:</h6>--}}
 
                 <a class="collapse-item" href="{{route('admin.languages.index')}}">Pregled svih jezika</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Nav Item - Pages Collapse Menu LANGUAGE LEVELS -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLevels" aria-expanded="true" aria-controls="collapseLevels">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Jezički nivoi</span>
+        </a>
+        <div id="collapseLevels" class="collapse" aria-labelledby="headingLevels" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                {{--                <h6 class="collapse-header">Custom Components:</h6>--}}
+
+                <a class="collapse-item" href="{{route('admin.levels.create')}}">Kreiranje novog nivoa</a>
+                <a class="collapse-item" href="{{route('admin.levels.index')}}">Pregled, izmena, brisanje</a>
             </div>
         </div>
     </li>

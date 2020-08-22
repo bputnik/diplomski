@@ -60,6 +60,13 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::put('/admin/languages/{language}/update', 'LanguageController@update')->name('admin.languages.update');
     Route::delete('/admin/languages/{language}/destroy', 'LanguageController@destroy')->name('admin.languages.destroy');
 
+    Route::get('/admin/levels/index', 'LevelController@index')->name('admin.levels.index');
+    Route::get('/admin/levels/create', 'LevelController@create')->name('admin.levels.create');
+    Route::post('/admin/levels', 'LevelController@store')->name('admin.levels.store');
+    Route::get('/admin/levels/{level}/edit', 'LevelController@edit')->name('admin.levels.edit');
+    Route::put('/admin/levels/{level}/update', 'LevelController@update')->name('admin.levels.update');
+    Route::delete('/admin/levels/{level}/destroy', 'LevelController@destroy')->name('admin.levels.destroy');
+
     Route::get('/admin/{admin}/profile', 'AdminController@show')->name('admin.admin-profile');
     Route::put('/admin/{admin}/profile/update', 'AdminController@update')->name('admin.admin-profile-update');
 

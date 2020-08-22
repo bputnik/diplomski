@@ -47,7 +47,13 @@
                   </div>
                   <div class="form group col">
                       <label for="dob">Datum rođenja</label>
-                      <input type="text" id="dob" name="dob" class="form-control" readonly value="{{$teacher->dob->format('d-m-Y')}}">
+                      <input type="text" id="dob" name="dob" class="form-control" readonly value="
+                            @if($teacher->dob == null)
+                                {{'nema podatka'}}
+                            @else
+                                {{$teacher->dob->format('d-m-Y')}}
+                            @endif
+                          ">
                   </div>
             </div>
 
