@@ -2,35 +2,35 @@
 
     @section('content')
 
-        @if(session()->has('language-exist'))
+        @if(session()->has('courseType-exist'))
             <div class="alert alert-danger">
-                {{session('language-exist')}}
+                {{session('courseType-exist')}}
             </div>
-        @elseif(session()->has('language-inserted'))
+        @elseif(session()->has('courseType-inserted'))
             <div class="alert alert-success">
-                {{session('language-inserted')}}
+                {{session('courseType-inserted')}}
             </div>
-        @elseif(session()->has('language-deleted'))
+        @elseif(session()->has('courseType-deleted'))
             <div class="alert alert-success">
-                {{session('language-deleted')}}
+                {{session('courseType-deleted')}}
             </div>
-        @elseif(session()->has('language-updated'))
+        @elseif(session()->has('courseType-updated'))
             <div class="alert alert-success">
-                {{session('language-updated')}}
+                {{session('courseType-updated')}}
             </div>
         @endif
 
-        <h1>Pregled svih podataka o jezicima</h1>
+        <h1>Vrste kurseva</h1>
 
         <div class="row">
 
             <div class="col-sm-3">
-                <form action="{{route('admin.languages.store')}}" method="post">
+                <form action="{{route('admin.courses.types.store')}}" method="post">
                     @csrf
 
                     <div class="form-group">
-                        <label for="name">Dodajte jezik u bazu:</label>
-                        <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" placeholder="npr. italijanski">
+                        <label for="name">Dodajte novu vrstu kursa:</label>
+                        <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" placeholder="npr. opšti">
                         <div>
                             @error('name')
                             <span><strong>{{$message}}</strong></span>
@@ -44,31 +44,31 @@
             <div class="col-sm-9">
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Jezici</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Vrste kurseva</h6>
                     </div>
 
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                         <tr>
                             <th>Id</th>
-                            <th>Jezik</th>
+                            <th>Vrsta kursa</th>
                             <th>Brisanje</th>
                         </tr>
                         </thead>
                         <tfoot>
                         <tr>
                             <th>Id</th>
-                            <th>Jezik</th>
+                            <th>Vrsta kursa</th>
                             <th>Brisanje</th>
                         </tr>
                         </tfoot>
                         <tbody>
-                        @foreach($languages as $language)
+                        @foreach($courseTypes as $courseType)
                             <tr>
-                                <td>{{$language->id}}</td>
-                                <td><a href="{{route('admin.languages.edit', $language->id)}}">{{$language->name}}</a></td>
+                                <td>{{$courseType->id}}</td>
+                                <td><a href="{{route('admin.courses.types.edit', $courseType->id)}}">{{$courseType->name}}</a></td>
                                 <td>
-                                    <form method="post" action="{{route('admin.languages.destroy', $language->id)}}">
+                                    <form method="post" action="{{route('admin.courses.types.destroy', $courseType->id)}}">
                                         @csrf
                                         @method('DELETE')
 

@@ -73,7 +73,20 @@
         </div>
     </li>
 
-
+    <!-- Nav Item - Pages Collapse Menu COURSES-->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCourses" aria-expanded="true" aria-controls="collapseCourses">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Kursevi</span>
+        </a>
+        <div id="collapseCourses" class="collapse" aria-labelledby="headingCourses" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                {{--                <h6 class="collapse-header">Custom Components:</h6>--}}
+                <a class="collapse-item" href="{{route('admin.courses.types.index')}}">Vrste kurseva</a>
+{{--                <a class="collapse-item" href="#">Pregled, izmena, brisanje</a>--}}
+            </div>
+        </div>
+    </li>
 
     <!-- Nav Item - Pages Collapse Menu LANGUAGES -->
     <li class="nav-item">

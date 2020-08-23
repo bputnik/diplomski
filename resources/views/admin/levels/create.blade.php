@@ -4,12 +4,10 @@
 
     <h1>Kreiranje novog jezičkog nivoa</h1>
 
-
         <div class="mt-3 mb-3">
 
             <form action="{{route('admin.levels.store')}}" method="post">
                 @csrf
-
 
                 <div class="form-group">
                     <label for="label">Oznaka nivoa po CEF-u</label>
@@ -30,14 +28,11 @@
                     </div>
                 </div>
 
-
                 <div class="row">
                     <div class="col">
                         <button type="submit" class="btn btn-primary">Sačuvaj</button>
                     </div>
                 </div>
-
-
 
             </form>
 

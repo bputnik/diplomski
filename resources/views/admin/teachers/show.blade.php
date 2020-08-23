@@ -30,7 +30,7 @@
                     <th>Id</th>
                     <th>Ime i prezime</th>
                     <th>Datum zaposlenja</th>
-                    <th>Obriši</th>
+                    <th>Brisanje</th>
                 </tr>
                 </thead>
                 <tfoot>
@@ -38,7 +38,7 @@
                     <th>Id</th>
                     <th>Ime i prezime</th>
                     <th>Datum zaposlenja</th>
-                    <th>Obriši</th>
+                    <th>Brisanje</th>
                 </tr>
                 </tfoot>
                 <tbody>

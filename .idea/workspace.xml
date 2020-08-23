@@ -12,7 +12,10 @@
   <component name="ChangeListManager">
     <list default="true" id="b35680eb-e88a-4fce-908b-aec6e26bc4ee" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/teachers/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/teachers/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LanguageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LanguageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/languages/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/languages/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/levels/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/levels/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/teachers/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/teachers/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/components/admin/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/admin/sidebar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -192,7 +195,8 @@
       <workItem from="1597721482682" duration="17188000" />
       <workItem from="1597819614458" duration="6970000" />
       <workItem from="1597986178164" duration="2577000" />
-      <workItem from="1598071412822" duration="13942000" />
+      <workItem from="1598071412822" duration="15532000" />
+      <workItem from="1598157333169" duration="3556000" />
     </task>
     <servers />
   </component>
@@ -224,11 +228,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1598072031305" />
-    <state x="488" y="86" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1598093129044">
+    <state x="488" y="86" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1598159427066">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="347" y="60" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728/1366.0.1536.824@0.0.1366.728" timestamp="1597504559428" />
-    <state x="488" y="86" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1598093129044" />
+    <state x="488" y="86" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1598159427066" />
     <state x="410" y="60" key="FileChooserDialogImpl" timestamp="1597643842770">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
