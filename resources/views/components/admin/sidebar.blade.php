@@ -83,7 +83,8 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 {{--                <h6 class="collapse-header">Custom Components:</h6>--}}
                 <a class="collapse-item" href="{{route('admin.courses.types.index')}}">Vrste kurseva</a>
-{{--                <a class="collapse-item" href="#">Pregled, izmena, brisanje</a>--}}
+                <a class="collapse-item" href="{{route('admin.courses.create')}}">Kreiranje novog kursa</a>
+                <a class="collapse-item" href="{{route('admin.courses.show')}}">Pregled, izmena, brisanje</a>
             </div>
         </div>
     </li>

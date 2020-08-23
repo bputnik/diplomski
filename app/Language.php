@@ -25,5 +25,13 @@ class Language extends Model
         return $this->belongsToMany('App\Teacher');
     }
 
+    public function courses(){
+        return $this->hasMany('App\Course');
+    }
+
+
+
+
+
 
 }

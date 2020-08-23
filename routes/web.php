@@ -73,6 +73,13 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::put('/admin/courses/types/{courseType}/update', 'CourseTypeController@update')->name('admin.courses.types.update');
     Route::delete('/admin/courses/types/{courseType}/destroy', 'CourseTypeController@destroy')->name('admin.courses.types.destroy');
 
+    Route::get('/admin/courses/show', 'CourseController@show')->name('admin.courses.show');
+    Route::get('/admin/courses/{course}/edit', 'CourseController@edit')->name('admin.courses.edit');
+    Route::delete('/admin/courses{course}/destroy', 'CourseController@destroy')->name('admin.courses.destroy');
+    Route::get('/admin/courses/create', 'CourseController@create')->name('admin.courses.create');
+    Route::post('/admin/courses', 'CourseController@store')->name('admin.courses.store');
+
+
     Route::get('/admin/{admin}/profile', 'AdminController@show')->name('admin.admin-profile');
     Route::put('/admin/{admin}/profile/update', 'AdminController@update')->name('admin.admin-profile-update');
 
