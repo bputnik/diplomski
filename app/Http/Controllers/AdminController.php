@@ -5,9 +5,26 @@ namespace App\Http\Controllers;
 use App\Admin;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
+
+
+    public function index(){
+
+        $teacherCount = DB::table('teachers')->count();
+        $languageCount = DB::table('languages')->count();
+        $courseCount = DB::table('courses')->count();
+
+
+        return view('admin.index',[
+            'teacherCount'=>$teacherCount,
+            'languageCount'=>$languageCount,
+            'courseCount'=>$courseCount,
+        ]);
+
+    }
 
     public function show(Admin $admin){
 

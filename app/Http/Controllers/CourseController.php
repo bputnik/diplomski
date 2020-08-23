@@ -50,6 +50,9 @@ class CourseController extends Controller
 
         Course::create($inputs);
         return back();
+    }
+
+    public function edit(){
 
 
     }

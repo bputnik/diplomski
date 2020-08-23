@@ -43,7 +43,8 @@ Route::view('/home', 'home')->middleware('auth');
 
 
 Route::group(['middleware' => 'auth:admin'], function () {
-    Route::view('/admin', 'admin.index');
+    Route::get('/admin', 'AdminController@index')->name('admin.index');
+
     Route::get('/admin/teachers/create', 'TeacherController@create')->name('admin.teachers.create');
     Route::post('/admin/teachers/store', 'TeacherController@store')->name('admin.teachers.store');
     Route::get('admin/teachers/show', 'TeacherController@show')->name('admin.teachers.show');
