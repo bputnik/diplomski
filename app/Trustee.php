@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Trustee extends Model
 {
-    //
+
+    protected $fillable = [
+        'name', 'surname', 'email', 'address', 'phone'
+    ];
+
+
 }

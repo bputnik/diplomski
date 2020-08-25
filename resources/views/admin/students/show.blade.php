@@ -1,11 +1,8 @@
 <x-admin.master>
 
 
+
     @section('content')
-
-        <link href="{{asset('vendor/datatables/dataTables.bootstrap4.css')}}" rel="stylesheet">
-
-
 
         @if(session()->has('teacher-created'))
             <div class="alert alert-success">
@@ -18,57 +15,52 @@
         @endif
 
 
-        <h1>Pregled kurseva</h1>
+        <h1>Pregled podataka o polaznicima</h1>
 
 
-
-
-        <div class="col-sm-12">
+        <div class="col-sm-9">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Kursevi</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Polaznici</h6>
                 </div>
 
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Naziv kursa</th>
+                        <th>Ime i prezime</th>
                         <th>Jezik</th>
-                        <th>Nivo</th>
-                        <th>Tip kursa</th>
-                        <th>Fond časova</th>
-                        <th>Završni ispit</th>
-                        <th>Cena</th>
+                        <th>Kurs</th>
+                        <th>Grupa</th>
+                        <th>Datum upisa</th>
+                        <th>Staralac</th>
                         <th>Brisanje</th>
                     </tr>
                     </thead>
                     <tfoot>
                     <tr>
                         <th>Id</th>
-                        <th>Naziv kursa</th>
+                        <th>Ime i prezime</th>
                         <th>Jezik</th>
-                        <th>Nivo</th>
-                        <th>Tip kursa</th>
-                        <th>Fond časova</th>
-                        <th>Završni ispit</th>
-                        <th>Cena</th>
+                        <th>Kurs</th>
+                        <th>Grupa</th>
+                        <th>Datum upisa</th>
+                        <th>Staralac</th>
                         <th>Brisanje</th>
                     </tr>
                     </tfoot>
                     <tbody>
-                    @foreach($courses as $course)
+                    @foreach($students as $student)
                         <tr>
-                            <td>{{$course->id}}</td>
-                            <td><a href="{{route('admin.courses.edit', $course->id)}}">{{$course->name}}</a></td>
-                            <td>{{$course->language->name}}</td>
-                            <td>{{$course->level->name}}</td>
-                            <td>{{$course->courseType->name}}</td>
-                            <td>{{$course->number_of_lessons}}</td>
-                            <td>{{$course->final_exam}}</td>
-                            <td>{{$course->price . ' RSD'}}</td>
+                            <td>{{$student->id}}</td>
+                            <td><a href="{{route('admin.students.edit', $student->id)}}">{{$student->name}} {{$student->surname}}</a></td>
+                            <th>Jezik</th>
+                            <th>Kurs</th>
+                            <th>Grupa</th>
+                            <td>{{$student->created_at->format('d-m-Y')}}</td>
+                            <th>Staralac</th>
                             <td>
-                                <form method="post" action="{{route('admin.courses.destroy', $course->id)}}">
+                                <form method="post" action="{{route('admin.students.destroy', $student->id)}}">
                                     @csrf
                                     @method('DELETE')
 
@@ -83,9 +75,6 @@
                 </table>
             </div>
         </div>
-
-
-
 
     @endsection
 </x-admin.master>

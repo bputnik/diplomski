@@ -12,10 +12,11 @@
   <component name="ChangeListManager">
     <list default="true" id="b35680eb-e88a-4fce-908b-aec6e26bc4ee" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Trustee.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Trustee.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/demo/datatables-demo.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/demo/datatables-demo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/courses/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/courses/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/admin/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/admin/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/admin/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/admin/sidebar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -146,19 +147,20 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../laravel-multiple-auth" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.externalDependencies" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\laragon\www\diplomski_prvi\resources\views\admin" />
-      <recent name="D:\laragon\www\diplomski\resources\views\components\admin" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\laragon\www\diplomski\public\js\demo" />
       <recent name="D:\laragon\www\diplomski_prvi\public" />
       <recent name="D:\laragon\www\diplomski_prvi\public\css" />
       <recent name="D:\laragon\www\diplomski\public" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\laragon\www\diplomski_prvi\resources\views\admin" />
+      <recent name="D:\laragon\www\diplomski\resources\views\components\admin" />
     </key>
   </component>
   <component name="RunManager">
@@ -195,7 +197,9 @@
       <workItem from="1597819614458" duration="6970000" />
       <workItem from="1597986178164" duration="2577000" />
       <workItem from="1598071412822" duration="15532000" />
-      <workItem from="1598157333169" duration="23824000" />
+      <workItem from="1598157333169" duration="29357000" />
+      <workItem from="1598254016549" duration="11644000" />
+      <workItem from="1598333040472" duration="5019000" />
     </task>
     <servers />
   </component>
@@ -219,19 +223,24 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="393" y="145" key="#Notifications/0.0.1366.728/1366.0.1536.824@0.0.1366.728" timestamp="1597351452455" />
-    <state x="413" y="147" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1596998900259">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="580" y="210" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1598254645457">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="413" y="147" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728/1366.0.1536.824@0.0.1366.728" timestamp="1596998900259" />
+    <state x="580" y="210" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1598254645457" />
+    <state x="727" y="147" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1598334498900">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="727" y="147" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1598334498900" />
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1598072031305">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1598072031305" />
-    <state x="488" y="86" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1598159427066">
+    <state x="488" y="86" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1598335655319">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="347" y="60" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728/1366.0.1536.824@0.0.1366.728" timestamp="1597504559428" />
-    <state x="488" y="86" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1598159427066" />
+    <state x="488" y="86" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1598335655319" />
     <state x="576" y="86" key="FileChooserDialogImpl" timestamp="1598202191422">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

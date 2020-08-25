@@ -76,9 +76,21 @@ Route::group(['middleware' => 'auth:admin'], function () {
 
     Route::get('/admin/courses/show', 'CourseController@show')->name('admin.courses.show');
     Route::get('/admin/courses/{course}/edit', 'CourseController@edit')->name('admin.courses.edit');
-    Route::delete('/admin/courses{course}/destroy', 'CourseController@destroy')->name('admin.courses.destroy');
+    Route::delete('/admin/courses/{course}/destroy', 'CourseController@destroy')->name('admin.courses.destroy');
     Route::get('/admin/courses/create', 'CourseController@create')->name('admin.courses.create');
     Route::post('/admin/courses', 'CourseController@store')->name('admin.courses.store');
+
+    Route::get('/admin/students/show', 'StudentController@show')->name('admin.students.show');
+    Route::get('/admin/students/create', 'StudentController@create')->name('admin.students.create');
+    Route::post('/admin/students', 'StudentController@store')->name('admin.students.store');
+    Route::get('/admin/students/{student}/edit', 'StudentController@edit')->name('admin.students.edit');
+    Route::delete('/admin/students/{student}/destroy', 'StudentController@destroy')->name('admin.students.destroy');
+
+    Route::get('/admin/trustees/show', 'TrusteeController@show')->name('admin.trustees.show');
+    Route::get('/admin/trustees/create', 'TrusteeController@create')->name('admin.trustees.create');
+    Route::get('/admin/trustees/{trustee}/edit', 'TrusteeController@edit')->name('admin.trustees.edit');
+    Route::post('/admin/trustees', 'TrusteeController@store')->name('admin.trustees.store');
+    Route::delete('/admin/trustees/{trustee}/destroy', 'TrusteeController@destroy')->name('admin.trustees.destroy');
 
 
     Route::get('/admin/{admin}/profile', 'AdminController@show')->name('admin.admin-profile');

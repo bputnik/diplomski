@@ -36,8 +36,9 @@
         <div id="collapseStudents" class="collapse" aria-labelledby="headingStudents" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 {{--                <h6 class="collapse-header">Custom Components:</h6>--}}
-                <a class="collapse-item" href="#" >Kreiranje novog profila</a>
-                <a class="collapse-item" href="#">Pregled, izmena, brisanje</a>
+                <a class="collapse-item" href="{{route('admin.students.create')}}" >Kreiranje novog profila</a>
+                <a class="collapse-item" href="{{route('admin.students.show')}}">Pregled, izmena, brisanje</a>
+                <a class="collapse-item" href="{{route('admin.trustees.show')}}">Roditelji / staraoci</a>
             </div>
         </div>
     </li>
