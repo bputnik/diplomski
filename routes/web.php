@@ -84,6 +84,7 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('/admin/students/create', 'StudentController@create')->name('admin.students.create');
     Route::post('/admin/students', 'StudentController@store')->name('admin.students.store');
     Route::get('/admin/students/{student}/edit', 'StudentController@edit')->name('admin.students.edit');
+    Route::put('/admin/students/{student}/update', 'StudentController@update')->name('admin.students.update');
     Route::delete('/admin/students/{student}/destroy', 'StudentController@destroy')->name('admin.students.destroy');
 
     Route::get('/admin/trustees/show', 'TrusteeController@show')->name('admin.trustees.show');
@@ -91,6 +92,15 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('/admin/trustees/{trustee}/edit', 'TrusteeController@edit')->name('admin.trustees.edit');
     Route::post('/admin/trustees', 'TrusteeController@store')->name('admin.trustees.store');
     Route::delete('/admin/trustees/{trustee}/destroy', 'TrusteeController@destroy')->name('admin.trustees.destroy');
+
+    Route::get('/admin/groups/show', 'GroupController@show')->name('admin.groups.show');
+    Route::get('/admin/groups/create', 'GroupController@create')->name('admin.groups.create');
+    Route::post('/admin/groups', 'GroupController@store')->name('admin.groups.store');
+
+    Route::get('/admin/teaching-types/index', 'TeachingTypeController@index')->name('admin.teaching-types.index');
+    Route::get('/admin/teaching-types/create', 'TeachingTypeController@create')->name('admin.teaching-types.edit');
+    Route::post('/admin/teaching-types', 'TeachingTypeController@store')->name('admin.teaching-types.store');
+    Route::delete('/admin/teaching-types/{teachingType}/destroy', 'TeachingTypeController@destroy')->name('admin.teaching-types.destroy');
 
 
     Route::get('/admin/{admin}/profile', 'AdminController@show')->name('admin.admin-profile');

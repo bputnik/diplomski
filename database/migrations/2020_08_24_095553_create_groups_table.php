@@ -19,7 +19,7 @@ class CreateGroupsTable extends Migration
             $table->foreignId('course_id')->constrained();
             $table->foreignId('teacher_id')->constrained();
             $table->string('name')->unique();
-            $table->date('formed_at');
+            $table->string('classroom')->nullable();
             $table->date('starting_date')->nullable();
             $table->date('ending_date')->nullable();
             $table->timestamps();

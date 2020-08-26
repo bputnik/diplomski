@@ -31,6 +31,7 @@ class StudentController extends Controller
     public function store(Request $request){
 
         $request->validate([
+            'parent-select'=>['nullable'],
             'name'=>['required','min:2', 'max:20'],
             'surname'=>['required','min:2', 'max:20'],
             'email'=>['required','email','unique:students'],
@@ -41,6 +42,7 @@ class StudentController extends Controller
         ]);
 
         $inputs = [
+            'trustee_id'=>$request->get('parent-select'),
             'name'=>$request->get('name'),
             'surname'=>$request->get('surname'),
             'email'=>$request->get('email'),
@@ -50,9 +52,19 @@ class StudentController extends Controller
             'dob'=>$request->get('dob'),
         ];
 
+
         Student::create($inputs);
         return back();
     }
+
+    public function edit(Student $student){
+        return view('admin.students.edit', [
+            'student'=>$student,
+        ]);
+
+    }
+
+    public function update(){}
 
 
 }

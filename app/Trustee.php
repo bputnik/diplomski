@@ -11,5 +11,9 @@ class Trustee extends Model
         'name', 'surname', 'email', 'address', 'phone'
     ];
 
+    public function students(){
+        return $this->hasMany('App\Student');
+    }
+
 
 }

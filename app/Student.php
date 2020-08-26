@@ -10,13 +10,21 @@ class Student extends Authenticatable
     protected $guard = 'student';
 
     protected $fillable = [
-        'name', 'surname', 'email', 'password',
+        'trustee_id', 'name', 'surname', 'email', 'password',
         'address', 'phone', 'dob'
     ];
 
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    protected $dates = [
+        'dob', 'created_at'
+    ];
+
+    public function trustee(){
+        return $this->belongsTo('App\Trustee');
+    }
 
 
 }

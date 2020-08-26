@@ -68,8 +68,8 @@
         <div id="collapseGroups" class="collapse" aria-labelledby="headingGroups" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 {{--                <h6 class="collapse-header">Custom Components:</h6>--}}
-                <a class="collapse-item" href="#">Dodavanje nove grupe</a>
-                <a class="collapse-item" href="#">Pregled, izmena, brisanje</a>
+                <a class="collapse-item" href="{{route('admin.groups.create')}}">Dodavanje nove grupe</a>
+                <a class="collapse-item" href="{{route('admin.groups.show')}}">Pregled, izmena, brisanje</a>
             </div>
         </div>
     </li>
@@ -117,6 +117,21 @@
 
                 <a class="collapse-item" href="{{route('admin.levels.create')}}">Kreiranje novog nivoa</a>
                 <a class="collapse-item" href="{{route('admin.levels.index')}}">Pregled, izmena, brisanje</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Nav Item - Pages Collapse Menu TEACHING TYPES -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTeachingTypes" aria-expanded="true" aria-controls="collapseTeachingTypes">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Tipovi nastave</span>
+        </a>
+        <div id="collapseTeachingTypes" class="collapse" aria-labelledby="headingTeachingTypes" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                {{--                <h6 class="collapse-header">Custom Components:</h6>--}}
+                <a class="collapse-item" href="{{route('admin.teaching-types.index')}}">Pregled tipova nastave</a>
+
             </div>
         </div>
     </li>

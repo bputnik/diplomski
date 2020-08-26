@@ -12,10 +12,12 @@
   <component name="ChangeListManager">
     <list default="true" id="b35680eb-e88a-4fce-908b-aec6e26bc4ee" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Group.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Group.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Student.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Student.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/TeachingType.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/TeachingType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Trustee.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Trustee.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/demo/datatables-demo.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/demo/datatables-demo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/courses/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/courses/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/admin/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/admin/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_24_095553_create_groups_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_24_095553_create_groups_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/components/admin/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/admin/sidebar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -199,7 +201,8 @@
       <workItem from="1598071412822" duration="15532000" />
       <workItem from="1598157333169" duration="29357000" />
       <workItem from="1598254016549" duration="11644000" />
-      <workItem from="1598333040472" duration="5019000" />
+      <workItem from="1598333040472" duration="9531000" />
+      <workItem from="1598420017423" duration="16486000" />
     </task>
     <servers />
   </component>
@@ -236,11 +239,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1598072031305" />
-    <state x="488" y="86" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1598335655319">
+    <state x="488" y="86" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1598432037979">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="347" y="60" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728/1366.0.1536.824@0.0.1366.728" timestamp="1597504559428" />
-    <state x="488" y="86" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1598335655319" />
+    <state x="488" y="86" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1598432037979" />
     <state x="576" y="86" key="FileChooserDialogImpl" timestamp="1598202191422">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
