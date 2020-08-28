@@ -29,6 +29,7 @@
                         <th>Adresa</th>
                         <th>Email</th>
                         <th>Telefon</th>
+                        <th>Deca</th>
                         <th>Brisanje</th>
                     </tr>
                     </thead>
@@ -39,6 +40,7 @@
                         <th>Adresa</th>
                         <th>Email</th>
                         <th>Telefon</th>
+                        <th>Deca</th>
                         <th>Brisanje</th>
                     </tr>
                     </tfoot>
@@ -50,6 +52,15 @@
                             <th>{{$trustee->address}}</th>
                             <th>{{$trustee->email}}</th>
                             <th>{{$trustee->phone}}</th>
+                            <th>
+                                @foreach($students as $student)
+                                    @if($student->trustee_id == $trustee->id)
+                                        <a href="{{route('admin.students.edit', $student->id)}}">
+                                        {{$student->name}} {{$student->surname}}
+                                    @endif
+                                @endforeach
+                                </a>
+                            </th>
                             <td>
                                 <form method="post" action="{{route('admin.trustees.destroy', $trustee->id)}}">
                                     @csrf

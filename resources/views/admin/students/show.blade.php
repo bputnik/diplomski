@@ -29,8 +29,8 @@
                     <tr>
                         <th>Id</th>
                         <th>Ime i prezime</th>
-                        <th>Jezik</th>
-                        <th>Kurs</th>
+
+
                         <th>Grupa</th>
                         <th>Datum upisa</th>
                         <th>Staralac</th>
@@ -41,8 +41,7 @@
                     <tr>
                         <th>Id</th>
                         <th>Ime i prezime</th>
-                        <th>Jezik</th>
-                        <th>Kurs</th>
+
                         <th>Grupa</th>
                         <th>Datum upisa</th>
                         <th>Staralac</th>
@@ -54,11 +53,20 @@
                         <tr>
                             <td>{{$student->id}}</td>
                             <td><a href="{{route('admin.students.edit', $student->id)}}">{{$student->name}} {{$student->surname}}</a></td>
-                            <th>Jezik</th>
-                            <th>Kurs</th>
-                            <th>Grupa</th>
+                            <th>
+                                @foreach($student->groups as $group)
+                                {{$group->name}}
+                                @endforeach
+                            </th>
                             <td>{{$student->created_at->format('d-m-Y')}}</td>
-                            <th>{{$student->trustee->name}} {{$student->trustee->surname}}</th>
+                            <th>
+                                @if($student->trustee_id == null)
+                                    {{'/'}}
+                                @else
+                                    <a href="{{route('admin.trustees.edit', $student->trustee->id)}}">
+                                {{$student->trustee->name}} {{$student->trustee->surname}}</th>
+                                @endif
+                                </a>
                             <td>
                                 <form method="post" action="{{route('admin.students.destroy', $student->id)}}">
                                     @csrf

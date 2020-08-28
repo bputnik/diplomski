@@ -26,5 +26,10 @@ class Student extends Authenticatable
         return $this->belongsTo('App\Trustee');
     }
 
+    public function groups(){
+        return $this->belongsToMany('App\Group')
+            ->withPivot('contract_number', 'discount')
+            ->withTimestamps();
+    }
 
 }

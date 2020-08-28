@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Mockery\Matcher\Subset;
 
 class Group extends Model
 {
@@ -21,6 +22,11 @@ class Group extends Model
 
     public function teacher(){
         return $this->belongsTo('App\Teacher');
+    }
+
+    public function students(){
+        return $this->belongsToMany(Student::class);
+//            ->withPivot('contract_number', 'discount');
     }
 
 }

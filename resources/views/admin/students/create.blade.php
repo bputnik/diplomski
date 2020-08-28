@@ -4,12 +4,21 @@
 
         <h1 class="mb-3">Kreiranje novog profila polaznika</h1>
 
-        @if($errors->has('email'))
+{{--        @if($errors->has('email'))--}}
+{{--            <div class="alert alert-danger">--}}
+{{--                Email koji ste uneli već postoji u bazi! <br>--}}
+{{--                Ako je roditelj već registrovan, izaberite ga iz padajuće liste.--}}
+{{--            </div>--}}
+{{--            @endif--}}
+        @if ($errors->any())
             <div class="alert alert-danger">
-                Email koji ste uneli već postoji u bazi! <br>
-                Ako je roditelj već registrovan, izaberite ga iz padajuće liste.
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
             </div>
-            @endif
+        @endif
 
         @if(session()->has('trustee-registered'))
             <div class="alert alert-success">
@@ -17,15 +26,7 @@
             </div>
         @endif
 
-{{--        @if ($errors->any())--}}
-{{--            <div class="alert alert-danger">--}}
-{{--                <ul>--}}
-{{--                    @foreach ($errors->all() as $error)--}}
-{{--                        <li>{{ $error }}</li>--}}
-{{--                    @endforeach--}}
-{{--                </ul>--}}
-{{--            </div>--}}
-{{--        @endif--}}
+
 
         <div class="form-group">
         <button class="btn btn-primary mb-3" type="button" data-toggle="collapse" data-target="#collapseParent" aria-expanded="false" aria-controls="collapseParent">
@@ -220,12 +221,13 @@
                 </div>
             </div>
 
+            <hr>
 
             <div class="row">
-
-                    <div class="form-group col-lg-8">
+                <div class="col">
+                    <div class="form-group ">
                         <label for="group">Grupa u koju se upisuje</label>
-                        <select class="form-control col-lg-8" name="group" id="group"  >
+                        <select class="form-control" name="group" id="group"  >
                             <option value=""> -- izaberite grupu -- </option>
                             @foreach($groups as $group)
                                 <option value="{{$group->id}}">
@@ -235,8 +237,34 @@
                                 </option>
                         </select>
                     </div>
+                </div>
+
+                <div class="col">
+                    <div class="form-group  ">
+                        <label for="contract_number">Broj ugovora</label>
+                        <input type="text"
+                               name="contract_number"
+                               class="form-control col-lg-8"
+                               id="contract_number" required>
+                    </div>
+                </div>
+
              </div>
 
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                    <label for="discount">Popust pri upisu %</label>
+                    <input type="number"
+                           name="discount"
+                           class="form-control col-lg-1"
+                           id="discount"
+                            value="0">
+                </div>
+                </div>
+            </div>
+
+            <hr>
 
 
             <div class="form-group">

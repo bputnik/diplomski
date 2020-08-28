@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Student;
 use App\Trustee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -11,7 +12,8 @@ class TrusteeController extends Controller
 
     public function show(){
         return view('admin.trustees.show',[
-            'trustees'=>Trustee::all()
+            'trustees'=>Trustee::all(),
+            'students'=>Student::all()
         ]);
     }
 
