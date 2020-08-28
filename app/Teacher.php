@@ -32,5 +32,9 @@ class Teacher extends Authenticatable
         return $this->belongsToMany('App\Language');
     }
 
+    public function groups(){
+        return $this->hasMany('App\Group');
+    }
+
 
 }

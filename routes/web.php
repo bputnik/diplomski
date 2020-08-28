@@ -95,12 +95,17 @@ Route::group(['middleware' => 'auth:admin'], function () {
 
     Route::get('/admin/groups/show', 'GroupController@show')->name('admin.groups.show');
     Route::get('/admin/groups/create', 'GroupController@create')->name('admin.groups.create');
+    Route::get('/admin/groups/{group}/edit', 'GroupController@edit')->name('admin.groups.edit');
     Route::post('/admin/groups', 'GroupController@store')->name('admin.groups.store');
+    Route::delete('/admin/groups/{group}/destroy', 'GroupController@destroy')->name('admin.groups.destroy');
+
 
     Route::get('/admin/teaching-types/index', 'TeachingTypeController@index')->name('admin.teaching-types.index');
-    Route::get('/admin/teaching-types/create', 'TeachingTypeController@create')->name('admin.teaching-types.edit');
+//    Route::get('/admin/teaching-types/create', 'TeachingTypeController@create')->name('admin.teaching-types.create');
+    Route::get('/admin/teaching-types/{teachingType}/edit', 'TeachingTypeController@edit')->name('admin.teaching-types.edit');
     Route::post('/admin/teaching-types', 'TeachingTypeController@store')->name('admin.teaching-types.store');
     Route::delete('/admin/teaching-types/{teachingType}/destroy', 'TeachingTypeController@destroy')->name('admin.teaching-types.destroy');
+    Route::put('/admin/teaching-types/{teachingType}/update', 'TeachingTypeController@update')->name('admin.teaching-types.update');
 
 
     Route::get('/admin/{admin}/profile', 'AdminController@show')->name('admin.admin-profile');

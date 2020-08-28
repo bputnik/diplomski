@@ -13,12 +13,16 @@ class AdminController extends Controller
 
     public function index(){
 
+        $studentCount = DB::table('students')->count();
+        $groupCount = DB::table('groups')->count();
         $teacherCount = DB::table('teachers')->count();
         $languageCount = DB::table('languages')->count();
         $courseCount = DB::table('courses')->count();
 
 
         return view('admin.index',[
+            'studentCount'=>$studentCount,
+            'groupCount'=>$groupCount,
             'teacherCount'=>$teacherCount,
             'languageCount'=>$languageCount,
             'courseCount'=>$courseCount,

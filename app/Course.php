@@ -22,6 +22,11 @@ class Course extends Model
         return $this->belongsTo('App\CourseType');
     }
 
+    public function groups(){
+        return $this->hasMany('App\Group');
+    }
+
+
     public function getFinalExamAttribute($value){
         if($value == 1) {
             $value = 'Da';

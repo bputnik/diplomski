@@ -58,7 +58,7 @@
                             <th>Kurs</th>
                             <th>Grupa</th>
                             <td>{{$student->created_at->format('d-m-Y')}}</td>
-                            <th>Staralac</th>
+                            <th>{{$student->trustee->name}} {{$student->trustee->surname}}</th>
                             <td>
                                 <form method="post" action="{{route('admin.students.destroy', $student->id)}}">
                                     @csrf

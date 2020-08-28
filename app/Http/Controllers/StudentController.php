@@ -7,6 +7,7 @@ use App\Group;
 use App\Student;
 use App\Trustee;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller
 {
@@ -28,13 +29,12 @@ class StudentController extends Controller
         ]);
     }
 
-    public function store(Request $request){
+    public function store(Request $request){        // AKO ucenik ima email, salje se pass na taj, ako je null, salje se na roditeljski
 
         $request->validate([
             'parent-select'=>['nullable'],
             'name'=>['required','min:2', 'max:20'],
             'surname'=>['required','min:2', 'max:20'],
-            'email'=>['required','email','unique:students'],
             'password'=>['required'],
             'address'=>['nullable'],
             'phone'=>['nullable'],
@@ -45,7 +45,6 @@ class StudentController extends Controller
             'trustee_id'=>$request->get('parent-select'),
             'name'=>$request->get('name'),
             'surname'=>$request->get('surname'),
-            'email'=>$request->get('email'),
             'password'=>$request->get('password'),
             'address'=>$request->get('address'),
             'phone'=>$request->get('phone'),
@@ -53,8 +52,26 @@ class StudentController extends Controller
         ];
 
 
+        if($request->get('parent-select') == '') {
+            $request->validate([
+            'email'=>['required','email','unique:students'],]);
+
+            $inputs +=[
+                'email'=>$request->get('email'),
+            ];
+        } else {
+            $trusteeId = DB::table('trustees')->where('id',$request->get('parent-select'))->value('id');
+
+            $trustee = Trustee::findOrFail($trusteeId);
+
+            $inputs += [
+                'email'=>$trustee->email,
+            ];
+        }
+
         Student::create($inputs);
-        return back();
+        session()->flash('student-added', 'Student je spešno dodat u bazu!');
+        return redirect()->route('admin.students.show');
     }
 
     public function edit(Student $student){

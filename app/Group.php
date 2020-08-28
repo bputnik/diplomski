@@ -15,4 +15,12 @@ class Group extends Model
         'formed_at','starting_date', 'ending_date'
     ];
 
+    public function course(){
+        return $this->belongsTo('App\Course');
+    }
+
+    public function teacher(){
+        return $this->belongsTo('App\Teacher');
+    }
+
 }

@@ -14,7 +14,10 @@ class GroupController extends Controller
 {
 
     public function show(){
-        return view('admin.groups.show');
+
+        return view('admin.groups.show',[
+           'groups'=>Group::all()
+        ]);
     }
 
 

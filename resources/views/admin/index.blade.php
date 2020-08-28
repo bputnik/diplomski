@@ -14,7 +14,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Broj polaznika</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">50</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$studentCount}}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-user-graduate fa-2x text-gray-300"></i>
@@ -48,8 +48,8 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Broj jezika</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$languageCount}}</div>
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Broj grupa</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$groupCount}}</div>
                         </div>
                             <div class="col-auto">
                                 <i class="fas fa-comments fa-2x text-gray-300"></i>

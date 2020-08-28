@@ -117,7 +117,7 @@
 
                 <div class="form-group">
                     <label for="parent-select">Ako roditelj / staralac postoji u bazi, izaberite ga</label>
-                    <select class="form-control col-lg-10" name="parent-select" id="parent-select"  >
+                    <select class="form-control col-lg-10" name="parent-select" id="parent-select" onchange="parentChosen()">
                         <option value=""> -- roditelj / staralac -- </option>
                         @foreach($trustees as $trustee)
                             <option value="{{$trustee->id}}">
@@ -159,7 +159,7 @@
                         <input type="email"
                                name="email"
                                class="form-control col-lg-8"
-                               id="email" required>
+                               id="student_email" required>
                     </div>
                 </div>
 
@@ -182,7 +182,7 @@
                     <input type="text"
                            name="address"
                            class="form-control col-lg-10"
-                           id="address" required>
+                           id="student_address" required>
                 </div>
             </div>
 
@@ -192,7 +192,7 @@
                     <input type="text"
                            name="phone"
                            class="form-control col-lg-6"
-                           id="phone" required>
+                           id="student_phone" required>
                 </div>
             </div>
 
@@ -220,27 +220,12 @@
                 </div>
             </div>
 
+
             <div class="row">
-                <div class="col">
-                    <div class="form-group">
-                        <label for="course">Kurs na koji se upisuje</label>
-                        <select class="form-control col-lg-8" name="language" id="language" required>
-                            <option value=""> -- izaberite kurs -- </option>
-                            @foreach($courses as $course)
-                                <option value="{{$course->id}}">
-                                    {{$course->name}}
-                                </option>
-                                @endforeach
-                                </option>
-                        </select>
-                    </div>
-                </div>
 
-
-                <div class="col">
-                    <div class="form-group">
-                        <label for="course">Grupa u koju se upisuje</label>
-                        <select class="form-control col-lg-8" name="language" id="language"  >
+                    <div class="form-group col-lg-8">
+                        <label for="group">Grupa u koju se upisuje</label>
+                        <select class="form-control col-lg-8" name="group" id="group"  >
                             <option value=""> -- izaberite grupu -- </option>
                             @foreach($groups as $group)
                                 <option value="{{$group->id}}">
@@ -250,8 +235,7 @@
                                 </option>
                         </select>
                     </div>
-                </div>
-            </div>
+             </div>
 
 
 
@@ -262,7 +246,7 @@
         </form>
 
 
-
+        <script src="{{asset('js/funkcije.js')}}"></script>
 
 
     @endsection

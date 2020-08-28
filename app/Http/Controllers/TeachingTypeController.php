@@ -16,9 +16,9 @@ class TeachingTypeController extends Controller
         ]);
     }
 
-    public function create(){
-        return view('admin.teaching-types.create');
-    }
+//    public function create(){
+//        return view('admin.teaching-types.create');
+//    }
 
     public function store(Request $request){
         $request->validate([
@@ -46,9 +46,34 @@ class TeachingTypeController extends Controller
         return redirect()->route('admin.teaching-types.index');
     }
 
-    public function edit(){
+    public function edit(TeachingType $teachingType){
+        return view('admin.teaching-types.edit', [
+            'teachingType'=>$teachingType
+
+        ]);
 
     }
+
+
+    public function update(TeachingType $teachingType){
+
+        $teachingType->name = Str::lower(request('name'));
+
+
+        if($teachingType->isDirty('name'))
+        {
+            session()->flash('teaching-type-updated', 'Naziv tipa nastave je izmenjen u: ' . request('name'));
+            $teachingType->save();
+            return redirect()->route('admin.teaching-types.index');
+
+        } else {
+            session()->flash('teaching-type-not-updated', 'Nema izmena');
+            return back();
+        }
+
+
+    }
+
 
 
     public function destroy(TeachingType $teachingType){
