@@ -47,7 +47,7 @@ Route::group(['middleware' => 'auth:admin'], function () {
 
     Route::get('/admin/teachers/create', 'TeacherController@create')->name('admin.teachers.create');
     Route::post('/admin/teachers/store', 'TeacherController@store')->name('admin.teachers.store');
-    Route::get('admin/teachers/show', 'TeacherController@show')->name('admin.teachers.show');
+    Route::get('/admin/teachers/show', 'TeacherController@show')->name('admin.teachers.show');
     Route::get('/admin/teachers/{teacher}/edit', 'TeacherController@edit')->name('admin.teachers.edit');
     Route::delete('/admin/teachers/{teacher}/destroy', 'TeacherController@destroy')->name('admin.teachers.destroy');
     Route::put('/admin/teachers/{teacher}/attach', 'TeacherController@attach_language')->name('admin.teachers.attach_language');
@@ -107,6 +107,11 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::delete('/admin/teaching-types/{teachingType}/destroy', 'TeachingTypeController@destroy')->name('admin.teaching-types.destroy');
     Route::put('/admin/teaching-types/{teachingType}/update', 'TeachingTypeController@update')->name('admin.teaching-types.update');
 
+    Route::get('/admin/payments/show', 'PaymentController@show')->name('admin.payments.show');
+    Route::get('/admin/payments/create', 'PaymentController@create')->name('admin.payments.create');
+    Route::post('/admin/payments/choose-student', 'PaymentController@chooseStudent')->name('admin.payments.choose-student');
+    Route::post('/admin/payments/ajax-get-groups', 'PaymentController@ajaxGetGroups')->name('admin.payments.ajax-get-groups');
+    Route::post('/admin.payments/ajax-get-payments', 'PaymentController@ajaxGetPayments');
 
     Route::get('/admin/{admin}/profile', 'AdminController@show')->name('admin.admin-profile');
     Route::put('/admin/{admin}/profile/update', 'AdminController@update')->name('admin.admin-profile-update');

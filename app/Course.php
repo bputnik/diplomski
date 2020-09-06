@@ -26,6 +26,9 @@ class Course extends Model
         return $this->hasMany('App\Group');
     }
 
+    public function payments(){
+        return $this->hasMany('App\Payment');
+    }
 
     public function getFinalExamAttribute($value){
         if($value == 1) {

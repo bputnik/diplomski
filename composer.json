@@ -15,7 +15,10 @@
         "laravel/framework": "^7.24",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.1",
-        "nesbot/carbon": "^2.38"
+        "nesbot/carbon": "^2.38",
+      "ext-mysqli": "*",
+      "ext-json": "*",
+        "ext-mysql_xdevapi": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

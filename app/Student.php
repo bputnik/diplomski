@@ -32,4 +32,9 @@ class Student extends Authenticatable
             ->withTimestamps();
     }
 
+    public function payments(){
+        return $this->hasMany('App\Payment');
+    }
+
+
 }

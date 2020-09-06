@@ -115,7 +115,6 @@
         <form action="{{route('admin.students.store')}}" method="post" >
             @csrf
 
-
                 <div class="form-group">
                     <label for="parent-select">Ako roditelj / staralac postoji u bazi, izaberite ga</label>
                     <select class="form-control col-lg-10" name="parent-select" id="parent-select" onchange="parentChosen()">

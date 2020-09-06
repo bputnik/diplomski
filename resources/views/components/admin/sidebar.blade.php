@@ -26,6 +26,23 @@
         Administracija
     </div>
 
+    <!-- Nav Item - Pages Collapse Menu PAYMENTS-->
+    <li class="nav-item" >
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePayments" aria-expanded="true" aria-controls="collapsePayments">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Uplate</span>
+        </a>
+        <div id="collapsePayments" class="collapse" aria-labelledby="headingPayments" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                {{--                <h6 class="collapse-header">Custom Components:</h6>--}}
+                <a class="collapse-item" href="{{route('admin.payments.create')}}">Unos nove uplate</a>
+                <a class="collapse-item" href="{{route('admin.payments.show')}}">Pregled uplata</a>
+
+            </div>
+        </div>
+    </li>
+
+
 
     <!-- Nav Item - Pages Collapse Menu Students-->
     <li class="nav-item" >
