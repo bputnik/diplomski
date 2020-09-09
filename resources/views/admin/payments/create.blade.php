@@ -9,8 +9,10 @@
         <script>
             $(document).ready(function()
             {
-                $("#courses_div").hide();
+                $("#groups_div").hide();
                 $('#payments_table_div').hide();
+                $('#payment_div').hide();
+                $('#save_button').hide();
             });
         </script>
 
@@ -18,8 +20,8 @@
         <h1>Nova uplata</h1>
 
 
-{{--        <form action="{{route('admin.payments.choose-student')}}" method="post">--}}
-{{--            @csrf--}}
+        <form action="{{route('admin.payments.store')}}" method="post">
+            @csrf
 
             <div class="form-group">
                 <label for="student_id">Izaberite polaznika</label>
@@ -34,17 +36,10 @@
                 </select>
             </div>
 
-        <div class="form-group" id="courses_div">
-            <label for="courses">Izaberite grupu za koju se vrši uplata</label>
-            <select class="form-control col-lg-8" name="courses" id="courses" required>
+        <div class="form-group" id="groups_div">
+            <label for="groups">Izaberite grupu za koju se vrši uplata</label>
+            <select class="form-control col-lg-8" name="groups" id="groups" required>
 
-{{--                <option value=""> -- izaberite kurs -- </option>--}}
-{{--                @foreach($students as $student)--}}
-{{--                    <option value="{{$student->id}}">--}}
-{{--                        {{$student->name}} {{$student->surname}}--}}
-{{--                    </option>--}}
-{{--                    @endforeach--}}
-{{--                    </option>--}}
             </select>
         </div>
 
@@ -59,6 +54,7 @@
                     <thead>
                     <tr>
                         <th>Datum uplate</th>
+                        <th>Način uplate</th>
                         <th>Iznos</th>
                         <th>Dugovanje</th>
                     </tr>
@@ -66,23 +62,13 @@
                     <tfoot>
                     <tr>
                         <th>Datum uplate</th>
+                        <th>Način uplate</th>
                         <th>Iznos</th>
                         <th>Dugovanje</th>
                     </tr>
                     </tfoot>
-                    <tbody id="tabela">
-{{--                    @foreach($groups as $group)--}}
-{{--                        <tr>--}}
-{{--                            <th>{{$group->course->language->name}}</th>--}}
-{{--                            <th>{{$group->course->name}}</th>--}}
-{{--                            <th>{{$group->teacher->name}} {{$group->teacher->surname}}</th>--}}
-{{--                            <td>{{$group->classroom}}</td>--}}
-{{--                            <th>{{'broj polaznika'}}</th>--}}
-{{--                            <th>{{$group->starting_date->format('d-m-Y')}}</th>--}}
-{{--                          --}}
+                    <tbody>
 
-{{--                        </tr>--}}
-{{--                    @endforeach--}}
                     </tbody>
 
                 </table>
@@ -90,8 +76,37 @@
         </div>
 
 
+        <div class="row" id="payment_div">
 
-{{--        </form>--}}
+            <div class="col">
+                <div class="form-group col-lg-6">
+                    <label for="payment">Unesite sumu</label>
+                    <input type="number"
+                           name="payment"
+                           class="form-control col-lg-8"
+                           id="payment" required>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="form-group col-lg-6">
+                    <label for="payment_method">Način uplate</label>
+                    <select class="form-control" name="payment_method" id="payment_method" required >
+                        <option value=""> -- izaberite način uplate -- </option>
+                        <option value="0"> uplata na račun </option>
+                        <option value="1"> gotovinska uplata </option>
+
+                    </select>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group mt-3" id="save_button">
+            <button class="btn btn-primary">Sačuvaj</button>
+        </div>
+
+        </form>
 
 
 

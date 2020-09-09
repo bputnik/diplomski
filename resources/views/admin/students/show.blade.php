@@ -53,18 +53,18 @@
                         <tr>
                             <td>{{$student->id}}</td>
                             <td><a href="{{route('admin.students.edit', $student->id)}}">{{$student->name}} {{$student->surname}}</a></td>
-                            <th>
+                            <td>
                                 @foreach($student->groups as $group)
-                                {{$group->name}}
+                                {{$group->name}} <br>
                                 @endforeach
-                            </th>
+                            </td>
                             <td>{{$student->created_at->format('d-m-Y')}}</td>
-                            <th>
+                            <td>
                                 @if($student->trustee_id == null)
                                     {{'/'}}
                                 @else
                                     <a href="{{route('admin.trustees.edit', $student->trustee->id)}}">
-                                {{$student->trustee->name}} {{$student->trustee->surname}}</th>
+                                {{$student->trustee->name}} {{$student->trustee->surname}}</td>
                                 @endif
                                 </a>
                             <td>

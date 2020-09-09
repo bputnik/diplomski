@@ -29,23 +29,69 @@ class PaymentController extends Controller
 
     }
 
-    public function chooseStudent(Request $request){
+//    public function chooseStudent(Request $request){
+//
+//        $studentId = $request->get('student_id');
+//        $student = Student::find($studentId);
+//
+//        $groups =[];
+//        foreach($student->groups as $group) {
+//             array_push($groups, $group->pivot->group_id);
+//        }
+//
+//        return view('admin.payments.create',[
+//            'groups'=>$groups,
+//            'students' => Student::all()
+//        ]);
+//
+//
+//    }
 
-        $studentId = $request->get('student_id');
-        $student = Student::find($studentId);
+    public function store(Request $request){
 
-        $groups =[];
-        foreach($student->groups as $group) {
-             array_push($groups, $group->pivot->group_id);
+       // dd($request);
+
+        $request->validate([
+            'student_id'=>['required'],
+            'groups'=>['required'],
+            'payment'=>['required'],
+            'payment_method'=>['required'],
+        ]);
+
+        $courseID = DB::select('select course_id from groups where id=?', [$request->get('groups')]);
+
+
+        //$paymentMethod = '';
+
+        if($request->get('payment_method') == 0) {
+            $paymentMethod = 'uplata na račun';
+        } else {
+            $paymentMethod = 'gotovinska uplata';
         }
 
-        return view('admin.payments.create',[
-            'groups'=>$groups,
-            'students' => Student::all()
+
+        $inputPayment = [
+            'student_id'=>$request->get('student_id'),
+            'course_id'=> $courseID[0]->course_id,
+            'amount'=>$request->get('payment'),
+            'payment_method'=> $paymentMethod,
+
+        ];
+
+        Payment::create($inputPayment);
+
+
+
+        session()->flash('student-added', 'Student je spešno dodat u bazu i upisan u grupu!');
+        return redirect()->route('admin.payments.report', [
+            'studentID' => $request->get('student_id')
         ]);
 
 
+
+
     }
+
 
 
     public function ajaxGetGroups(Request $request){
@@ -53,23 +99,16 @@ class PaymentController extends Controller
         $studentID = $request->izbor;
 //        $student = DB::table('group_student')->where('student_id', '=', $studentID)->get();
 
-        $groupsID = DB::select('select group_id from group_student where student_id=?', [$studentID]);
-
+//        $groupsID = DB::select('select group_id from group_student where student_id=?', [$studentID]);
+//
         $groups = DB::select('select * from groups where id in (select group_id from group_student where student_id=?)', [$studentID]);
 
-//        $courses = DB::select('select id from courses where id in (select course_id from groups where id in (select group_id from groups_students where student_id=?))',[$studentID]);
+        //$courses = DB::select('select * from courses where id in (select course_id from groups where id in (select group_id from groups_students where student_id=?))',[$studentID]);
 
-
-//        try {
-//            $coursesID = DB::select('select course_id from groups where id=?', [2]);
-//        } catch (\Exception $e)
-//        {
-//            return $e->getMessage();
-//        }
-//        $courses = DB::select('select * from courses where id=?', [1]);
 
         return response()->json([
             'groups'=>$groups
+
         ]);
 
     }
@@ -90,11 +129,36 @@ class PaymentController extends Controller
               'course_price'=>$coursePrice,
               'payments'=>$payments,
 
-
             ]);
 
 
         }
+
+
+        public function report(Request $request){
+
+        //dd($request);
+
+        $payments = DB::select('select * from payments where student_id=? order by course_id',[$request->get('studentID')]);
+
+        //dd($payments);
+
+        $student = DB::select('select * from students where id=?',[$request->get('studentID')]);
+
+        $courses = DB::select('select * from courses where id in (select course_id from payments where student_id=?)', [$request->get('studentID')]);
+
+        $dug = 0;
+
+        return view('admin.payments.report', [
+            'payments'=>$payments,
+            'student'=> $student[0],
+            'courses'=> $courses,
+            'dug'=> $dug
+        ]);
+
+
+        }
+
 
 
 

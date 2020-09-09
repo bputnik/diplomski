@@ -25,8 +25,8 @@ jQuery(document).ready(function($){
                     let response = data.groups;
               //    console.log(typeof response);
               //    console.log(response);
-                    let prikaz = $("#courses");
-                    $("#courses_div").slideDown();
+                    let prikaz = $("#groups");
+                    $("#groups_div").slideDown();
                     prikaz.empty();
                     prikaz.append("<option value='0'> -- izaberite grupu -- </option> ");
                     for(let i=0; i<response.length; i++) {
@@ -43,7 +43,7 @@ jQuery(document).ready(function($){
 
 //================================= DOBIJANJE UPLATA nakon izbora grupe
 
-$("#courses").change(function (e){
+$("#groups").change(function (e){
 
     e.preventDefault();
 
@@ -54,7 +54,7 @@ $("#courses").change(function (e){
     });
 
     let student = $("#student_id").val();
-    let izbor = $("#courses").val();
+    let izbor = $("#groups").val();
     if (izbor==0) return false
     else {
 
@@ -66,26 +66,36 @@ $("#courses").change(function (e){
                 //console.log(data);
                 console.log(typeof data)
                 let price = data.course_price;
-                console.log(price);
-                let response = data.payments;
-                   console.log(typeof response);
-                   console.log(response);
+                let payments = data.payments;
+                   console.log(typeof payments);
+                   console.log(payments);
 
                 $("#payments_table_div").slideDown();
+                $("#payment_div").slideDown();
+                $("#save_button").slideDown();
 
                 let prikaz = $("table tbody");
                 prikaz.empty();
 
-                let dug = price[0].price - response[0].amount;
+                //let dug = price[0].price - payments[0].amount;
 
-                for(let i=0; i<response.length; i++) {
-                    console.log(dug);
+                let uplate = 0;
+
+                for(let i=0; i<payments.length; i++) {
+                    let date = new Date(payments[i].created_at);
+                    let formatiranDatum = date.toLocaleDateString("sr-SR");
+
+                    let uplata = payments[i].amount;
+                    uplate = uplate + uplata;
+                    dug = price[0].price - uplate;
+
                     prikaz.append("<tr>" +
-                        "<td>"+ response[i].created_at +"</td>" +
-                        "<td>"+ response[i].amount+ "</td>" +
+                        "<td>"+ formatiranDatum +"</td>" +
+                        "<td>"+ payments[i].payment_method+ "</td>" +
+                        "<td>"+ payments[i].amount+ "</td>" +
                         "<td>"+ dug + "</td>" +
                         "</tr>");
-                    dug = dug - response[i].amount;
+                    //dug = dug - payments[i].amount;
                 }
 
             }

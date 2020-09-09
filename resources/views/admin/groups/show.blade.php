@@ -75,12 +75,12 @@
                                     <tr>
                                         <td>{{$group->id}}</td>
                                         <td><a href="{{route('admin.groups.edit', $group->id)}}">{{$group->name}}</a></td>
-                                        <th>{{$group->course->language->name}}</th>
-                                        <th>{{$group->course->name}}</th>
-                                        <th>{{$group->teacher->name}} {{$group->teacher->surname}}</th>
+                                        <td>{{$group->course->language->name}}</td>
+                                        <td>{{$group->course->name}}</td>
+                                        <td>{{$group->teacher->name}} {{$group->teacher->surname}}</td>
                                         <td>{{$group->classroom}}</td>
-                                        <th>{{'broj polaznika'}}</th>
-                                        <th>{{$group->starting_date->format('d-m-Y')}}</th>
+                                        <td>{{'broj polaznika'}}</td>
+                                        <td>{{$group->starting_date->format('d-m-Y')}}</td>
                                         <td>
                                             <form method="post" action="{{route('admin.groups.destroy', $group->id)}}">
                                                 @csrf
