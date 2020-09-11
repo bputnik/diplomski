@@ -112,7 +112,7 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::post('/admin/payments', 'PaymentController@store')->name('admin.payments.store');
     Route::post('/admin/payments/ajax-get-groups', 'PaymentController@ajaxGetGroups')->name('admin.payments.ajax-get-groups');
     Route::post('/admin.payments/ajax-get-payments', 'PaymentController@ajaxGetPayments');
-    Route::get('/admin/payments/report', 'PaymentController@report')->name('admin.payments.report');
+    Route::get('/admin/payments/{payment}/report', 'PaymentController@report')->name('admin.payments.report');
 
 
     Route::get('/admin/{admin}/profile', 'AdminController@show')->name('admin.admin-profile');

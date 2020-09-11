@@ -33,7 +33,7 @@ class Student extends Authenticatable
     }
 
     public function payments(){
-        return $this->hasMany('App\Payment');
+        return $this->hasMany(Payment::class);
     }
 
 

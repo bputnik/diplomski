@@ -14,6 +14,8 @@ class PaymentController extends Controller
 {
 
     public function show(){
+
+
         return view('admin.payments.show',[
             'payments'=>Payment::all()
         ]);
@@ -82,14 +84,10 @@ class PaymentController extends Controller
 
 
 
-        session()->flash('student-added', 'Student je spešno dodat u bazu i upisan u grupu!');
-        return redirect()->route('admin.payments.report', [
-            'studentID' => $request->get('student_id')
+        session()->flash('payment-added', 'Uplata je uspešno izvršena.');
+        return redirect()->route('admin.payments.show', [
+            'payments'=>Payment::all()
         ]);
-
-
-
-
     }
 
 
@@ -135,17 +133,17 @@ class PaymentController extends Controller
         }
 
 
-        public function report(Request $request){
+        public function report(Payment $payment){
 
-        //dd($request);
+      //  dd($payment->student_id);
 
-        $payments = DB::select('select * from payments where student_id=? order by course_id',[$request->get('studentID')]);
+        $payments = DB::select('select * from payments where student_id=? order by course_id',[$payment->student_id]);
 
         //dd($payments);
 
-        $student = DB::select('select * from students where id=?',[$request->get('studentID')]);
+        $student = DB::select('select * from students where id=?',[$payment->student_id]);
 
-        $courses = DB::select('select * from courses where id in (select course_id from payments where student_id=?)', [$request->get('studentID')]);
+        $courses = DB::select('select * from courses where id in (select course_id from payments where student_id=?)', [$payment->student_id]);
 
         $dug = 0;
 

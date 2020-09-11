@@ -13,12 +13,12 @@ class Payment extends Model
         'student_id', 'course_id', 'amount', 'payment_method', 'note'
     ];
 
-    public function students(){
-        return $this->belongsToMany('App\Student');
+    public function student(){
+        return $this->belongsTo(Student::class);
     }
 
-    public function courses(){
-        return $this->belongsToMany('App\Course');
+    public function course(){
+        return $this->belongsTo('App\Course');
     }
 
 
