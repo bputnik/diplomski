@@ -137,7 +137,9 @@ class PaymentController extends Controller
 
       //  dd($payment->student_id);
 
-        $payments = DB::select('select * from payments where student_id=? order by course_id',[$payment->student_id]);
+        //$payments = DB::select('select * from payments where student_id=? order by course_id',[$payment->student_id]);
+
+          $payments = Payment::all()->where('student_id', '=', $payment->student_id);
 
         //dd($payments);
 

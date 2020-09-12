@@ -7,7 +7,7 @@
 
 
     <div class="form-group mt-3 mb-4">
-        <button class="btn btn-primary"><i class="fas fa-print"></i>  Štampanje izveštaja</button>
+        <button class="btn btn-primary"><i class="fas fa-print"></i>Štampanje izveštaja</button>
     </div>
 
 
@@ -41,7 +41,7 @@
 
                         @if($course->id == $payment->course_id)
                         <tr>
-                            <td>{{$payment->created_at}}</td>
+                            <td>{{$payment->created_at->format('d-m-Y')}}</td>
                             <td>{{$payment->payment_method}}</td>
                             <td>{{$payment->amount}}</td>
                         </tr>

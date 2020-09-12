@@ -12,12 +12,12 @@
 ## Set up
 To set up this project, first clone the repositiory
 ```bash
-$ git clone https://github.com/bputnik/diplomski_prvi
+$ git clone https://github.com/bputnik/diplomski
 ```
 
 Change your working directory into the project directory
 ```bash
-$ cd diplomski_prvi
+$ cd diplomski
 ```
 
 Then install dependencies using [Composer](https://getcomposer.org/doc/00-intro.md)
