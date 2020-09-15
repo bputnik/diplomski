@@ -8,6 +8,7 @@ use App\Student;
 use App\Teacher;
 use App\TeachingType;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class GroupController extends Controller
@@ -15,8 +16,14 @@ class GroupController extends Controller
 
     public function show(){
 
+       // $numberOfStudents = DB::table('group_student')->count();
+
+
+
+
         return view('admin.groups.show',[
-           'groups'=>Group::all()
+           'groups'=>Group::all(),
+        //    'number_of_students'=>
         ]);
     }
 

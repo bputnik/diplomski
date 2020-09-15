@@ -36,12 +36,12 @@
 
                     <h1>Pregled podataka o grupama</h1>
 
-
-                    <div class="col-sm-9">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
                                 <h6 class="m-0 font-weight-bold text-primary">Grupe</h6>
                             </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
 
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
@@ -52,7 +52,7 @@
                                     <th>Kurs</th>
                                     <th>Profesor</th>
                                     <th>Učionica</th>
-                                    <th>Broj polaznika</th>
+                                    <th>Polaznici</th>
                                     <th>Datum početka nastave</th>
                                     <th>Brisanje</th>
                                 </tr>
@@ -65,7 +65,7 @@
                                     <th>Kurs</th>
                                     <th>Profesor</th>
                                     <th>Učionica</th>
-                                    <th>Broj polaznika</th>
+                                    <th>Polaznici</th>
                                     <th>Datum početka nastave</th>
                                     <th>Brisanje</th>
                                 </tr>
@@ -79,7 +79,12 @@
                                         <td>{{$group->course->name}}</td>
                                         <td>{{$group->teacher->name}} {{$group->teacher->surname}}</td>
                                         <td>{{$group->classroom}}</td>
-                                        <td>{{'broj polaznika'}}</td>
+                                        <td>
+                                            @foreach($group->students as $student)
+                                                <a href="{{route('admin.students.edit', $student->id)}}"> {{$student->name}} {{$student->surname}} </a>
+                                                <br>
+                                            @endforeach
+                                        </td>
                                         <td>{{$group->starting_date->format('d-m-Y')}}</td>
                                         <td>
                                             <form method="post" action="{{route('admin.groups.destroy', $group->id)}}">
@@ -95,13 +100,24 @@
                                 </tbody>
 
                             </table>
+
+                                </div>
+                            </div>
                         </div>
-                    </div>
 
                 @endsection
             </x-admin.master>
 
+@section('scripts')
 
+        <!-- Page level plugins -->
+            <script src="{{asset('vendor/datatables/jquery.dataTables.js')}}"></script>
+            <script src="{{asset('vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
+
+            <!-- Page level custom scripts -->
+            <script src="{{asset('js/demo/datatables-demo.js')}}"></script>
+
+        @endsection
 
 
 

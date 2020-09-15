@@ -7,7 +7,7 @@
 
 
     <div class="form-group mt-3 mb-4">
-        <button class="btn btn-primary"><i class="fas fa-print"></i>Štampanje izveštaja</button>
+        <button class="btn btn-primary"><i class="fas fa-print"></i> Štampanje izveštaja</button>
     </div>
 
 
@@ -17,7 +17,26 @@
         <div class="col-sm-9">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Uplate za kurs <strong>{{$course->name}}</strong> <br> Cena kursa: <strong>{{$course->price}} </strong> RSD</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Uplate za kurs <strong>{{$course->name}}</strong>
+                        <br>
+                        Cena kursa: <strong>{{$course->price}} </strong> RSD
+                        <br>
+                        Popust: <strong>
+                                    @foreach($groups_students as $group_student)
+                                        @foreach($groups as $group)
+                                            @if($group->id == $group_student->group_id)
+                                                @if($course->id == $group->course_id)
+                                                    {{$group_student->discount}} % = {{($course->price * $group_student->discount) / 100}} </strong> RSD
+                                                 <br>
+                                                   Cena kursa sa popustom: <strong>{{$cenaKursaSaPopustom = $course->price - ($course->price * $group_student->discount) / 100}}</strong> RSD
+
+                                                @endif
+                                            @endif
+                                        @endforeach
+                                    @endforeach
+
+
+                    </h6>
                 </div>
 
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -46,18 +65,21 @@
                             <td>{{$payment->amount}}</td>
                         </tr>
                             <tr hidden>
-                                <td hidden>{{$dug += $payment->amount}}</td>
+                                <td hidden>{{$uplate += $payment->amount}}</td>
                             </tr>
                         @endif
                     @endforeach
                     <tr >
                         <td class="font-weight-bold text-primary" colspan="3">
-                            Ukupno dugovanje: <strong>{{$course->price - $dug}}</strong> RSD
+                            Ukupno uplaćeno: <strong>{{$uplate}}</strong> RSD
+                            <br>
+                            Ukupno dugovanje: <strong>{{$cenaKursaSaPopustom - $uplate}}</strong> RSD
                         </td>
                     </tr>
                     <tr hidden>
                         <td hidden>
-                            {{$dug = 0}}
+                            {{$uplate = 0}}
+                            {{$cenaKursaSaPopustom=0}}
                         </td>
                     </tr>
                     </tbody>
