@@ -113,10 +113,11 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::post('/admin/payments/ajax-get-groups', 'PaymentController@ajaxGetGroups')->name('admin.payments.ajax-get-groups');
     Route::post('/admin.payments/ajax-get-payments', 'PaymentController@ajaxGetPayments');
     Route::get('/admin/payments/{payment}/report', 'PaymentController@report')->name('admin.payments.report');
-
+    Route::get('/admin/payments/{student}/generate-pdf', 'PDFController@generatePDF')->name('admin.payments.generate-pdf');
 
     Route::get('/admin/{admin}/profile', 'AdminController@show')->name('admin.admin-profile');
     Route::put('/admin/{admin}/profile/update', 'AdminController@update')->name('admin.admin-profile-update');
+
 
 
 });

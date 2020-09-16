@@ -151,7 +151,7 @@ class PaymentController extends Controller
 
         $groups_students = DB::select('select * from group_student where student_id=?', [$payment->student_id]);
 
-        $groups = DB::select('select * from groups where id in (select group_id from group_student where student_id=?)', [$payment->student_id]);
+        $groups = DB::select('select * from `groups` where id in (select group_id from group_student where student_id=?)', [$payment->student_id]);
            // dd($groups);
 
         return view('admin.payments.report', [
@@ -160,7 +160,8 @@ class PaymentController extends Controller
             'courses'=> $courses,
             'uplate'=> $uplate,
             'groups_students'=>$groups_students,
-            'groups'=>$groups
+            'groups'=>$groups,
+
 
         ]);
 

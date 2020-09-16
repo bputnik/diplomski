@@ -7,7 +7,7 @@
 
 
     <div class="form-group mt-3 mb-4">
-        <button class="btn btn-primary"><i class="fas fa-print"></i> Štampanje izveštaja</button>
+        <a href="{{route('admin.payments.generate-pdf', $student->id)}}"><button class="btn btn-primary"><i class="fas fa-print"></i> Štampanje izveštaja</button></a>
     </div>
 
 
@@ -29,13 +29,10 @@
                                                     {{$group_student->discount}} % = {{($course->price * $group_student->discount) / 100}} </strong> RSD
                                                  <br>
                                                    Cena kursa sa popustom: <strong>{{$cenaKursaSaPopustom = $course->price - ($course->price * $group_student->discount) / 100}}</strong> RSD
-
                                                 @endif
                                             @endif
                                         @endforeach
                                     @endforeach
-
-
                     </h6>
                 </div>
 

@@ -47,9 +47,7 @@
                         @endforeach
                         </tbody>
                     </table>
-                </div>
-            </div>
-        </div>
+
 
 
     @endsection
@@ -60,7 +58,9 @@
             <script src="{{asset('vendor/datatables/jquery.dataTables.js')}}"></script>
             <script src="{{asset('vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
 
-            <!-- Page level custom scripts -->
+            <!-- Page level custom scripts -->              </div>
+            </div>
+            </div>
             <script src="{{asset('js/demo/datatables-demo.js')}}"></script>
 
         @endsection
