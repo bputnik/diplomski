@@ -12,7 +12,7 @@ class Trustee extends Model
     ];
 
 
-    public function student(){
+    public function students(){
         return $this->hasMany('App\Student');
     }
 

@@ -45,7 +45,42 @@ class TrusteeController extends Controller
 
     }
 
-    public function edit(){
+    public function edit(Trustee $trustee){
+
+        return view('admin.trustees.edit', [
+            'trustee'=>$trustee
+        ]);
+    }
+
+    public function update(Trustee $trustee){
+
+        $inputs= \request()->validate([
+            'name'=>'required',
+            'surname'=>'required',
+            'email'=>'required',
+            'phone'=>'required',
+            'address'=>'required',
+
+        ]);
+
+
+        $trustee->name = Str::ucfirst(\request('name'));
+        $trustee->surname = Str::ucfirst(\request('surname'));
+        $trustee->email = $inputs['email'];
+        $trustee->phone = $inputs['phone'];
+        $trustee->address = $inputs['address'];
+
+        if($trustee->isDirty())
+        {
+            session()->flash('trustee-updated', 'Podaci su uspešno izmenjeni.');
+            $trustee->save();
+            return back();
+
+        } else {
+            session()->flash('trustee-not-updated', 'Nema izmena.');
+            return back();
+        }
+
 
     }
 

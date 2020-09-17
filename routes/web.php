@@ -85,12 +85,14 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('/admin/students/create', 'StudentController@create')->name('admin.students.create');
     Route::post('/admin/students', 'StudentController@store')->name('admin.students.store');
     Route::get('/admin/students/{student}/edit', 'StudentController@edit')->name('admin.students.edit');
+    Route::put('/admin/students/{student}/detach', 'StudentController@detach_group')->name('admin.students.detach_group');
     Route::put('/admin/students/{student}/update', 'StudentController@update')->name('admin.students.update');
     Route::delete('/admin/students/{student}/destroy', 'StudentController@destroy')->name('admin.students.destroy');
 
     Route::get('/admin/trustees/show', 'TrusteeController@show')->name('admin.trustees.show');
     Route::get('/admin/trustees/create', 'TrusteeController@create')->name('admin.trustees.create');
     Route::get('/admin/trustees/{trustee}/edit', 'TrusteeController@edit')->name('admin.trustees.edit');
+    Route::put('/admin/trustees/{trustee}/update', 'TrusteeController@update')->name('admin.trustees.update');
     Route::post('/admin/trustees', 'TrusteeController@store')->name('admin.trustees.store');
     Route::delete('/admin/trustees/{trustee}/destroy', 'TrusteeController@destroy')->name('admin.trustees.destroy');
 

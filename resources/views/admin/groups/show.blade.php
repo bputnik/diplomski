@@ -17,24 +17,7 @@
 
         <h1 class="mb-3">Pregled podataka o grupama</h1>
 
-            <x-admin.master>
 
-
-
-                @section('content')
-
-                    @if(session()->has('teacher-created'))
-                        <div class="alert alert-success">
-                            {{session('teacher-created')}}
-                        </div>
-                    @elseif(session()->has('teacher-deleted'))
-                        <div class="alert alert-success">
-                            {{session('teacher-deleted')}}
-                        </div>
-                    @endif
-
-
-                    <h1>Pregled podataka o grupama</h1>
 
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
@@ -105,8 +88,8 @@
                             </div>
                         </div>
 
-                @endsection
-            </x-admin.master>
+    @endsection
+
 
 @section('scripts')
 
@@ -121,5 +104,4 @@
 
 
 
-    @endsection
 </x-admin.master>

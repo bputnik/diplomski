@@ -100,9 +100,20 @@ class StudentController extends Controller
     public function edit(Student $student){
         return view('admin.students.edit', [
             'student'=>$student,
+            'groups'=>Group::all()
         ]);
-
     }
+
+
+    public function detach_group(Student $student){
+        $student->groups()->detach(request('group'));
+        session()->flash('group-detached', 'Polaznik je uklonjen iz grupe '. Group::findOrFail(request('group'))->name );
+        return redirect()->route('admin.students.edit',[
+            'student'=>$student
+        ]);
+    }
+
+
 
     public function update(){}
 

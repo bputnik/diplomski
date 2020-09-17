@@ -2,23 +2,15 @@
 
     @section('content')
 
-        @if(session()->has('language-attached'))
-            <div class="alert alert-success">
-                {{session('language-attached')}}
-            </div>
-        @elseif(session()->has('language-detached'))
-            <div class="alert alert-warning">
-                {{session('language-detached')}}
-            </div>
-        @elseif(session()->has('teacher-not-updated'))
-            <div class="alert alert-warning">
-                {{session('teacher-not-updated')}}
-            </div>
-        @elseif(session()->has('teacher-updated'))
-            <div class="alert alert-success">
-                {{session('teacher-updated')}}
+        @if(session()->has('group-detached'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{session('group-detached')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
         @endif
+
 
         <h1>Pregled i izmena podataka o polazniku</h1>
         <h3>Polaznik: <span style="color:#4e73df"> {{$student->name}} {{$student->surname}} </span></h3>
@@ -94,91 +86,60 @@
 
         <hr>
 
-        <h3>Kursevi na koje je prijavljen polaznik</h3>
+        <h3>Grupe u koje je upisan polaznik</h3>
+
+            <!-- Tabela za pregled kurseva -->
+            <div class="row">
+                <div class="form-group col-md-10">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            @if($groups->isNotEmpty())
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3">
+                                        <h6 class="m-0 font-weight-bold text-primary">Grupe u koje je upisan polaznik </h6>
+                                    </div>
+
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                        <tr>
+                                            <th>Naziv kursa</th>
+                                            <th>Ukloni iz grupe</th>
+                                        </tr>
+                                        </thead>
+
+                                        <tbody>
+                                        @foreach($groups as $group)
+                                            @foreach($student->groups as $student_group)
+                                                @if($group->id == $student_group->id)
+                                                    <tr>
+                                                        <td>{{$group->name}}</td>
+                                                        <td>
+                                                            <form method="post" action="{{route('admin.students.detach_group', $student)}}">
+                                                                @csrf
+                                                                @method('PUT')
+
+                                                                <input type="hidden" name="group" value="{{$group->id}}">
+
+                                                                <button class="btn btn-danger">Ukloni</button>
+                                                            </form>
+                                                        </td>
+                                                    </tr>
+                                                @endif
+                                            @endforeach
+                                        @endforeach
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{--   . kraj diva za tabelu     --}}
 
 
-
-
-
-{{--        <!-- Tabela za dodavanje kurseva -->--}}
-{{--        <div class="row">--}}
-{{--            <div class="form-group col-md-8">--}}
-{{--                <div class="row">--}}
-{{--                    <div class="col-lg-12">--}}
-{{--                        @if($courses->isNotEmpty())--}}
-{{--                            <div class="card shadow mb-4">--}}
-{{--                                <div class="card-header py-3">--}}
-{{--                                    <h6 class="m-0 font-weight-bold text-primary">Dodajte ili uklonite kurs koji {{$student->name}} {{$student->surname}} predaje</h6>--}}
-{{--                                </div>--}}
-
-{{--                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">--}}
-{{--                                    <thead>--}}
-{{--                                    <tr>--}}
-{{--                                        <th>Označeno</th>--}}
-{{--                                        <th>Jezik</th>--}}
-{{--                                        <th>Dodaj</th>--}}
-{{--                                        <th>Ukloni</th>--}}
-{{--                                    </tr>--}}
-{{--                                    </thead>--}}
-{{--                                    <tfoot>--}}
-{{--                                    <tr>--}}
-{{--                                        <th>Označeno</th>--}}
-{{--                                        <th>Jezik</th>--}}
-{{--                                        <th>Dodaj</th>--}}
-{{--                                        <th>Ukloni</th>--}}
-{{--                                    </tr>--}}
-{{--                                    </tfoot>--}}
-{{--                                    <tbody>--}}
-{{--                                    @foreach($courses as $course)--}}
-{{--                                        <tr>--}}
-{{--                                            <td>--}}
-{{--                                                <input type="checkbox"--}}
-{{--                                                       @foreach($teacher->languages as $teacher_language)--}}
-{{--                                                       @if($teacher_language->name == $language->name)--}}
-{{--                                                       checked--}}
-{{--                                                    @endif--}}
-{{--                                                    @endforeach>--}}
-{{--                                            </td>--}}
-{{--                                            <td><strong>{{$language->name}}</strong></td>--}}
-{{--                                            <td>--}}
-{{--                                                <form method="post" action="{{route('admin.teachers.attach_language', $teacher)}}">--}}
-{{--                                                    @csrf--}}
-{{--                                                    @method('PUT')--}}
-
-{{--                                                    <input type="hidden" name="language" value="{{$language->id}}">--}}
-
-{{--                                                    <button class="btn btn-primary"--}}
-{{--                                                            @if($teacher->languages->contains($language))--}}
-{{--                                                            disabled--}}
-{{--                                                        @endif--}}
-{{--                                                    >Dodaj</button>--}}
-{{--                                                </form>--}}
-{{--                                            </td>--}}
-{{--                                            <td>--}}
-{{--                                                <form method="post" action="{{route('admin.teachers.detach_language', $teacher)}}">--}}
-{{--                                                    @csrf--}}
-{{--                                                    @method('PUT')--}}
-
-{{--                                                    <input type="hidden" name="language" value="{{$language->id}}">--}}
-
-{{--                                                    <button class="btn btn-danger"--}}
-{{--                                                            @if(!$teacher->languages->contains($language))--}}
-{{--                                                            disabled--}}
-{{--                                                        @endif--}}
-{{--                                                    >Ukloni</button>--}}
-{{--                                                </form>--}}
-{{--                                            </td>--}}
-{{--                                        </tr>--}}
-{{--                                    @endforeach--}}
-{{--                                    </tbody>--}}
-
-{{--                                </table>--}}
-{{--                            </div>--}}
-{{--                        @endif--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
 
     @endsection
 

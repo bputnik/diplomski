@@ -122,7 +122,7 @@
                         <label for="">Upisani polaznici</label>
                     </div>
 
-                    <!-- Tabela za dodavanje studenata -->
+                    <!-- Tabela za pregled studenata -->
                     <div class="row">
                         <div class="form-group col-md-12">
                             <div class="row">
@@ -130,7 +130,7 @@
                                     @if($students->isNotEmpty())
                                         <div class="card shadow mb-4">
                                             <div class="card-header py-3">
-                                                <h6 class="m-0 font-weight-bold text-primary">Uklonite studenta iz grupe </h6>
+                                                <h6 class="m-0 font-weight-bold text-primary">Polaznici upisani u ovu grupu </h6>
                                             </div>
 
                                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -140,12 +140,12 @@
                                                     <th>Ukloni</th>
                                                 </tr>
                                                 </thead>
-                                                <tfoot>
-                                                <tr>
-                                                    <th>Ime i prezime</th>
-                                                    <th>Ukloni</th>
-                                                </tr>
-                                                </tfoot>
+{{--                                                <tfoot>--}}
+{{--                                                <tr>--}}
+{{--                                                    <th>Ime i prezime</th>--}}
+{{--                                                    <th>Ukloni</th>--}}
+{{--                                                </tr>--}}
+{{--                                                </tfoot>--}}
                                                 <tbody>
                                                 @foreach($students as $student)
                                                     @foreach($group->students as $group_student)
