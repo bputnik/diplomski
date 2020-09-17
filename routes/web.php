@@ -76,6 +76,7 @@ Route::group(['middleware' => 'auth:admin'], function () {
 
     Route::get('/admin/courses/show', 'CourseController@show')->name('admin.courses.show');
     Route::get('/admin/courses/{course}/edit', 'CourseController@edit')->name('admin.courses.edit');
+    Route::put('/admin/courses/{course}/update', 'CourseController@update')->name('admin.courses.update');
     Route::delete('/admin/courses/{course}/destroy', 'CourseController@destroy')->name('admin.courses.destroy');
     Route::get('/admin/courses/create', 'CourseController@create')->name('admin.courses.create');
     Route::post('/admin/courses', 'CourseController@store')->name('admin.courses.store');
@@ -96,6 +97,9 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('/admin/groups/show', 'GroupController@show')->name('admin.groups.show');
     Route::get('/admin/groups/create', 'GroupController@create')->name('admin.groups.create');
     Route::get('/admin/groups/{group}/edit', 'GroupController@edit')->name('admin.groups.edit');
+    Route::put('/admin/groups/{group}/update', 'GroupController@update')->name('admin.groups.update');
+    Route::put('/admin/groups/{group}/detach', 'GroupController@detach_student')->name('admin.groups.detach_student');
+
     Route::post('/admin/groups', 'GroupController@store')->name('admin.groups.store');
     Route::delete('/admin/groups/{group}/destroy', 'GroupController@destroy')->name('admin.groups.destroy');
 

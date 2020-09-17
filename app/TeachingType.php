@@ -11,4 +11,12 @@ class TeachingType extends Model
     ];
 
     protected $table = 'teaching_types';
+
+
+    public function groups(){
+        return $this->hasMany('App\Group');
+    }
+
+
 }
+

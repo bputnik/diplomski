@@ -7,7 +7,7 @@
 
 
     <div class="form-group mt-3 mb-4">
-        <a href="{{route('admin.payments.generate-pdf', $student->id)}}"><button class="btn btn-primary"><i class="fas fa-print"></i> Štampanje izveštaja</button></a>
+        <a href="{{route('admin.payments.generate-pdf', $student->id)}}"><button class="btn btn-primary"><i class="fas fa-print"></i> Napravi PDF</button></a>
     </div>
 
 
@@ -68,9 +68,9 @@
                     @endforeach
                     <tr >
                         <td class="font-weight-bold text-primary" colspan="3">
-                            Ukupno uplaćeno: <strong>{{$uplate}}</strong> RSD
+                            Ukupno uplaćeno: <strong style="color: green;" >{{$uplate}}</strong> RSD
                             <br>
-                            Ukupno dugovanje: <strong>{{$cenaKursaSaPopustom - $uplate}}</strong> RSD
+                            Ukupno dugovanje: <strong style="color: red;">{{$cenaKursaSaPopustom - $uplate}}</strong> RSD
                         </td>
                     </tr>
                     <tr hidden>

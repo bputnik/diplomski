@@ -60,7 +60,7 @@ class LanguageController extends Controller
 
     public function update(Language $language){
 
-        $language->name = Str::lower(request('name'));
+       $language->name = Str::lower(request('name'));
 
 
         if($language->isDirty('name'))

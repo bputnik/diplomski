@@ -26,7 +26,10 @@ class Group extends Model
 
     public function students(){
         return $this->belongsToMany(Student::class);
+    }
 
+    public function teachingType(){
+        return $this->belongsTo('App\TeachingType');
     }
 
 }

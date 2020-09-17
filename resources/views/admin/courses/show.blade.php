@@ -7,13 +7,17 @@
 
 
 
-        @if(session()->has('teacher-created'))
+        @if(session()->has('course-created'))
             <div class="alert alert-success">
-                {{session('teacher-created')}}
+                {{session('course-created')}}
             </div>
-        @elseif(session()->has('teacher-deleted'))
+        @elseif(session()->has('course-deleted'))
             <div class="alert alert-success">
-                {{session('teacher-deleted')}}
+                {{session('course-deleted')}}
+            </div>
+        @elseif(session()->has('course-updated'))
+            <div class="alert alert-success">
+                {{session('course-updated')}}
             </div>
         @endif
 

@@ -10,6 +10,8 @@ class Course extends Model
         'name', 'language_id', 'level_id', 'course_type_id', 'number_of_lessons', 'final_exam', 'price'
     ];
 
+    protected $dates = ['created_at', 'updated_at'];
+
     public function language() {
         return $this->belongsTo('App\Language');
     }

@@ -7,6 +7,7 @@ use App\CourseType;
 use App\Language;
 use App\Level;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class CourseController extends Controller
 {
@@ -49,12 +50,61 @@ class CourseController extends Controller
 
 
         Course::create($inputs);
-        return back();
+        session()->flash('course-inserted', 'Kurs' . Str::ucfirst(request('name')) . ' je uspešno dodat u bazu.');
+
+        return redirect()->route('admin.courses.show');
     }
 
-    public function edit(){
+
+    public function edit(Course $course){
+
+        return view('admin.courses.edit',[
+            'course'=>$course,
+            'languages' => Language::all(),
+            'levels'=>Level::all(),
+            'courseTypes'=>CourseType::all()
+        ]);
+    }
+
+    public function update(Course $course){
+
+        $inputs= \request()->validate([
+            'name'=>'required',
+            'language_id'=>'required',
+            'level_id'=>'required',
+            'course_type_id'=>'required',
+            'number_of_lessons'=>'required',
+            'final_exam'=>'required',
+            'price'=>'required'
+        ]);
 
 
+        $course->name = Str::ucfirst(\request('name'));
+        $course->language_id = $inputs['language_id'];
+        $course->level_id = $inputs['level_id'];
+        $course->course_type_id = $inputs['course_type_id'];
+        $course->number_of_lessons = $inputs['number_of_lessons'];
+        $course->final_exam = $inputs['final_exam'];
+        $course->price = $inputs['price'];
+
+        if($course->isDirty())
+        {
+            session()->flash('course-updated', 'Podaci su uspešno izmenjeni.');
+            $course->save();
+            return redirect()->route('admin.courses.show');
+
+        } else {
+            session()->flash('course-not-updated', 'Nema izmena.');
+            return back();
+        }
+    }
+
+
+    public function destroy(Course $course){
+
+        $course->delete();
+        session()->flash('course-deleted', 'Kurs ' . Str::ucfirst(request('name') . ' je obrisan iz baze!'));
+        return back();
     }
 
 

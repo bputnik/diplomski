@@ -17,10 +17,6 @@ class GroupController extends Controller
     public function show(){
 
        // $numberOfStudents = DB::table('group_student')->count();
-
-
-
-
         return view('admin.groups.show',[
            'groups'=>Group::all(),
         //    'number_of_students'=>
@@ -61,9 +57,23 @@ class GroupController extends Controller
         Group::create($inputs);
         session()->flash('group-created', 'Grupa '. Str::upper($request->name) . ' je kreirana.');
         return redirect()->route('admin.groups.show');
+    }
 
+    public function edit(Group $group){
 
+        return view('admin.groups.edit', [
+            'group'=>$group,
+            'teachingTypes'=> TeachingType::all(),
+            'courses'=>Course::all(),
+            'teachers'=> Teacher::all(),
+            'students'=> Student::all()
+        ]);
+    }
 
+    public function detach_student(Group $group){
+        $group->students()->detach(request('student'));
+        session()->flash('student-detached', 'Polaznik: ' . Student::findOrFail(request('student'))->name . Student::findOrFail(request('student'))->surname . ' je uklonjen iz grupe');
+        return back();
     }
 
 
