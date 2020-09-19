@@ -9,9 +9,10 @@ use App\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
-use Facade\FlareClient\Stacktrace\File;
+
 
 class TeacherController extends Controller
 {
@@ -72,19 +73,18 @@ class TeacherController extends Controller
             'start_work' => $request->get('start-work'),
         ];
 
-        //snimanje u fajl
-        $data = json_encode(['email'=>$request->get('email'), 'password'=>$request->get('password')]);
-        $file = 'podaci'.time() .'_file.json';
-        $destinationPath=public_path()."/upload/";
-        if (!is_dir($destinationPath)) {  mkdir($destinationPath,0777,true);  }
-        File::put($destinationPath.$file,$data);
-        return response()->download($destinationPath.$file);
+            TeacherController::downloadCredential($request);
 
+//        //snimanje u fajl
+//        $data = json_encode(['name' => $request->get('name'),'surname' => $request->get('surname'),'email'=>$request->get('email'), 'password'=>$request->get('password')]);
+//        $file = $request->get('name') .'_'. $request->get('surname') .'_file.json';   //bila je dodata u ime i time() funkcija
+//        $destinationPath = public_path()."/upload/";
+//        if (!is_dir($destinationPath)) {  mkdir($destinationPath,0777,true);  }
+//        File::put($destinationPath.$file, $data);
+//        //   return response()->download($destinationPath.$file);
+//        // ...
 
-
-
-         Teacher::create($inputTeacher);
-
+        Teacher::create($inputTeacher);
 
         $teacherId = DB::table('teachers')->where('email',$request->get('email'))->value('id');
 
@@ -168,6 +168,15 @@ class TeacherController extends Controller
             ]);
     }
 
+    public function downloadCredential(Request $request) {
+       // dd($request);
+        $data = json_encode(['name' => $request->get('name'),'surname' => $request->get('surname'),'email'=>$request->get('email'), 'password'=>$request->get('password')]);
+        $file = $request->get('name') .'_'. $request->get('surname') .'_file.json';   //bila je dodata u ime i time() funkcija
+        $destinationPath = public_path()."/upload/";
+        if (!is_dir($destinationPath)) {  mkdir($destinationPath,0777,true);  }
+        File::put($destinationPath.$file, $data);
+        return response()->download($destinationPath.$file);
+    }
 
 
 }
