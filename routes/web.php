@@ -130,7 +130,7 @@ Route::group(['middleware' => 'auth:admin'], function () {
 
 
 Route::group(['middleware' => 'auth:teacher'], function () {
-    Route::view('/teacher', 'teacher');
+    Route::get('/teacher', 'TeacherController@index')->name('teacher.index');
 });
 
 

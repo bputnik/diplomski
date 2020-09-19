@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Group;
 use App\Language;
+use App\Student;
 use App\Teacher;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Facade\FlareClient\Stacktrace\File;
 
 class TeacherController extends Controller
 {
@@ -52,18 +57,30 @@ class TeacherController extends Controller
             'language' => 'required'
         ]);
 
+
+
         $inputTeacher = [
             'name' => $request->get('name'),
             'surname' => $request->get('surname'),
             'jmbg'=>$request->get('jmbg'),
             'email' => $request->get('email'),
-            'password' => $request->get('password'),
+            'password' => bcrypt($request->get('password')),
             'address' => $request->get('address'),
             'phone'=> $request->get('phone'),
             'dob' => $request->get('dob'),
             'bank_account_number' => $request->get('bank-account'),
             'start_work' => $request->get('start-work'),
         ];
+
+        //snimanje u fajl
+        $data = json_encode(['email'=>$request->get('email'), 'password'=>$request->get('password')]);
+        $file = 'podaci'.time() .'_file.json';
+        $destinationPath=public_path()."/upload/";
+        if (!is_dir($destinationPath)) {  mkdir($destinationPath,0777,true);  }
+        File::put($destinationPath.$file,$data);
+        return response()->download($destinationPath.$file);
+
+
 
 
          Teacher::create($inputTeacher);
@@ -134,9 +151,23 @@ class TeacherController extends Controller
             session()->flash('teacher-not-updated', 'Nema izmena');
             return back();
         }
-
-
-
     }
+
+    public function index(){
+
+        $teacherID = Auth::id();
+        $groups = Group::where('teacher_id','=', $teacherID )->get();
+
+
+
+//        dd($groups_students);
+
+        return view('teacher.index',[
+            'groups'=>$groups,
+
+            ]);
+    }
+
+
 
 }

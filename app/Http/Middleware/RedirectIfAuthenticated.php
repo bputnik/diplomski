@@ -24,7 +24,7 @@ class RedirectIfAuthenticated
             return redirect('admin.index');
         }
         if ($guard == "teacher" && Auth::guard($guard)->check()) {
-            return redirect('/teacher');
+            return redirect('teacher.index');
         }
         if ($guard == "student" && Auth::guard($guard)->check()) {
             return redirect('/student');

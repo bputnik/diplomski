@@ -2,6 +2,17 @@
 
     @section('content')
 
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+
         <h1>Kreiranje novog nastavničkog profila</h1>
 
         <form action="{{route('admin.teachers.store')}}" method="post" >
@@ -41,7 +52,7 @@
 
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password"
+                <input type="text"
                        name="password"
                        class="form-control col-lg-4"
                        id="password"

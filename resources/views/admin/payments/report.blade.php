@@ -26,7 +26,7 @@
                                         @foreach($groups as $group)
                                             @if($group->id == $group_student->group_id)
                                                 @if($course->id == $group->course_id)
-                                                    {{$group_student->discount}} % = {{($course->price * $group_student->discount) / 100}} </strong> RSD
+                                            {{$group_student->discount}} % = {{($course->price * $group_student->discount) / 100}} </strong> RSD
                                                  <br>
                                                    Cena kursa sa popustom: <strong>{{$cenaKursaSaPopustom = $course->price - ($course->price * $group_student->discount) / 100}}</strong> RSD
                                                 @endif

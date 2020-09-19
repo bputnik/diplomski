@@ -85,7 +85,7 @@ class LoginController extends Controller
             return redirect()->intended('/teacher');
         }
        // return back()->withInput($request->only('email', 'remember'));
-        dd(Auth::guard('teacher'));
+       // dd(Auth::guard('teacher'));
     }
 
     // student login
