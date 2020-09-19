@@ -12,9 +12,13 @@
   <component name="ChangeListManager">
     <list default="true" id="b35680eb-e88a-4fce-908b-aec6e26bc4ee" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/teachers/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/teachers/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/teachers/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/teachers/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_08_151637_create_teachers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_08_151637_create_teachers_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/admin/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/admin/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/teacher/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/teacher/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/top-navbar-user-information.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/admin/top-navbar-admin-information.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,23 +153,24 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/components/teacher" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.externalDependencies" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\laragon\www\diplomski\resources\views\components\admin" />
+      <recent name="E:\laragon\www\diplomski\resources\views\admin\payments" />
+      <recent name="D:\laragon\www\diplomski_prvi\resources\views\admin" />
+      <recent name="D:\laragon\www\diplomski\resources\views\components\admin" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\laragon\www\diplomski\resources\views\components\teacher" />
       <recent name="E:\laragon\www\diplomski\public\js\demo" />
       <recent name="D:\laragon\www\diplomski_prvi\public" />
       <recent name="D:\laragon\www\diplomski_prvi\public\css" />
       <recent name="D:\laragon\www\diplomski\public" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\laragon\www\diplomski\resources\views\admin\payments" />
-      <recent name="D:\laragon\www\diplomski_prvi\resources\views\admin" />
-      <recent name="D:\laragon\www\diplomski\resources\views\components\admin" />
     </key>
   </component>
   <component name="RunManager">
@@ -227,7 +232,8 @@
       <workItem from="1600261938203" duration="10770000" />
       <workItem from="1600325115456" duration="9825000" />
       <workItem from="1600416710227" duration="12692000" />
-      <workItem from="1600513506479" duration="4660000" />
+      <workItem from="1600513506479" duration="5587000" />
+      <workItem from="1600540518994" duration="3414000" />
     </task>
     <servers />
   </component>

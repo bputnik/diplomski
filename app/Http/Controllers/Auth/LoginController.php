@@ -80,12 +80,15 @@ class LoginController extends Controller
             'password' => 'required|min:6'
         ]);
 
+
+
         if (Auth::guard('teacher')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
 
             return redirect()->intended('/teacher');
         }
-       // return back()->withInput($request->only('email', 'remember'));
-       // dd(Auth::guard('teacher'));
+
+        return back()->withInput($request->only('email', 'remember'));
+
     }
 
     // student login

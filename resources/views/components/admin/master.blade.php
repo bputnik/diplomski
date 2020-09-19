@@ -193,7 +193,7 @@
                     <div class="topbar-divider d-none d-sm-block"></div>
 
                     <!-- Nav Item - User Information -->
-                 <x-top-navbar-user-information></x-top-navbar-user-information>
+                 <x-admin.top-navbar-admin-information></x-admin.top-navbar-admin-information>
 
                 </ul>
 
