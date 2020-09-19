@@ -10,16 +10,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b35680eb-e88a-4fce-908b-aec6e26bc4ee" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_08_151637_create_teachers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_08_151637_create_teachers_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/admin/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/admin/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/teacher/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/teacher/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/top-navbar-user-information.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/admin/top-navbar-admin-information.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-    </list>
+    <list default="true" id="b35680eb-e88a-4fce-908b-aec6e26bc4ee" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -233,7 +224,7 @@
       <workItem from="1600325115456" duration="9825000" />
       <workItem from="1600416710227" duration="12692000" />
       <workItem from="1600513506479" duration="5587000" />
-      <workItem from="1600540518994" duration="3414000" />
+      <workItem from="1600540518994" duration="4084000" />
     </task>
     <servers />
   </component>
