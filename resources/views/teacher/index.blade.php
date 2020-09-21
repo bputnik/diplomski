@@ -19,7 +19,7 @@
                     <p class="card-text">Početak kursa: {{$group->starting_day}}</p>
                     <p class="card-text">Kraj kursa: {{$group->ending_day}}</p>
                     <p class="card-text">Broj učenika u grupi:</p>
-                    <a href="#" class="btn btn-primary">Pogledaj detalje</a>
+                    <a href="{{route('teacher.group.group-details', $group)}}" class="btn btn-primary">Pogledaj detalje</a>
                 </div>
             </div>
 

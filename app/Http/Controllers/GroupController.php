@@ -70,12 +70,60 @@ class GroupController extends Controller
         ]);
     }
 
+
+    public function update(Group $group){
+
+
+        $inputs= \request()->validate([
+            'name'=>'required',
+            'classroom'=>'nullable',
+            'teaching_type'=>'required',
+            'course'=>'required',
+            'teacher'=>'required',
+            'starting_date'=>'nullable',
+            'ending_date'=>'nullable',
+        ]);
+
+        $group->name = Str::ucfirst(\request('name'));
+        $group->classroom = $inputs['classroom'];
+        $group->teaching_type_id = $inputs['teaching_type'];
+        $group->course_id = $inputs['course'];
+        $group->teacher_id = $inputs['teacher'];
+        $group->starting_date = $inputs['starting_date'];
+        $group->ending_date = $inputs['ending_date'];
+
+
+
+        if($group->isDirty())
+        {
+            session()->flash('group-updated', 'Podaci su uspešno izmenjeni.');
+            $group->save();
+            return back();
+
+        } else {
+            session()->flash('group-not-updated', 'Nema izmena.');
+            return back();
+        }
+
+    }
+
+
+
     public function detach_student(Group $group){
         $group->students()->detach(request('student'));
         session()->flash('student-detached', 'Polaznik: ' . Student::findOrFail(request('student'))->name . Student::findOrFail(request('student'))->surname . ' je uklonjen iz grupe');
         return back();
     }
 
+
+    public function groupDetails(Group $group){
+
+        return view('teacher.group.group-details', [
+            'group'=>$group
+        ]);
+
+
+    }
 
 
 }

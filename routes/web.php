@@ -134,6 +134,8 @@ Route::group(['middleware' => 'auth:teacher'], function () {
 
     Route::get('/teacher/{teacher}/profile', 'TeacherController@showProfile')->name('teacher.teacher-profile');
     Route::put('/teacher/{teacher}/profile/update', 'TeacherController@updateProfile')->name('teacher.teacher-profile-update');
+
+    Route::get('/teacher/{group}/group', 'GroupController@groupDetails')->name('teacher.group.group-details');
 });
 
 

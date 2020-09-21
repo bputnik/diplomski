@@ -20,6 +20,23 @@
         @endif
 
 
+        @if(session()->has('group-updated'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{session('group-updated')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @elseif(session()->has('group-not-updated'))
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    {{session('group-not-updated')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
+
+
     <div class="d-flex">
 
         <div class="col-lg-6">

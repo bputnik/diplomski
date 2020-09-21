@@ -210,9 +210,10 @@ class TeacherController extends Controller
 
         $teacher->update($inputs);
         return back();
-
-
     }
+
+
+
 
 
 }
