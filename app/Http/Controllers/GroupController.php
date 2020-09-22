@@ -8,6 +8,7 @@ use App\Student;
 use App\Teacher;
 use App\TeachingType;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
@@ -118,12 +119,33 @@ class GroupController extends Controller
 
     public function groupDetails(Group $group){
 
+        $teacherID = Auth::id();
+
+        $number_of_students = DB::table('group_student')->where('group_id', '=', $group->id)->count();
+
+        $studentsIds = DB::select('select student_id from group_student where group_id=?', [$group->id]);
+//        dd($studentsIds);
+
+//        foreach ($studentsIds as $studentsId) {
+//           // dd($studentsId);
+//            $student = DB::select('select * from students where id=?', [$studentsId->student_id]);
+//            array_push($students, $student);
+//        }
+
+        //dd($students);
+
         return view('teacher.group.group-details', [
-            'group'=>$group
+            'group'=>$group,
+            'number_of_students'=>$number_of_students,
+            'students'=>Student::all(),
+            'studentsIds'=>$studentsIds
         ]);
-
-
     }
 
+    public function newLesson(Group $group){
+
+        return view('teacher.group.new-lesson');
+
+    }
 
 }

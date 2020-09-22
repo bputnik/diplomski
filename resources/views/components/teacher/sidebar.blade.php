@@ -13,7 +13,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
-        <a class="nav-link" href="/admin">
+        <a class="nav-link" href="/teacher">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Komandna tabla</span></a>
     </li>

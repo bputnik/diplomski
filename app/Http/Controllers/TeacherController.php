@@ -151,18 +151,6 @@ class TeacherController extends Controller
         }
     }
 
-    public function index(){
-
-        $teacherID = Auth::id();
-        $groups = Group::where('teacher_id','=', $teacherID )->get();
-
-//        dd($groups_students);
-
-        return view('teacher.index',[
-            'groups'=>$groups,
-            ]);
-    }
-
     public function downloadCredential(Request $request) {
        // dd($request);
         $data = json_encode(['name' => $request->get('name'),'surname' => $request->get('surname'),'email'=>$request->get('email'), 'password'=>$request->get('password')]);
@@ -212,8 +200,25 @@ class TeacherController extends Controller
         return back();
     }
 
+//--------------------------------------- za Tecaher account
+//
+    public function index(){
 
+        $teacherID = Auth::id();
+        $groups = Group::where('teacher_id','=', $teacherID )->get();
 
+        $numberOfStudents=[];
+
+        foreach ($groups as $group) {
+            $new = DB::select('select * from group_student where group_id=?', [$group->id]);
+            array_push($numberOfStudents, $new);
+        }
+
+        return view('teacher.index',[
+            'groups'=>$groups,
+            'number_of_students'=>$numberOfStudents
+        ]);
+    }
 
 
 }
