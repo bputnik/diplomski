@@ -10,7 +10,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b35680eb-e88a-4fce-908b-aec6e26bc4ee" name="Default Changelist" comment="" />
+    <list default="true" id="b35680eb-e88a-4fce-908b-aec6e26bc4ee" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -146,7 +149,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.externalDependencies" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -227,6 +230,8 @@
       <workItem from="1600540518994" duration="4352000" />
       <workItem from="1600669742968" duration="21016000" />
       <workItem from="1600799731944" duration="293000" />
+      <workItem from="1600864774212" duration="1957000" />
+      <workItem from="1600875835046" duration="603000" />
     </task>
     <servers />
   </component>
@@ -293,6 +298,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1598011457997" />
+    <state x="277" y="57" key="SettingsEditor" timestamp="1600853306018">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1600853306018" />
     <state x="478" y="200" key="Vcs.Push.Dialog.v2" timestamp="1600799974240">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
