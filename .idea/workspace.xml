@@ -11,8 +11,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b35680eb-e88a-4fce-908b-aec6e26bc4ee" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/teacher/group/new-lesson.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teacher/group/new-lesson.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,7 +232,7 @@
       <workItem from="1600669742968" duration="21016000" />
       <workItem from="1600799731944" duration="293000" />
       <workItem from="1600864774212" duration="1957000" />
-      <workItem from="1600875835046" duration="603000" />
+      <workItem from="1600875835046" duration="7143000" />
     </task>
     <servers />
   </component>
@@ -255,24 +256,27 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="393" y="145" key="#Notifications/0.0.1366.728/1366.0.1536.824@0.0.1366.728" timestamp="1597351452455" />
-    <state x="580" y="210" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1598254645457">
+    <state x="580" y="210" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1600881208520">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="413" y="147" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728/1366.0.1536.824@0.0.1366.728" timestamp="1596998900259" />
     <state x="580" y="210" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1598254645457" />
-    <state x="727" y="147" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1598334498900">
+    <state x="580" y="210" key="#com.intellij.fileTypes.FileTypeChooser/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1600881208520" />
+    <state x="727" y="147" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1600879421657">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="727" y="147" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1598334498900" />
+    <state x="727" y="147" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1600879421657" />
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1598072031305">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1598072031305" />
-    <state x="488" y="86" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1600679272169">
+    <state x="488" y="86" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1600879574834">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="347" y="60" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728/1366.0.1536.824@0.0.1366.728" timestamp="1597504559428" />
     <state x="488" y="86" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1600679272169" />
+    <state x="488" y="86" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1600879574834" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1599855801001">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

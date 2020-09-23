@@ -2,10 +2,20 @@
 
     @section('content')
 
+        @if(session()->has('lesson-created'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{session('lesson-created')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
+
+
         <h1>Unos novog časa i prisustva polaznika</h1>
 
 {{--        <form action="{{route('teacher.group.new-lesson.store')}}" method="post" >--}}
-        <form action="" method="post" >
+        <form action="{{route('teacher.group.lesson-create')}}" method="post" >
             @csrf
 
             <div class="row">
@@ -59,86 +69,86 @@
             </div>
 
 
-            <hr>
-            <!-- Tabela za prisustvo -->
-            <div class="row">
-                <div class="form-group col-md-8">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            @if($languages->isNotEmpty())
-                                <div class="card shadow mb-4">
-                                    <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">Obeležite prisutne / odsutne učenike</h6>
-                                    </div>
+{{--            <hr>--}}
+{{--            <!-- Tabela za prisustvo -->--}}
+{{--            <div class="row">--}}
+{{--                <div class="form-group col-md-8">--}}
+{{--                    <div class="row">--}}
+{{--                        <div class="col-lg-12">--}}
+{{--                            @if($languages->isNotEmpty())--}}
+{{--                                <div class="card shadow mb-4">--}}
+{{--                                    <div class="card-header py-3">--}}
+{{--                                        <h6 class="m-0 font-weight-bold text-primary">Obeležite prisutne / odsutne učenike</h6>--}}
+{{--                                    </div>--}}
 
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
-                                        <tr>
-                                            <th>Označeno</th>
-                                            <th>Jezik</th>
-                                            <th>Dodaj</th>
-                                            <th>Ukloni</th>
-                                        </tr>
-                                        </thead>
-                                        <tfoot>
-                                        <tr>
-                                            <th>Označeno</th>
-                                            <th>Jezik</th>
-                                            <th>Dodaj</th>
-                                            <th>Ukloni</th>
-                                        </tr>
-                                        </tfoot>
-                                        <tbody>
-                                        @foreach($languages as $language)
-                                            <tr>
-                                                <td>
-                                                    <input type="checkbox"
-                                                           @foreach($teacher->languages as $teacher_language)
-                                                           @if($teacher_language->name == $language->name)
-                                                           checked
-                                                        @endif
-                                                        @endforeach>
-                                                </td>
-                                                <td><strong>{{$language->name}}</strong></td>
-                                                <td>
-                                                    <form method="post" action="{{route('admin.teachers.attach_language', $teacher)}}">
-                                                        @csrf
-                                                        @method('PUT')
+{{--                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">--}}
+{{--                                        <thead>--}}
+{{--                                        <tr>--}}
+{{--                                            <th>Označeno</th>--}}
+{{--                                            <th>Jezik</th>--}}
+{{--                                            <th>Dodaj</th>--}}
+{{--                                            <th>Ukloni</th>--}}
+{{--                                        </tr>--}}
+{{--                                        </thead>--}}
+{{--                                        <tfoot>--}}
+{{--                                        <tr>--}}
+{{--                                            <th>Označeno</th>--}}
+{{--                                            <th>Jezik</th>--}}
+{{--                                            <th>Dodaj</th>--}}
+{{--                                            <th>Ukloni</th>--}}
+{{--                                        </tr>--}}
+{{--                                        </tfoot>--}}
+{{--                                        <tbody>--}}
+{{--                                        @foreach($languages as $language)--}}
+{{--                                            <tr>--}}
+{{--                                                <td>--}}
+{{--                                                    <input type="checkbox"--}}
+{{--                                                           @foreach($teacher->languages as $teacher_language)--}}
+{{--                                                           @if($teacher_language->name == $language->name)--}}
+{{--                                                           checked--}}
+{{--                                                        @endif--}}
+{{--                                                        @endforeach>--}}
+{{--                                                </td>--}}
+{{--                                                <td><strong>{{$language->name}}</strong></td>--}}
+{{--                                                <td>--}}
+{{--                                                    <form method="post" action="{{route('admin.teachers.attach_language', $teacher)}}">--}}
+{{--                                                        @csrf--}}
+{{--                                                        @method('PUT')--}}
 
-                                                        <input type="hidden" name="language" value="{{$language->id}}">
+{{--                                                        <input type="hidden" name="language" value="{{$language->id}}">--}}
 
-                                                        <button class="btn btn-primary"
-                                                                @if($teacher->languages->contains($language))
-                                                                disabled
-                                                            @endif
-                                                        >Dodaj</button>
-                                                    </form>
-                                                </td>
-                                                <td>
-                                                    <form method="post" action="{{route('admin.teachers.detach_language', $teacher)}}">
-                                                        @csrf
-                                                        @method('PUT')
+{{--                                                        <button class="btn btn-primary"--}}
+{{--                                                                @if($teacher->languages->contains($language))--}}
+{{--                                                                disabled--}}
+{{--                                                            @endif--}}
+{{--                                                        >Dodaj</button>--}}
+{{--                                                    </form>--}}
+{{--                                                </td>--}}
+{{--                                                <td>--}}
+{{--                                                    <form method="post" action="{{route('admin.teachers.detach_language', $teacher)}}">--}}
+{{--                                                        @csrf--}}
+{{--                                                        @method('PUT')--}}
 
-                                                        <input type="hidden" name="language" value="{{$language->id}}">
+{{--                                                        <input type="hidden" name="language" value="{{$language->id}}">--}}
 
-                                                        <button class="btn btn-danger"
-                                                                @if(!$teacher->languages->contains($language))
-                                                                disabled
-                                                            @endif
-                                                        >Ukloni</button>
-                                                    </form>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                        </tbody>
+{{--                                                        <button class="btn btn-danger"--}}
+{{--                                                                @if(!$teacher->languages->contains($language))--}}
+{{--                                                                disabled--}}
+{{--                                                            @endif--}}
+{{--                                                        >Ukloni</button>--}}
+{{--                                                    </form>--}}
+{{--                                                </td>--}}
+{{--                                            </tr>--}}
+{{--                                        @endforeach--}}
+{{--                                        </tbody>--}}
 
-                                    </table>
-                                </div>
-                            @endif
-                        </div>
-                    </div>
-                </div>
-            </div>
+{{--                                    </table>--}}
+{{--                                </div>--}}
+{{--                            @endif--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
 
 
