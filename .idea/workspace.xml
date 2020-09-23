@@ -10,15 +10,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b35680eb-e88a-4fce-908b-aec6e26bc4ee" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GroupController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/GroupController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/teacher/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/teacher/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/teacher/group/group-details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teacher/group/group-details.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/teacher/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teacher/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-    </list>
+    <list default="true" id="b35680eb-e88a-4fce-908b-aec6e26bc4ee" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -234,6 +226,7 @@
       <workItem from="1600513506479" duration="5587000" />
       <workItem from="1600540518994" duration="4352000" />
       <workItem from="1600669742968" duration="21016000" />
+      <workItem from="1600799731944" duration="293000" />
     </task>
     <servers />
   </component>
@@ -300,11 +293,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1598011457997" />
-    <state x="478" y="200" key="Vcs.Push.Dialog.v2" timestamp="1599855595319">
+    <state x="478" y="200" key="Vcs.Push.Dialog.v2" timestamp="1600799974240">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="175" y="32" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.0.1536.824@0.0.1366.728" timestamp="1597589534287" />
-    <state x="478" y="200" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1599855595319" />
+    <state x="478" y="200" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1600799974240" />
     <state x="460" y="259" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597506514474">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
