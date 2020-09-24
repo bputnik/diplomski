@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\TeachingType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Throwable;
 
 class TeachingTypeController extends Controller
 {
@@ -78,11 +79,21 @@ class TeachingTypeController extends Controller
 
     public function destroy(TeachingType $teachingType){
 
+        try {
+            $teachingType->delete();
+            session()->flash('teaching-type-deleted', 'Tip nastave ' . Str::upper($teachingType->name) . ' je obrisan');
+            return back();
 
-        $teachingType->delete();
+        } catch (Throwable $e) {
+            report($e);
 
-        session()->flash('teaching-type-deleted', 'Tip nastave ' . Str::upper($teachingType->name) . ' je obrisan');
-        return back();
+            session()->flash('teaching-type-not-deleted', 'Tip nastave ' . Str::upper($teachingType->name) . ' ne može biti obrisan! Proverite da li se negde koristi.');
+
+            return back();
+
+        }
+
+
 
     }
 

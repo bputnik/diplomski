@@ -5,25 +5,29 @@ namespace App\Http\Controllers;
 use App\CourseType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Throwable;
 
 class CourseTypeController extends Controller
 {
 
-    public function index(){
-        return view('admin.courses.types.index',[
+    public function index()
+    {
+        return view('admin.courses.types.index', [
             'courseTypes' => CourseType::all()
         ]);
     }
 
 
-    public function edit(CourseType $courseType){
+    public function edit(CourseType $courseType)
+    {
         return view('admin.courses.types.edit', [
-            'courseType'=>$courseType
+            'courseType' => $courseType
         ]);
 
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $request->validate([
             'name' => 'required'
         ]);
@@ -33,10 +37,8 @@ class CourseTypeController extends Controller
 
         $courseTypes = CourseType::all();
 
-        foreach ($courseTypes as $courseType)
-        {
-            if ($name == Str::lower($courseType->name))
-            {
+        foreach ($courseTypes as $courseType) {
+            if ($name == Str::lower($courseType->name)) {
                 session()->flash('courseType-exist', 'Tip kursa ' . Str::upper(request('name')) . ' već postoji u bazi.');
                 return redirect()->route('admin.courses.types.index');
             }
@@ -44,7 +46,7 @@ class CourseTypeController extends Controller
         session()->flash('courseType-inserted', Str::ucfirst(request('name')) . ' je uspešno dodat u bazu.');
 
         CourseType::create([
-            'name'=>$name,
+            'name' => $name,
         ]);
         return redirect()->route('admin.courses.types.index');
 
@@ -52,12 +54,12 @@ class CourseTypeController extends Controller
     }
 
 
-    public function update(CourseType $courseType){
+    public function update(CourseType $courseType)
+    {
         $courseType->name = Str::lower(request('name'));
 
 
-        if($courseType->isDirty('name'))
-        {
+        if ($courseType->isDirty('name')) {
             session()->flash('courseType-updated', 'Naziv vrste kusra je izmenjen u: ' . request('name'));
             $courseType->save();
             return redirect()->route('admin.courses.types.index');
@@ -69,12 +71,22 @@ class CourseTypeController extends Controller
     }
 
 
-    public function destroy(CourseType $courseType){
-        $courseType->delete();
-        session()->flash('courseType-deleted', 'Vrsta kursa ' . Str::upper($courseType->name) . ' je obrisana');
-        return back();
+    public function destroy(CourseType $courseType)
+    {
 
+        try {
+            $courseType->delete();
+            session()->flash('courseType-deleted', 'Vrsta kursa ' . Str::upper($courseType->name) . ' je obrisana');
+            return back();
+        } catch (Throwable $e) {
+            report($e);
+
+            session()->flash('courseType-not-deleted', 'Vrsta kursa ' . Str::upper($courseType->name) . ' ne može biti obrisana. Proverite da li postoji kurs ovog tipa.');
+
+            return back();
+        }
     }
+
 
 
 }

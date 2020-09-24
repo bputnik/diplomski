@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Level;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Throwable;
 
 class LevelController extends Controller
 {
@@ -73,10 +74,19 @@ class LevelController extends Controller
 
 
     public function destroy(Level $level){
+        try {
+            $level->delete();
+            session()->flash('level-deleted', 'Jezički nivo ' . Str::upper($level->name) . ' je obrisan iz baze!');
+            return back();
 
-        session()->flash('level-deleted', 'Jezički nivo ' . Str::upper($level->name) . ' je obrisan iz baze!');
-        $level->delete();
-        return back();
+        } catch (Throwable $e) {
+            report($e);
+
+            session()->flash('level-not-deleted', 'Jezički nivo ' . Str::upper($level->name) . ' ne može biti obrisan. Proverite da li postoji kurs ovog nivoa.');
+
+            return back();
+        }
+
     }
 
 

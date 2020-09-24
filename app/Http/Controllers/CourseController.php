@@ -8,6 +8,7 @@ use App\Language;
 use App\Level;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Throwable;
 
 class CourseController extends Controller
 {
@@ -102,9 +103,18 @@ class CourseController extends Controller
 
     public function destroy(Course $course){
 
-        $course->delete();
-        session()->flash('course-deleted', 'Kurs ' . Str::ucfirst(request('name') . ' je obrisan iz baze!'));
-        return back();
+        try {
+            $course->delete();
+            session()->flash('course-deleted', 'Kurs ' . Str::ucfirst($course->name) . ' je obrisan iz baze!');
+            return back();
+
+        } catch (Throwable $e) {
+            report($e);
+
+            session()->flash('course-not-deleted', 'Ne možete obrisati kurs ' . Str::ucfirst($course->name) . '! Proverite da li postoji grupa kojoj je dodeljen ovaj kurs.');
+            return back();
+        }
+
     }
 
 

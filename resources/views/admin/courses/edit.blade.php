@@ -3,8 +3,11 @@
     @section('content')
 
         @if(session()->has('course-not-updated'))
-            <div class="alert alert-warning">
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 {{session('course-not-updated')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
         @endif
 

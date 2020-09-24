@@ -4,10 +4,12 @@
 
 
         @if(session()->has('language-not-updated'))
-            <div class="alert alert-warning">
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 {{session('language-not-updated')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-
         @endif
 
 

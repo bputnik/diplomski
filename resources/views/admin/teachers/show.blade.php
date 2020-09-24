@@ -5,7 +5,6 @@
 @section('content')
 
         @if(session()->has('teacher-created'))
-
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{session('teacher-created')}}
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">

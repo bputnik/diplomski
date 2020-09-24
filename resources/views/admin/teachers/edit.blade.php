@@ -3,20 +3,32 @@
     @section('content')
 
         @if(session()->has('language-attached'))
-            <div class="alert alert-success">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{session('language-attached')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
         @elseif(session()->has('language-detached'))
-                <div class="alert alert-warning">
-                    {{session('language-detached')}}
-                </div>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                {{session('language-detached')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
         @elseif(session()->has('teacher-not-updated'))
-                <div class="alert alert-warning">
-                    {{session('teacher-not-updated')}}
-                </div>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                {{session('teacher-not-updated')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
         @elseif(session()->has('teacher-updated'))
-            <div class="alert alert-success">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{session('teacher-updated')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
         @endif
 

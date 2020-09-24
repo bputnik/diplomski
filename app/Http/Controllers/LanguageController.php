@@ -6,6 +6,7 @@ use App\Language;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Throwable;
 
 class LanguageController extends Controller
 {
@@ -78,9 +79,19 @@ class LanguageController extends Controller
     }
 
     public function destroy(Language $language){
-        $language->delete();
-        session()->flash('language-deleted', 'Jezik ' . Str::upper($language->name) . ' je obrisan');
-        return back();
+
+        try {
+            $language->delete();
+            session()->flash('language-deleted', 'Jezik ' . Str::upper($language->name) . ' je obrisan');
+            return back();
+        } catch (Throwable $e) {
+            report($e);
+
+            session()->flash('language-not-deleted', 'Jezik ' . Str::upper($language->name) . ' ne može biti obrisan. Proverite da li postoji kurs sa ovim jezikom.');
+
+            return back();
+        }
+
     }
 
 

@@ -3,20 +3,40 @@
     @section('content')
 
         @if(session()->has('courseType-exist'))
-            <div class="alert alert-danger">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 {{session('courseType-exist')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
+
         @elseif(session()->has('courseType-inserted'))
-            <div class="alert alert-success">
-                {{session('courseType-inserted')}}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{session('courseType-inserted')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
         @elseif(session()->has('courseType-deleted'))
-            <div class="alert alert-success">
+           <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{session('courseType-deleted')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @elseif(session()->has('courseType-not-deleted'))
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                {{session('courseType-not-deleted')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
         @elseif(session()->has('courseType-updated'))
-            <div class="alert alert-success">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{session('courseType-updated')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
         @endif
 

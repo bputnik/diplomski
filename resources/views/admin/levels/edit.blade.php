@@ -3,12 +3,18 @@
     @section('content')
 
         @if(session()->has('level-not-updated'))
-            <div class="alert alert-warning">
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 {{session('level-not-updated')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
         @elseif(session()->has('level-updated'))
-            <div class="alert alert-success">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{session('level-updated')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
         @endif
 
