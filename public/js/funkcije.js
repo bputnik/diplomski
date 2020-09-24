@@ -12,6 +12,7 @@ jQuery(document).ready(function($){
         });
 
         let izbor = $("#student_id").val();
+        console.log(izbor);
         if (izbor==0) return false
         else {
 

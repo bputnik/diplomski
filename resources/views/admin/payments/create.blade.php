@@ -1,5 +1,8 @@
 <x-admin.master>
 
+
+
+
     @section('content')
 
         <script src="{{asset('vendor/jquery/jquery.js')}}"></script>
@@ -20,7 +23,7 @@
         <h1>Nova uplata</h1>
 
 
-        <form action="{{route('admin.payments.store')}}" method="post">
+        <form action="{{route('admin.payments.store')}}" method="post" >
             @csrf
 
             <div class="form-group">
@@ -109,9 +112,7 @@
         </form>
 
 
-
-
-
     @endsection()
+
 
 </x-admin.master>

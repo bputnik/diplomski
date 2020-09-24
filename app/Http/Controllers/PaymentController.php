@@ -51,7 +51,7 @@ class PaymentController extends Controller
 
     public function store(Request $request){
 
-       // dd($request);
+        //dd($request);
 
         $request->validate([
             'student_id'=>['required'],
@@ -60,7 +60,7 @@ class PaymentController extends Controller
             'payment_method'=>['required'],
         ]);
 
-        $courseID = DB::select('select course_id from groups where id=?', [$request->get('groups')]);
+        $courseID = DB::select('select course_id from `groups` where id=?', [$request->get('groups')]);
 
 
         //$paymentMethod = '';
@@ -94,14 +94,17 @@ class PaymentController extends Controller
 
     public function ajaxGetGroups(Request $request){
 
+
+
         $studentID = $request->izbor;
 //        $student = DB::table('group_student')->where('student_id', '=', $studentID)->get();
 
 //        $groupsID = DB::select('select group_id from group_student where student_id=?', [$studentID]);
 //
-        $groups = DB::select('select * from groups where id in (select group_id from group_student where student_id=?)', [$studentID]);
+        $groups = DB::select('select * from `groups` where id in (select group_id from group_student where student_id=?)', [$studentID]);
 
         //$courses = DB::select('select * from courses where id in (select course_id from groups where id in (select group_id from groups_students where student_id=?))',[$studentID]);
+
 
 
         return response()->json([
@@ -116,9 +119,9 @@ class PaymentController extends Controller
             $groupID = $request->izbor;
             $studentID = $request->student;
 
-            $coursePrice = DB::select('select price from courses where id=(select course_id from groups where id=?)',[$groupID]);
+            $coursePrice = DB::select('select price from courses where id=(select course_id from `groups` where id=?)',[$groupID]);
 
-            $payments = DB::select('select * from payments where student_id=? and course_id=(select course_id from groups where id=?)', [$studentID, $groupID]);
+            $payments = DB::select('select * from payments where student_id=? and course_id=(select course_id from `groups` where id=?)', [$studentID, $groupID]);
 
 
 
