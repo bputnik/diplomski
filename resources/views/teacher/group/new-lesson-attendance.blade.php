@@ -52,7 +52,7 @@
                             class="form-control col-lg-8"
                             id="lesson_control"
                             cols="10"
-                            rows="5" disabled>{{$lesson->lesson_control}}</textarea>
+                            rows="5" disabled>{{$lesson->lesson_content}}</textarea>
                     </div>
                 </div>
 

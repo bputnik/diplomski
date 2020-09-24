@@ -21,7 +21,7 @@
                     <li class="list-group-item">Kurs: <strong>{{$group->course->name}}</strong></li>
                     <li class="list-group-item">Tip nastave: <strong>{{$group->teachingType->name}}</strong></li>
                     <li class="list-group-item">Fond časova: <strong>{{$group->course->number_of_lessons}}</strong></li>
-                    <li class="list-group-item">Broj održanih časova: <strong></strong></li>
+                    <li class="list-group-item">Broj održanih časova: <strong>{{$number_of_lessons}}</strong></li>
                     <li class="list-group-item">Učionica: <strong>{{$group->classroom}}</strong></li>
                     <li class="list-group-item">Početak kursa: <strong>{{$group->starting_day}}</strong></li>
                     <li class="list-group-item">Kraj kursa: <strong>{{$group->ending_day}}</strong></li>

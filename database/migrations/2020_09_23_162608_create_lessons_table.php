@@ -19,7 +19,7 @@ class CreateLessonsTable extends Migration
             $table->foreignId('group_id')->constrained()->cascadeOnDelete();
             $table->integer('lesson_number');
             $table->text('lesson_content');
-            $table->text('lesson_note');
+            $table->text('lesson_note')->nullable();
             $table->date('lesson_date');
             $table->timestamps();
         });

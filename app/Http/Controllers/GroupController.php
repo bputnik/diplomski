@@ -125,6 +125,7 @@ class GroupController extends Controller
 
         $studentsIds = DB::select('select student_id from group_student where group_id=?', [$group->id]);
 //        dd($studentsIds);
+        $number_of_lessons = DB::select('select max(lesson_number) as number_of_lessons from lessons where group_id=?', [$group->id]);
 
 //        foreach ($studentsIds as $studentsId) {
 //           // dd($studentsId);
@@ -138,13 +139,21 @@ class GroupController extends Controller
             'group'=>$group,
             'number_of_students'=>$number_of_students,
             'students'=>Student::all(),
-            'studentsIds'=>$studentsIds
+            'studentsIds'=>$studentsIds,
+            'number_of_lessons'=>$number_of_lessons[0]->number_of_lessons
         ]);
     }
 
     public function newLesson(Group $group){
 
-        return view('teacher.group.new-lesson');
+        $maxLessonNumberArray = DB::select('select max(lesson_number) as maxnum from lessons where group_id=?', [$group->id]);
+
+        $newMaxLessonNumber = $maxLessonNumberArray[0]->maxnum + 1;
+
+        return view('teacher.group.new-lesson', [
+            'group'=>$group,
+            'lesson_number'=>$newMaxLessonNumber
+        ]);
 
     }
 

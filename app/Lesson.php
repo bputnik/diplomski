@@ -8,7 +8,7 @@ class Lesson extends Model
 {
 
     protected $fillable =[
-        'lesson_number', 'lesson_content', 'lesson_note', 'lesson_date'
+        'teacher_id', 'group_id', 'lesson_number', 'lesson_content', 'lesson_note', 'lesson_date'
     ];
 
     protected $dates = [

@@ -12,20 +12,24 @@
         @endif
 
 
-        <h1>Unos novog časa i prisustva polaznika</h1>
+        <h1>Unos novog časa</h1>
 
 {{--        <form action="{{route('teacher.group.new-lesson.store')}}" method="post" >--}}
         <form action="{{route('teacher.group.lesson-create')}}" method="post" >
             @csrf
 
+            <input hidden name="group_id" value="{{$group->id}}">
+
             <div class="row">
                 <div class="col">
                     <div class="form-group ">
-                        <label for="lesson_number">Redni broj časa</label>
+                        <label for="lesson_number_show">Redni broj časa</label>
                         <input type="number"
-                               name="lesson_number"
-                               class="form-control col-lg-4"
-                               id="lesson_number" required>
+                               name="lesson_number_show"
+                               class="form-control col-lg-2"
+                               id="lesson_number_show"
+                               value="{{$lesson_number}}" disabled>
+                        <input hidden type="number" name="lesson_number" value="{{$lesson_number}}">
                     </div>
                 </div>
 
@@ -49,7 +53,7 @@
                             class="form-control col-lg-8"
                             id="lesson_control"
                             cols="10"
-                            rows="5"></textarea>
+                            rows="5" required></textarea>
                     </div>
                 </div>
 
@@ -156,7 +160,7 @@
 
 
             <div class="form-group">
-                <button class="btn btn-primary">Sačuvaj</button>
+                <button class="btn btn-primary">Sačuvaj i pređi na unos prisustva polaznika</button>
             </div>
 
         </form>
