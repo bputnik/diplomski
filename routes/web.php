@@ -102,7 +102,6 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('/admin/groups/{group}/edit', 'GroupController@edit')->name('admin.groups.edit');
     Route::put('/admin/groups/{group}/update', 'GroupController@update')->name('admin.groups.update');
     Route::put('/admin/groups/{group}/detach', 'GroupController@detach_student')->name('admin.groups.detach_student');
-
     Route::post('/admin/groups', 'GroupController@store')->name('admin.groups.store');
     Route::delete('/admin/groups/{group}/destroy', 'GroupController@destroy')->name('admin.groups.destroy');
 

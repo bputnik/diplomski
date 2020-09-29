@@ -109,6 +109,23 @@ class GroupController extends Controller
     }
 
 
+    public function destroy(Group $group){
+        try {
+            $group->delete();
+            session()->flash('group-deleted', 'Grupa ' . Str::ucfirst($group->name) . ' je obrisana iz baze!');
+            return back();
+
+        } catch (Throwable $e) {
+            report($e);
+
+            session()->flash('group-not-deleted', 'Ne možete obrisati grupu ' . Str::ucfirst($course->name) . '! Proverite da li postoje polaznici koji su upisani u ovu grupu.');
+            return back();
+        }
+
+
+    }
+
+
 
     public function detach_student(Group $group){
         $group->students()->detach(request('student'));

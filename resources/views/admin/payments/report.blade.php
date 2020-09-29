@@ -6,6 +6,8 @@
         <h3>Ime i prezime: <strong>{{$student->name}} {{$student->surname}} </strong></h3>
 
 
+
+
     <div class="form-group mt-3 mb-4">
         <a href="{{route('admin.payments.generate-pdf', $student->id)}}"><button class="btn btn-primary"><i class="fas fa-print"></i> Napravi PDF</button></a>
     </div>
@@ -14,7 +16,7 @@
 
     @foreach($courses as $course)
 
-
+        <div hidden>{{$cenaKursaSaPopustom = 0}}</div>
 
         <div class="col-sm-9">
             <div class="card shadow mb-4">
@@ -78,7 +80,7 @@
                     <tr hidden>
                         <td hidden>
                             {{$uplate = 0}}
-                            {{$cenaKursaSaPopustom=0}}
+                            {{$cenaKursaSaPopustom =0}}
                         </td>
                     </tr>
                     </tbody>
@@ -88,6 +90,8 @@
         </div>
 
         @endforeach
+
+
 
 
     @endsection

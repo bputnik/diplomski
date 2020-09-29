@@ -12,17 +12,12 @@
   <component name="ChangeListManager">
     <list default="true" id="b35680eb-e88a-4fce-908b-aec6e26bc4ee" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Group.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Group.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GroupController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/GroupController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/groups/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/groups/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_29_051447_create_payments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_29_051447_create_payments_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/courses/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/courses/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/payments/report.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/payments/report.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/students/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/students/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/admin/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/admin/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/logout-modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/logout-modal.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/teacher/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/teacher/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/teacher/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/teacher/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/teacher/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teacher/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -251,7 +246,7 @@
       <workItem from="1601047443262" duration="1040000" />
       <workItem from="1601316943330" duration="1182000" />
       <workItem from="1601318329187" duration="5316000" />
-      <workItem from="1601364580631" duration="4419000" />
+      <workItem from="1601364580631" duration="12152000" />
     </task>
     <servers />
   </component>
@@ -325,12 +320,12 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1600853306018" />
-    <state x="478" y="200" key="Vcs.Push.Dialog.v2" timestamp="1600961491854">
+    <state x="478" y="200" key="Vcs.Push.Dialog.v2" timestamp="1601369509244">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="175" y="32" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.0.1536.824@0.0.1366.728" timestamp="1597589534287" />
     <state x="478" y="200" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1600961491854" />
-    <state x="478" y="200" key="Vcs.Push.Dialog.v2/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1600896172032" />
+    <state x="478" y="200" key="Vcs.Push.Dialog.v2/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1601369509244" />
     <state x="460" y="259" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597506514474">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

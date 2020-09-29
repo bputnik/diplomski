@@ -146,7 +146,9 @@ class PaymentController extends Controller
 
         $student = DB::select('select * from students where id=?',[$payment->student_id]);
 
-        $courses = DB::select('select * from courses where id in (select course_id from payments where student_id=?)', [$payment->student_id]);
+        //$courses = DB::select('select * from courses where id in (select course_id from payments where student_id=?)', [$payment->student_id]);
+
+       $courses = DB::select('select * from courses where id in (select course_id from `groups` where id in (select group_id from group_student where student_id=?))', [$payment->student_id]);
 
         $uplate = 0;
 

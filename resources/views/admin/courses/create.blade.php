@@ -68,7 +68,7 @@
                 <input type="number"
                        name="number_of_lessons"
                        class="form-control col-lg-1"
-                       id="number_of_lessons" required>
+                       id="number_of_lessons" min="1" required>
             </div>
 
             <div class="form-group">
@@ -88,7 +88,7 @@
                 <input type="number"
                        name="price"
                        class="form-control col-lg-1"
-                       id="price" required>
+                       id="price" min="0" required>
             </div>
 
 
