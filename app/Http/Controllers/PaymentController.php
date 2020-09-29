@@ -131,8 +131,6 @@ class PaymentController extends Controller
               'payments'=>$payments,
 
             ]);
-
-
         }
 
 
@@ -142,9 +140,9 @@ class PaymentController extends Controller
 
         //$payments = DB::select('select * from payments where student_id=? order by course_id',[$payment->student_id]);
 
-          $payments = Payment::all()->where('student_id', '=', $payment->student_id);
+        $payments = Payment::all()->where('student_id', '=', $payment->student_id);
 
-        //dd($payments);
+
 
         $student = DB::select('select * from students where id=?',[$payment->student_id]);
 

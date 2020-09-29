@@ -9,7 +9,27 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+        @elseif(session()->has('group-attached'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{session('group-attached')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
         @endif
+
+        @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+        @endif
+
+
+
 
 
         <h1>Pregled i izmena podataka o polazniku</h1>
@@ -102,7 +122,7 @@
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                         <tr>
-                                            <th>Naziv kursa</th>
+                                            <th>Naziv grupe</th>
                                             <th>Ukloni iz grupe</th>
                                         </tr>
                                         </thead>
@@ -128,7 +148,6 @@
                                             @endforeach
                                         @endforeach
                                         </tbody>
-
                                     </table>
                                 </div>
                             @endif
@@ -138,6 +157,87 @@
             </div>
 
             {{--   . kraj diva za tabelu     --}}
+
+    {{--    Upis u jos jednu grupu    --}}
+
+
+            <div class="form-group">
+                <button class="btn btn-success mb-3" type="button" data-toggle="collapse" data-target="#collapseParent" aria-expanded="false" aria-controls="collapseParent">
+                    Upišite polaznika na novi kurs
+                </button>
+
+                <div class="collapse" id="collapseParent">
+                    <div class="card card-body border-success">
+
+                        <form action="{{route('admin.students.attach_group', $student->id)}}" method="post">
+                            @csrf
+                            @method('PUT')
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group ">
+                                        <label for="group">Grupa u koju se upisuje</label>
+                                        <select class="form-control" name="group" id="group"  >
+                                            <option value=""> -- izaberite grupu -- </option>
+
+{{--                                                @foreach($groups as $group)--}}
+{{--                                                    @foreach($student->groups as $student_group)--}}
+{{--                                                        @if($group->id != $student_group->id)--}}
+                                                @for($i=0; $i<count($notInGroup); $i++)
+
+                                                            <option value="{{$notInGroup[$i]->id}}">
+                                                                {{$notInGroup[$i]->name}}
+                                                            </option>
+                                                @endfor
+
+
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="form-group  ">
+                                        <label for="contract_number">Broj ugovora</label>
+                                        <input type="text"
+                                               name="contract_number"
+                                               class="form-control col-lg-8"
+                                               id="contract_number" required>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="discount">Popust pri upisu %</label>
+                                        <input type="number"
+                                               name="discount"
+                                               class="form-control col-lg-1"
+                                               id="discount"
+                                               value="0">
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <button class="btn btn-outline-success">Sačuvaj</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+
+{{--        kraj upisa u drugu grupu --}}
 
 
 

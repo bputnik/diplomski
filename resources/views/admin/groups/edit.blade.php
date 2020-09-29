@@ -168,7 +168,7 @@
                                                     @foreach($group->students as $group_student)
                                                     @if($student->id == $group_student->id)
                                                     <tr>
-                                                        <td><strong>{{$student->name}} {{$student->surname}}</strong></td>
+                                                        <td><strong><span style="color:darkorange">{{$student->name}} {{$student->surname}}</span></strong></td>
                                                         <td>
                                                             <form method="post" action="{{route('admin.groups.detach_student', $group)}}">
                                                                 @csrf

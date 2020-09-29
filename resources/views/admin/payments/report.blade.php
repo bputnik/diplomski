@@ -14,6 +14,8 @@
 
     @foreach($courses as $course)
 
+
+
         <div class="col-sm-9">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">

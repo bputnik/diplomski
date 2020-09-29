@@ -9,12 +9,12 @@
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <div class="modal-body">Potvrdite da želite da se izlogujete.</div>
+            <div class="modal-body">Potvrdite da želite da se odjavite.</div>
             <div class="modal-footer">
                 <form action="{{route('logout')}}" method="POST">
                     @csrf
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Otkaži</button>
-                    <button class="btn btn-danger">Logout</button>
+                    <button class="btn btn-danger">Odjavi se</button>
                 </form>
 
 

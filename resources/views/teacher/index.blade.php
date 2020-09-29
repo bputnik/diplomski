@@ -5,7 +5,7 @@
 
         <h1 class="mb-3">Dobrodošli u kontrolni panel za nastavnike</h1>
 
-        <h3>Vaše grupe</h3>
+        <h3 class="mb-3">Vaše grupe</h3>
 
         <div class="row">
 

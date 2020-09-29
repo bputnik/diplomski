@@ -86,6 +86,7 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::post('/admin/students', 'StudentController@store')->name('admin.students.store');
     Route::get('/admin/students/{student}/edit', 'StudentController@edit')->name('admin.students.edit');
     Route::put('/admin/students/{student}/detach', 'StudentController@detach_group')->name('admin.students.detach_group');
+    Route::put('/admin/students/{student}/attach', 'StudentController@attach_group')->name('admin.students.attach_group');
     Route::put('/admin/students/{student}/update', 'StudentController@update')->name('admin.students.update');
     Route::delete('/admin/students/{student}/destroy', 'StudentController@destroy')->name('admin.students.destroy');
 

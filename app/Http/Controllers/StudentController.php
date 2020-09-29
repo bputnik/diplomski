@@ -98,9 +98,18 @@ class StudentController extends Controller
     }
 
     public function edit(Student $student){
+
+        //$registeredGroup = DB::select('select group_id from group_student where student_id=?', [$student->id]);
+
+        $notInGroup = DB::select('select * from `groups` where id not in (select group_id from group_student where student_id=?)',[$student->id]);
+
+        //dd($notInGroup);
+
         return view('admin.students.edit', [
             'student'=>$student,
-            'groups'=>Group::all()
+            'groups'=>Group::all(),
+            'notInGroup'=>$notInGroup
+
         ]);
     }
 
@@ -111,6 +120,25 @@ class StudentController extends Controller
         return redirect()->route('admin.students.edit',[
             'student'=>$student
         ]);
+    }
+
+
+    public function attach_group(Student $student){
+
+        request()->validate([
+            'group'=> 'required',
+            'contract_number'=>'required|unique:group_student',
+            'discount'=>'nullable'
+        ]);
+
+        //dd($inputs);
+        $student->groups()->attach(request('group'), ['contract_number'=>request('contract_number'), 'discount'=>request('discount')]);
+        session()->flash('group-attached', 'Polaznik je upisan u grupu '. Group::findOrFail(request('group'))->name );
+        return redirect()->route('admin.students.edit',[
+                'student'=>$student,
+                'groups'=>Group::all()
+        ]);
+
     }
 
 
