@@ -32,4 +32,8 @@ class Group extends Model
         return $this->belongsTo('App\TeachingType');
     }
 
+    public function attendances(){
+        return $this->belongsToMany(Attendance::class);
+    }
+
 }

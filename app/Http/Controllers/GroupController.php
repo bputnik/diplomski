@@ -118,7 +118,7 @@ class GroupController extends Controller
         } catch (Throwable $e) {
             report($e);
 
-            session()->flash('group-not-deleted', 'Ne možete obrisati grupu ' . Str::ucfirst($course->name) . '! Proverite da li postoje polaznici koji su upisani u ovu grupu.');
+            session()->flash('group-not-deleted', 'Ne možete obrisati grupu ' . Str::ucfirst($group->name) . '! Proverite da li postoje polaznici koji su upisani u ovu grupu.');
             return back();
         }
 

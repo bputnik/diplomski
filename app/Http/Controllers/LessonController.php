@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Attendance;
 use App\Group;
 use App\Lesson;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class LessonController extends Controller
 {
@@ -36,7 +38,6 @@ class LessonController extends Controller
             Lesson::create($inputs);
 
 
-
             return redirect()->route('teacher.group.new-lesson-attendance', [
                 'lesson_number'=> $request->get('lesson_number'),
                 'group'=>$request->get('group_id')
@@ -44,14 +45,28 @@ class LessonController extends Controller
 
         }
 
-        public function show(Request $request){
+        public function show(Request $request, Group $group){
 
-        $lesson = Lesson::where('lesson_number', '=', $request->get('lesson_number'))->get();
 
-        // dd($lesson);
+           //dd($group->id);
+            //dd($request);
+        $lesson = Lesson::where([
+            ['lesson_number', $request->get('lesson_number')],
+            ['group_id', $group->id]
+        ])->get();
+       // dd($lesson);
+
+        $students = DB::select('select * from students where id in (select student_id from group_student where group_id=?)', [$group->id]);
+
+
+
 
             return view('teacher.group.new-lesson-attendance', [
-                'lesson'=>$lesson[0]
+                'lesson'=>$lesson[0],
+                'lesson_number'=> $request->get('lesson_number'),
+                'students'=>$students,
+                'group'=>$group->id,
+
             ]);
         }
 

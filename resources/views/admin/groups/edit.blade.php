@@ -107,21 +107,29 @@
 
             <div class="form-group">
                 <label for="starting_date">Početak nastave</label>
-                <input type="text"
+                <input type="date"
                        name="starting_date"
                        class="form-control col-lg-8"
                        id="starting_date"
-                        value="{{$group->starting_date->format('d-m-Y')}}">
+                        value=" @if($group->starting_date == null)
+                                {{''}}
+                                @elseif($group->starting_date != null)
+                                {{$group->starting_date->format('d-m-Y')}}"
+                                @endif>
             </div>
 
 
             <div class="form-group">
                 <label for="ending_date">Kraj nastave</label>
-                <input type="text"
+                <input type="date"
                        name="ending_date"
                        class="form-control col-lg-8"
                        id="ending_date"
-                        value="{{$group->ending_date->format('d-m-Y')}}">
+                        value="@if($group->ending_date == null)
+                        {{''}}
+                        @elseif($group->ending_date != null)
+                        {{$group->ending_date->format('d-m-Y')}}"
+                    @endif>">
             </div>
 
 

@@ -1,6 +1,6 @@
 jQuery(document).ready(function($){
 
-//================================= IZBOR grupe na osnovu ID studenta
+    //================================= IZBOR grupe na osnovu ID studenta
     $("#student_id").change(function (e){
 
         e.preventDefault();
@@ -12,7 +12,7 @@ jQuery(document).ready(function($){
         });
 
         let izbor = $("#student_id").val();
-        console.log(izbor);
+
         if (izbor==0) return false
         else {
 
@@ -106,14 +106,62 @@ $("#groups").change(function (e){
 });
 
 
+//================================= Snimanje prisustva polaznika
+//     $("#dugme").click(function(){
+//
+//         //e.preventDefault();
+//
+//         $.ajaxSetup({
+//             headers: {
+//                 'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+//             }
+//         });
+//
+//         alert("jebi se");
 
 
+        // let izbor = $("#student_id").val();
+        // console.log(izbor);
+        // if (izbor==0) return false
+        // else {
+        //
+        //     // $.ajax({
+        //     //     type: "POST",
+        //     //     url: '/admin/payments/ajax-get-groups',
+        //     //     data:{izbor:izbor},
+        //     //     success:function (data){
+        //     //         console.log(data);
+        //     //         console.log(typeof data)
+        //     //         let response = data.groups;
+        //     //         //    console.log(typeof response);
+        //     //         //    console.log(response);
+        //     //         let prikaz = $("#groups");
+        //     //         $("#groups_div").slideDown();
+        //     //         prikaz.empty();
+        //     //         prikaz.append("<option value='0'> -- izaberite grupu -- </option> ");
+        //     //         for(let i=0; i<response.length; i++) {
+        //     //             console.log(response[i].group_id);
+        //     //             prikaz.append("<option value='"+response[i].id+"'>" +response[i].name + "</option>");
+        //     //         }
+        //     //     }
+        //     // });
+        // }
+
+    // });
+
+
+//===
 
 
 }); // zatvoren dokument!
 
+//=========================
 
+function jebiSe() {
 
+    alert("jebi se");
+
+}
 
 
 

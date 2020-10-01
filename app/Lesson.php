@@ -15,7 +15,9 @@ class Lesson extends Model
         'lesson_date', 'created_at'
     ];
 
-
+    public function attendances(){
+        return $this->belongsToMany(Attendance::class);
+    }
 
 
 }
