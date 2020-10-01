@@ -43,6 +43,7 @@
                                     <th>Učionica</th>
                                     <th>Polaznici</th>
                                     <th>Datum početka nastave</th>
+                                    <th>Datum završetka nastave</th>
                                     <th>Brisanje</th>
                                 </tr>
                                 </thead>
@@ -56,6 +57,7 @@
                                     <th>Učionica</th>
                                     <th>Polaznici</th>
                                     <th>Datum početka nastave</th>
+                                    <th>Datum završetka nastave</th>
                                     <th>Brisanje</th>
                                 </tr>
                                 </tfoot>
@@ -74,7 +76,20 @@
                                                 <br>
                                             @endforeach
                                         </td>
-                                        <td>{{$group->starting_date->format('d-m-Y')}}</td>
+                                        <td>
+                                            @if($group->starting_date != null)
+                                            {{$group->starting_date->format('d-m-Y')}}
+                                            @elseif($group->starting_date == null)
+                                            {{'nije određen' }}
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if($group->ending_date != null)
+                                                {{$group->ending_date->format('d-m-Y')}}
+                                            @elseif($group->ending_date == null)
+                                                {{'nije određen' }}
+                                            @endif
+                                        </td>
                                         <td>
                                             <form method="post" action="{{route('admin.groups.destroy', $group->id)}}">
                                                 @csrf

@@ -15,7 +15,7 @@
         <h1>Unos novog časa</h1>
 
 {{--        <form action="{{route('teacher.group.new-lesson.store')}}" method="post" >--}}
-        <form action="{{route('teacher.group.lesson-create')}}" method="post" >
+        <form action="{{route('teacher.group.lesson-create', $group)}}" method="post" >
             @csrf
 
             <input hidden name="group_id" value="{{$group->id}}">

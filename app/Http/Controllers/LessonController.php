@@ -53,9 +53,6 @@ class LessonController extends Controller
             return view('teacher.group.new-lesson-attendance', [
                 'lesson'=>$lesson[0]
             ]);
-
-
-
         }
 
 

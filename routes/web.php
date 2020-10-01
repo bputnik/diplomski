@@ -139,7 +139,7 @@ Route::group(['middleware' => 'auth:teacher'], function () {
     Route::get('/teacher/{group}/new-lesson', 'GroupController@newLesson')->name('teacher.group.new-lesson');
 
     Route::post('/teacher/new-lesson/create', 'LessonController@store')->name('teacher.group.lesson-create');
-    Route::get('/teacher/new-lesson-attendance', 'LessonController@show')->name('teacher.group.new-lesson-attendance');
+    Route::get('/teacher/{group}/new-lesson-attendance', 'LessonController@show')->name('teacher.group.new-lesson-attendance');
 
 });
 
