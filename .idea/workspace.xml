@@ -12,13 +12,13 @@
   <component name="ChangeListManager">
     <list default="true" id="b35680eb-e88a-4fce-908b-aec6e26bc4ee" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Group.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Group.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GroupController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/GroupController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Attendance.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Attendance.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AttendanceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AttendanceController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LessonController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LessonController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Lesson.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Lesson.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Student.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Student.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/funkcije.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/funkcije.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/groups/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/groups/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/datatables/jquery.dataTables.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendor/datatables/jquery.dataTables.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/teacher/group/group-details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teacher/group/group-details.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/teacher/group/new-lesson-attendance.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teacher/group/new-lesson-attendance.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -250,7 +250,9 @@
       <workItem from="1601318329187" duration="5316000" />
       <workItem from="1601364580631" duration="12309000" />
       <workItem from="1601535774665" duration="12837000" />
-      <workItem from="1601566324816" duration="10916000" />
+      <workItem from="1601566324816" duration="11763000" />
+      <workItem from="1601719374386" duration="6853000" />
+      <workItem from="1601735567636" duration="8173000" />
     </task>
     <servers />
   </component>
@@ -289,12 +291,12 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1598072031305" />
-    <state x="488" y="86" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1600879574834">
+    <state x="488" y="86" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1601742008322">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="347" y="60" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728/1366.0.1536.824@0.0.1366.728" timestamp="1597504559428" />
     <state x="488" y="86" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1600679272169" />
-    <state x="488" y="86" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1600879574834" />
+    <state x="488" y="86" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1601742008322" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1599855801001">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -325,12 +327,12 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1600853306018" />
-    <state x="478" y="200" key="Vcs.Push.Dialog.v2" timestamp="1601537938745">
+    <state x="478" y="200" key="Vcs.Push.Dialog.v2" timestamp="1601584266719">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="175" y="32" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.0.1536.824@0.0.1366.728" timestamp="1597589534287" />
     <state x="478" y="200" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1600961491854" />
-    <state x="478" y="200" key="Vcs.Push.Dialog.v2/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1601537938745" />
+    <state x="478" y="200" key="Vcs.Push.Dialog.v2/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1601584266719" />
     <state x="2398" y="200" key="Vcs.Push.Dialog.v2/3840.0.1536.824/1920.0.1920.1040/0.0.1536.824@1920.0.1920.1040" timestamp="1601413335823" />
     <state x="460" y="259" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597506514474">
       <screen x="0" y="0" width="1366" height="728" />

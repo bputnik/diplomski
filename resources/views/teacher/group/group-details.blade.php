@@ -8,6 +8,12 @@
         <a href="{{route('teacher.group.new-lesson', $group)}}">
             <button class="btn btn-success">Upišite novi čas i prisustvo polaznika</button>
         </a>
+        <a href="{{route('teacher.group.lessons-learned', $group)}}">
+            <button class="btn btn-outline-primary">Pregled obrađenih nastavnih jedinica</button>
+        </a>
+        <a href="{{route('teacher.group.student-presence', $group)}}">
+            <button class="btn btn-outline-primary">Pregled prisustva polaznika</button>
+        </a>
         <hr>
 
 

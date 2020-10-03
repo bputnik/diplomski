@@ -11506,7 +11506,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfo": "Prikazano _START_ to _END_ od _TOTAL_ redova",
+			"sInfo": "Prikazano _START_ od _END_ od _TOTAL_ redova",
 
 
 			/**
@@ -11527,7 +11527,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfoEmpty": "Prikazano 0 to 0 of 0 redova",
+			"sInfoEmpty": "Prikazano 0 od 0 of 0 redova",
 
 
 			/**

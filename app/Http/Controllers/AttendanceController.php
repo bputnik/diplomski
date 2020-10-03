@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Attendance;
+use App\Group;
+use App\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AttendanceController extends Controller
 {
@@ -25,7 +28,7 @@ class AttendanceController extends Controller
 
         Attendance::create($inputs);
 
-        return response('snimljeno');
+        return response('Učenik je prisutan na času.');
 
     }
 
@@ -41,7 +44,29 @@ class AttendanceController extends Controller
 
         Attendance::create($inputs);
 
-        return response('snimljeno');
+        return response('Učenik je odsutan sa časa.');
+
+    }
+
+
+    public function studentPresence(Group $group){
+
+        $attendances = Attendance::where('group_id', $group->id)->get();
+        //dd($attendances);
+
+        $studentsIds = DB::select('select student_id from group_student where group_id=?', [$group->id]);
+
+        $dates = DB::select('select distinct lesson_date from lessons where id in (select lesson_id from attendances where group_id=?)', [$group->id]);
+        //dd($dates);
+
+        return view('teacher.group.student-presence', [
+            'group'=>$group,
+            'attendances'=>$attendances,
+            'dates'=>$dates,
+            'studentsIds'=>$studentsIds,
+            'students'=>Student::all()
+        ]);
+
 
     }
 

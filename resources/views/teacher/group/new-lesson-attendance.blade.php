@@ -89,7 +89,6 @@
                     </div>
                 </div>
 
-
             </div>
 
             <div class="form-group">
@@ -98,9 +97,7 @@
 
         </form>
 
-
-
-                        <hr>
+        <hr>
 
         <h3>Prisustvo polaznika</h3>
                         <!-- Tabela za prisustvo -->
@@ -163,6 +160,14 @@
                         </div>
 
 
+        <!-- Dugme za povratak na detalje o grupi -->
+        <div class="mb-3">
+            <a href="{{route('teacher.group.group-details', $group)}}">
+                <button class="btn btn-primary">Povratak na detalje o grupi</button>
+            </a>
+        </div>
+
+
         <script>
 
             function saveAttendance(i) {
@@ -190,8 +195,8 @@
                     url: "/teacher.attendance/save-attendance",
                     data:{lesson:lesson, student_id:student_id, group_id:group_id},
                     success:function(data){
-                        console.log(data);
-                        console.log(typeof data)
+                       // console.log(data);
+                       // console.log(typeof data)
                     }
                 });
             }

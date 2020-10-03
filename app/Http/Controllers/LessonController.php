@@ -71,5 +71,17 @@ class LessonController extends Controller
         }
 
 
+        public function showLessonsLearned(Group $group){
+
+
+            $lessons = Lesson::where('group_id', $group->id)->orderBy('lesson_number')->get();
+            //dd($lessons);
+
+            return view('teacher.group.lessons-learned', [
+                'group'=>$group,
+                'lessons'=>$lessons
+            ]);
+
+        }
 
 }

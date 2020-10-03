@@ -11,17 +11,30 @@ class Attendance extends Model
         'group_id', 'lesson_id', 'student_id', 'attendance'
     ];
 
+    protected $dates = [
+        'created_at'
+    ];
 
-    public function students(){
-        return $this->hasMany(Student::class);
+
+    public function student(){
+        return $this->belongsTo(Student::class);
     }
 
     public function groups(){
         return $this->hasMany(Group::class);
     }
 
-    public function lessons(){
-        return $this->hasMany(Lesson::class);
+    public function lesson(){
+        return $this->belongsTo(Lesson::class);
     }
+
+    public function getAttendanceAttribute($value){
+        if($value == 1 )
+            return $value = 'P';
+        elseif($value == 0)
+            return $value = 'O';
+
+    }
+
 
 }

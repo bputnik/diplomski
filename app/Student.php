@@ -36,8 +36,8 @@ class Student extends Authenticatable
         return $this->hasMany(Payment::class);
     }
 
-    public function attendances(){
-        return $this->belongsToMany(Attendance::class);
+    public function attendance(){
+        return $this->hasOne(Attendance::class);
     }
 
 

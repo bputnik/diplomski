@@ -140,6 +140,8 @@ Route::group(['middleware' => 'auth:teacher'], function () {
 
     Route::post('/teacher/new-lesson/create', 'LessonController@store')->name('teacher.group.lesson-create');
     Route::get('/teacher/{group}/new-lesson-attendance', 'LessonController@show')->name('teacher.group.new-lesson-attendance');
+    Route::get('/teacher/{group}/lessons-learned', 'LessonController@showLessonsLearned')->name('teacher.group.lessons-learned');
+    Route::get('/teacher/{group}/student-presence', 'AttendanceController@studentPresence')->name('teacher.group.student-presence');
 
     Route::post('/teacher.attendance/save-attendance', 'AttendanceController@saveAttendance');
     Route::post('/teacher.attendance/save-absence', 'AttendanceController@saveAbsence');
