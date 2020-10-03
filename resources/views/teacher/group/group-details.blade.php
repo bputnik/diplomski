@@ -29,8 +29,20 @@
                     <li class="list-group-item">Fond časova: <strong>{{$group->course->number_of_lessons}}</strong></li>
                     <li class="list-group-item">Broj održanih časova: <strong>{{$number_of_lessons}}</strong></li>
                     <li class="list-group-item">Učionica: <strong>{{$group->classroom}}</strong></li>
-                    <li class="list-group-item">Početak kursa: <strong>{{$group->starting_day}}</strong></li>
-                    <li class="list-group-item">Kraj kursa: <strong>{{$group->ending_day}}</strong></li>
+                    <li class="list-group-item">Početak kursa:
+                        @if($group->starting_date != null)
+                            <strong>{{$group->starting_date->format('d.m.Y.')}}</strong>
+                        @elseif($group->starting_date == null)
+                            <strong>{{'datum nije određen'}}</strong>
+                        @endif
+                    </li>
+                    <li class="list-group-item">Kraj kursa:
+                        @if($group->ending_date != null)
+                            <strong>{{$group->ending_date->format('d.m.Y.')}}</strong>
+                        @elseif($group->ending_date == null)
+                            <strong>{{'datum nije određen'}}</strong>
+                        @endif
+                    </li>
                     <li class="list-group-item">Broj učenika u grupi: <strong>{{$number_of_students}}</strong></li>
                 </ul>
             </div>

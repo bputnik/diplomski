@@ -22,16 +22,16 @@
     <hr class="sidebar-divider">
 
     <!-- Heading -->
-    <div class="sidebar-heading">
-        Pregled
-    </div>
+{{--    <div class="sidebar-heading">--}}
+{{--        Pregled--}}
+{{--    </div>--}}
 
-    <!-- Nav Item - Pages Collapse Menu PAYMENTS-->
-    <li class="nav-item" >
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePayments" aria-expanded="true" aria-controls="collapsePayments">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>Održani časovi</span>
-        </a>
+{{--    <!-- Nav Item - Pages Collapse Menu PAYMENTS-->--}}
+{{--    <li class="nav-item" >--}}
+{{--        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePayments" aria-expanded="true" aria-controls="collapsePayments">--}}
+{{--            <i class="fas fa-fw fa-cog"></i>--}}
+{{--            <span>Održani časovi</span>--}}
+{{--        </a>--}}
 {{--        <div id="collapsePayments" class="collapse" aria-labelledby="headingPayments" data-parent="#accordionSidebar">--}}
 {{--            <div class="bg-white py-2 collapse-inner rounded">--}}
 {{--                --}}{{--                <h6 class="collapse-header">Custom Components:</h6>--}}

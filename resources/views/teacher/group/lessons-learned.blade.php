@@ -8,6 +8,9 @@
         <a href="{{route('teacher.group.group-details', $group)}}">
             <button class="btn btn-primary">Povratak na detalje o grupi</button>
         </a>
+        <a href="{{route('teacher.group.student-presence', $group)}}">
+            <button class="btn btn-outline-primary">Pregled prisustva polaznika</button>
+        </a>
         <hr>
 
 

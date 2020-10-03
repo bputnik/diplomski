@@ -5,9 +5,22 @@
         <h1 class="mb-3">Pregled prisustva polaznika u grupi: <strong style="color:#4e73df">{{$group->name}}</strong></h1>
 
 
+        <hr>
+            <!-- Dugme za povratak na detalje o grupi -->
+            <div class="mb-3">
+                <a href="{{route('teacher.group.group-details', $group)}}">
+                    <button class="btn btn-primary">Povratak na detalje o grupi</button>
+                </a>
+                <a href="{{route('teacher.group.lessons-learned', $group)}}">
+                    <button class="btn btn-outline-primary">Pregled obrađenih nastavnih jedinica</button>
+                </a>
+            </div>
+
+        <hr>
+
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Polaznici</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Pregled prisustva polaznika</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -17,14 +30,19 @@
                         <tr>
                             <th>Ime i prezime polaznika</th>
                             @foreach($dates as $date)
-                                <th width="10%">{{\Carbon\Carbon::parse($date->lesson_date)->format('d.m.Y.')}}</th>
+                                <th>{{\Carbon\Carbon::parse($date->lesson_date)->format('d.m.Y.')}}</th>
                             @endforeach
-                            <th>Prisutan</th>
-                            <th>Odsutan</th>
+                            <th  style="border-left: 2px solid grey">Prisutan</th>
+                            <th >Odsutan</th>
                         </tr>
                         </thead>
 
                         <tbody>
+                        <tr hidden>
+                            <td hidden>
+                                {{$sum_present = 0}} {{$sum_absent = 0}}
+                            </td>
+                        </tr>
                         @foreach($students as $student)
                             @for($i=0; $i<count($studentsIds);$i++)
                                 @if($student->id == $studentsIds[$i]->student_id)
@@ -39,37 +57,26 @@
 
                                                           @if($attendance->attendance == 'P')
                                                                 <td style="color: green">{{$attendance->attendance}}</td>
+                                                                <td hidden>{{$sum_present += 1}}</td>
                                                           @elseif($attendance->attendance == 'O')
                                                             <td style="color: red">{{$attendance->attendance}}</td>
+                                                            <td hidden>{{$sum_absent += 1}}</td>
                                                           @endif
                                                 @endif
                                             @endforeach
                                         @endforeach
+                                        <td style="color:lawngreen; border-left: 2px solid grey;"><strong>{{$sum_present}}</strong></td>
+                                        <td style="color:orangered"><strong>{{$sum_absent}}</strong></td>
+                                        <td hidden>{{$sum_present = 0}} {{$sum_absent = 0}}</td>
                                     </tr>
-
-
                                 @endif
                             @endfor
                         @endforeach
-
-
-
-{{--                        --}}
-{{--                            <tr>--}}
-{{--                                <td>{{$attendance->student->name}} {{$attendance->student->surname}}</td>--}}
-{{--                                <td>{{$attendance->lesson->lesson_number}}</td>--}}
-{{--                                <td>{{$attendance->lesson->lesson_date}} </td>--}}
-{{--                                <td style="color:#4e73df;">{{$attendance->lesson->lesson_content}}</td>--}}
-
-{{--                            </tr>--}}
-{{--                        @endforeach--}}
                         </tbody>
-
                     </table>
                 </div>
             </div>
         </div>
-
 
 
     @endsection

@@ -11,26 +11,38 @@
 
             @foreach($groups as $group)
 
-            <div class="card mr-5" style="min-width: 20rem">
-                <h5 class="card-header"><span style="color:#4e73df">{{$group->name}}</span></h5>
+            <div class="card mr-5 shadow" style="min-width: 20rem">
+                <h5 class="card-header"><span style="color:#4e73df"><strong>{{$group->name}}</strong></span></h5>
                 <div class="card-body">
                     <h5 class="card-title">{{$group->course->name}}</h5>
-                    <p class="card-text">Tip nastave: {{$group->teachingType->name}}</p>
-                    <p class="card-text">Fond časova: {{$group->course->number_of_lessons}}</p>
-                    <p class="card-text">Učionica: {{$group->classroom}}</p>
-                    <p class="card-text">Početak kursa: {{$group->starting_day}}</p>
-                    <p class="card-text">Kraj kursa: {{$group->ending_day}}</p>
+                    <p class="card-text">Tip nastave: <strong>{{$group->teachingType->name}}</strong></p>
+                    <p class="card-text">Fond časova: <strong>{{$group->course->number_of_lessons}}</strong></p>
+                    <p class="card-text">Učionica: <strong>{{$group->classroom}}</strong></p>
+                    <p class="card-text">Početak kursa:
+                        @if($group->starting_date != null)
+                            <strong>{{$group->starting_date->format('d.m.Y.')}}</strong>
+                        @elseif($group->starting_date == null)
+                            <strong>{{'datum nije određen'}}</strong>
+                        @endif
+                    </p>
+                    <p class="card-text">Kraj kursa:
+                        @if($group->ending_date != null)
+                            <strong>{{$group->ending_date->format('d.m.Y.')}}</strong>
+                        @elseif($group->ending_date == null)
+                            <strong>{{'datum nije određen'}}</strong>
+                        @endif
+                    </p>
                     <p hidden>{{$brojStudenata=0}}</p>
                     <p hidden>
                         @foreach($number_of_students as $nos)
                             @for($i=0; $i<count($nos);$i++)
                                 @if($nos[$i]->group_id == $group->id)
-                                    {{$brojStudenata = count($nos)}}
+                                    <strong>{{$brojStudenata = count($nos)}}</strong>
                                 @endif
                             @endfor
                         @endforeach
                     </p>
-                    <p class="card-text">Broj učenika u grupi: {{$brojStudenata}} </p>
+                    <p class="card-text">Broj učenika u grupi: <strong>{{$brojStudenata}}</strong> </p>
                     <a href="{{route('teacher.group.group-details', $group)}}" class="btn btn-primary">Pogledaj detalje</a>
                 </div>
             </div>
