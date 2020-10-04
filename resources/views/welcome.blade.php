@@ -94,9 +94,11 @@
             </div>
             <div class="col-lg-4">
                 <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+                    <a href="/login/student" style="text-decoration: none">
                     <div class="features-icons-icon d-flex">
                         <i class="icon-graduation m-auto text-primary"></i>
                     </div>
+                    </a>
                     <h3>Učenici</h3>
 {{--                    <p class="lead mb-0">Ready to use with your own content, or customize the source files!</p>--}}
                 </div>
@@ -117,22 +119,22 @@
             <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
                 <ul class="list-inline mb-2">
                     <li class="list-inline-item">
-                        <a href="#">About</a>
+                        <a href="#">O nama</a>
                     </li>
                     <li class="list-inline-item">&sdot;</li>
                     <li class="list-inline-item">
-                        <a href="#">Contact</a>
+                        <a href="#">Kontaktirajte nas</a>
                     </li>
                     <li class="list-inline-item">&sdot;</li>
                     <li class="list-inline-item">
-                        <a href="#">Terms of Use</a>
+                        <a href="#">Uslovi korišćenja</a>
                     </li>
                     <li class="list-inline-item">&sdot;</li>
                     <li class="list-inline-item">
-                        <a href="#">Privacy Policy</a>
+                        <a href="#">Politika privatnosti</a>
                     </li>
                 </ul>
-                <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2020. All Rights Reserved.</p>
+                <p class="text-muted small mb-4 mb-lg-0">&copy; Branimir Putnik 2020.</p>
             </div>
             <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
                 <ul class="list-inline mb-0">

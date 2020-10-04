@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Attendance;
 use App\Course;
 use App\Group;
 use App\Student;
 use App\Trustee;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller
@@ -50,7 +52,7 @@ class StudentController extends Controller
             'name'=>$request->get('name'),
             'surname'=>$request->get('surname'),
             'email'=>$request->get('email'),
-            'password'=>$request->get('password'),
+            'password'=>bcrypt($request->get('password')),
             'address'=>$request->get('address'),
             'phone'=>$request->get('phone'),
             'dob'=>$request->get('dob'),
@@ -142,8 +144,91 @@ class StudentController extends Controller
     }
 
 
-
     public function update(){}
+
+//    ------------------------------- za auth -> student -------------------
+
+    public function studentIndexPage(){
+
+
+        $studentID = Auth::id();
+        $student = Student::find($studentID);
+        //dd($student);
+
+        //$groups = Group::where('id', 'group_id')->students()->where('id', $studentID)->get();
+        //$groups = DB::select('select * from `groups` where id in (select group_id from group_student where student_id=?)', [$studentID]);
+
+        return view('student.index', [
+            'student'=>$student,
+        ]);
+    }
+
+    public function showProfile(Student $student){
+
+        return view('student.student-profile', [
+            'student'=>$student
+        ]);
+
+    }
+
+
+    public function updateProfile(Student $student){
+
+        //dd($student);
+        $inputs = request()->validate([
+            'name'=> ['required', 'string', 'max:30', 'alpha-dash'],
+            'surname'=> ['required', 'string', 'max:30', 'alpha-dash'],
+            'email'=>['required', 'email', 'max:255'],
+            'avatar' => ['image:jpg, png, jpeg'],
+        ]);
+
+        if(request('avatar')) {
+            $inputs['avatar'] = request('avatar')->store('images');
+        }
+
+        if(request('password') && request('confirm-password')){
+            request()->validate([
+                'password' => 'min:6|max:255',
+                'confirm-password' => 'min:6|max:255',
+            ]);
+            if(request('password') == request('confirm-password')) {
+                $inputs['password'] = bcrypt(request('password'));
+                session()->flash('password-changed', 'Lozinka je promenjena!');
+            } else
+            {
+                session()->flash('password-not-confirmed', 'Unete lozinke se ne podudaraju!');
+                return back();
+            }
+        }
+
+        $student->update($inputs);
+        return back();
+    }
+
+
+    public function groupDetails(Group $group){
+
+        $studentId = Auth::id();
+
+
+        $number_of_lessons = DB::select('select max(lesson_number) as number_of_lessons from lessons where group_id=?', [$group->id]);
+
+//        foreach ($studentsIds as $studentsId) {
+//           // dd($studentsId);
+//            $student = DB::select('select * from students where id=?', [$studentsId->student_id]);
+//            array_push($students, $student);
+//        }
+
+        $attendances = Attendance::where('group_id', $group->id)->get();
+
+
+        return view('student.group.group-details', [
+            'studentId'=>$studentId,
+            'group'=>$group,
+            'number_of_lessons'=>$number_of_lessons[0]->number_of_lessons,
+            'attendances'=>$attendances
+        ]);
+    }
 
 
 }

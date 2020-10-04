@@ -24,7 +24,7 @@
                     Osnovni podaci
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Kurs: <strong>{{$group->course->name}}</strong></li>
+                    <li class="list-group-item">Kurs: <strong><span style="color:#4e73df">{{$group->course->name}}</span></strong></li>
                     <li class="list-group-item">Tip nastave: <strong>{{$group->teachingType->name}}</strong></li>
                     <li class="list-group-item">Fond časova: <strong>{{$group->course->number_of_lessons}}</strong></li>
                     <li class="list-group-item">Broj održanih časova: <strong>{{$number_of_lessons}}</strong></li>

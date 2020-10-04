@@ -44,7 +44,7 @@
                                 {{--                                            <td><a href="{{route('admin.students.edit', $student->id)}}">{{$student->name}} {{$student->surname}}</a></td>--}}
                                 <td>{{$lessons[$i]->lesson_number}}</td>
                                 <td>{{$lessons[$i]->lesson_date->format('d-m-Y')}} </td>
-                                <td style="color:#4e73df;">{{$lessons[$i]->lesson_content}}</td>
+                                <td style="color:darkorange;">{{$lessons[$i]->lesson_content}}</td>
                                 <td>{{$lessons[$i]->lesson_note}}</td>
                         @endfor
                         </tbody>

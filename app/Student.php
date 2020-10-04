@@ -10,7 +10,7 @@ class Student extends Authenticatable
     protected $guard = 'student';
 
     protected $fillable = [
-        'trustee_id', 'name', 'surname', 'email', 'password',
+        'trustee_id', 'name', 'surname', 'avatar', 'email', 'password',
         'address', 'phone', 'dob'
     ];
 
@@ -40,6 +40,9 @@ class Student extends Authenticatable
         return $this->hasOne(Attendance::class);
     }
 
+    public function getAvatarAttribute($value){
+        return asset('storage/' . $value);
+    }
 
 
 }

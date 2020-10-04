@@ -150,7 +150,14 @@ Route::group(['middleware' => 'auth:teacher'], function () {
 
 
 Route::group(['middleware' => 'auth:student'], function () {
-    Route::view('/student', 'student');
+    Route::get('/student', 'StudentController@studentIndexPage')->name('student.index');
+
+    Route::get('/student/{student}/profile', 'StudentController@showProfile')->name('student.student-profile');
+    Route::put('/student/{student}/profile/update', 'StudentController@updateProfile')->name('student.student-profile-update');
+
+    Route::get('/student/{group}/group', 'StudentController@groupDetails')->name('student.group.group-details');
+
+
 });
 
 

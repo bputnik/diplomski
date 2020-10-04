@@ -18,6 +18,7 @@ class CreateStudentsTable extends Migration
             $table->foreignId('trustee_id')->nullable()->constrained()->onDelete('cascade');
             $table->string('name');
             $table->string('surname');
+            $table->text('avatar')->nullable();
             $table->string('email')->nullable();
             $table->string('password');
             $table->string('address')->nullable();
