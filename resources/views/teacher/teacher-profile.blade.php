@@ -107,8 +107,8 @@
 
             <div class="form-group">
                 <button class="btn btn-primary">Sačuvaj izmene</button>
+                <a href="{{route('teacher.index')}}" class="btn btn-danger">Odustani</a>
             </div>
-
         </form>
 
 

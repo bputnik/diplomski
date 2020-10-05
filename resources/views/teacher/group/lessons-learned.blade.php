@@ -5,12 +5,8 @@
         <h1 class="mb-3">Obrađene nastavne jedinice u grupi: <strong style="color:#4e73df">{{$group->name}}</strong></h1>
 
         <hr>
-        <a href="{{route('teacher.group.group-details', $group)}}">
-            <button class="btn btn-primary">Povratak na detalje o grupi</button>
-        </a>
-        <a href="{{route('teacher.group.student-presence', $group)}}">
-            <button class="btn btn-outline-primary">Pregled prisustva polaznika</button>
-        </a>
+        <a href="{{route('teacher.group.group-details', $group)}}" class="btn btn-primary">Povratak na detalje o grupi</a>
+        <a href="{{route('teacher.group.student-presence', $group)}}" class="btn btn-outline-primary">Pregled prisustva polaznika</a>
         <hr>
 
 

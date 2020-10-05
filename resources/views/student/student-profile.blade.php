@@ -2,13 +2,19 @@
 
     @section('content')
 
-        @if(session()->has('password-not-confirmed'))
-            <div class="alert alert-danger">
-                {{session('password-not-confirmed')}}
+        @if(session()->has('student-profile-updated'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{session('student-profile-updated')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-        @elseif(session()->has('password-changed'))
-            <div class="alert alert-success">
-                {{session('password-changed')}}
+        @elseif(session()->has('student-profile-not-updated'))
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                {{session('student-profile-not-updated')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
         @endif
 
@@ -26,7 +32,7 @@
                                name="name"
                                class="form-control col-lg-6 {{$errors->has('name') ? 'is-invalid' : ''}}"
                                id="name" required
-                               value="{{$student->name}}">
+                               value="{{$student->name}}" disabled>
 
                     </div>
 
@@ -37,7 +43,7 @@
                                name="surname"
                                class="form-control col-lg-6 {{$errors->has('surname') ? 'is-invalid' : ''}}"
                                id="surname" required
-                               value="{{$student->surname}}">
+                               value="{{$student->surname}}" disabled>
                     </div>
 
 
@@ -74,10 +80,6 @@
                         @enderror
                     </div>
 
-                    {{--            <div class="form-group">--}}
-                    {{--                <img class="img-profile rounded-circle" height="150px" src="{{$admin->avatar}}">--}}
-                    {{--            </div>--}}
-
                 </div>
             </div>
 
@@ -107,6 +109,7 @@
 
             <div class="form-group">
                 <button class="btn btn-primary">Sačuvaj izmene</button>
+                <a href="{{route('student.index')}}" class="btn btn-danger">Odustani</a>
             </div>
 
         </form>

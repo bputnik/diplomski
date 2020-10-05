@@ -8,12 +8,8 @@
         <hr>
             <!-- Dugme za povratak na detalje o grupi -->
             <div class="mb-3">
-                <a href="{{route('teacher.group.group-details', $group)}}">
-                    <button class="btn btn-primary">Povratak na detalje o grupi</button>
-                </a>
-                <a href="{{route('teacher.group.lessons-learned', $group)}}">
-                    <button class="btn btn-outline-primary">Pregled obrađenih nastavnih jedinica</button>
-                </a>
+                <a href="{{route('teacher.group.group-details', $group)}}" class="btn btn-primary">Povratak na detalje o grupi</a>
+                <a href="{{route('teacher.group.lessons-learned', $group)}}" class="btn btn-outline-primary">Pregled obrađenih nastavnih jedinica</a>
             </div>
 
         <hr>

@@ -5,15 +5,9 @@
         <h1 class="mb-3">Podaci o grupi: <strong style="color:#4e73df">{{$group->name}}</strong></h1>
 
         <hr>
-        <a href="{{route('teacher.group.new-lesson', $group)}}">
-            <button class="btn btn-success">Upišite novi čas i prisustvo polaznika</button>
-        </a>
-        <a href="{{route('teacher.group.lessons-learned', $group)}}">
-            <button class="btn btn-outline-primary">Pregled obrađenih nastavnih jedinica</button>
-        </a>
-        <a href="{{route('teacher.group.student-presence', $group)}}">
-            <button class="btn btn-outline-primary">Pregled prisustva polaznika</button>
-        </a>
+        <a href="{{route('teacher.group.new-lesson', $group)}}" class="btn btn-success">Upišite novi čas i prisustvo polaznika</a>
+        <a href="{{route('teacher.group.lessons-learned', $group)}}" class="btn btn-outline-primary">Pregled obrađenih nastavnih jedinica</a>
+        <a href="{{route('teacher.group.student-presence', $group)}}" class="btn btn-outline-primary">Pregled prisustva polaznika</a>
         <hr>
 
 

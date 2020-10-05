@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Attendance;
 use App\Course;
 use App\Group;
+use App\Payment;
 use App\Student;
 use App\Trustee;
 use Illuminate\Http\Request;
@@ -176,13 +177,14 @@ class StudentController extends Controller
 
         //dd($student);
         $inputs = request()->validate([
-            'name'=> ['required', 'string', 'max:30', 'alpha-dash'],
-            'surname'=> ['required', 'string', 'max:30', 'alpha-dash'],
+//            'name'=> ['required', 'string', 'max:30', 'alpha-dash'],
+//            'surname'=> ['required', 'string', 'max:30', 'alpha-dash'],
             'email'=>['required', 'email', 'max:255'],
             'avatar' => ['image:jpg, png, jpeg'],
         ]);
 
         if(request('avatar')) {
+            $student->avatar = request('avatar');
             $inputs['avatar'] = request('avatar')->store('images');
         }
 
@@ -192,6 +194,7 @@ class StudentController extends Controller
                 'confirm-password' => 'min:6|max:255',
             ]);
             if(request('password') == request('confirm-password')) {
+                $student->password = request('password');
                 $inputs['password'] = bcrypt(request('password'));
                 session()->flash('password-changed', 'Lozinka je promenjena!');
             } else
@@ -201,16 +204,28 @@ class StudentController extends Controller
             }
         }
 
-        $student->update($inputs);
-        return back();
+        $student->email = $inputs['email'];
+
+
+
+        if($student->isDirty())
+        {
+            session()->flash('student-profile-updated', 'Vaš profil je ažuriran.');
+            $student->update($inputs);
+            return redirect()->route('student.student-profile', [
+                'student'=>$student
+            ]);
+
+        } else {
+            session()->flash('student-profile-not-updated', 'Nema izmena.');
+            return back();
+        }
     }
 
 
     public function groupDetails(Group $group){
 
         $studentId = Auth::id();
-
-
         $number_of_lessons = DB::select('select max(lesson_number) as number_of_lessons from lessons where group_id=?', [$group->id]);
 
 //        foreach ($studentsIds as $studentsId) {
@@ -221,12 +236,30 @@ class StudentController extends Controller
 
         $attendances = Attendance::where('group_id', $group->id)->get();
 
+        $courseId = DB::select('select id from courses where id in (select course_id from `groups` where id=?)', [$group->id]);
+        $courseId = $courseId[0]->id;
+
+        $course = Course::where('id', $courseId)->get();
+
+        $coursePrice = $course[0]->price;
+
+        $payments = Payment::where([
+            ['student_id', $studentId],
+            ['course_id', $courseId]
+        ])->get();
+
+        $discount = DB::select('select discount from group_student where student_id=? and group_id=?', [$studentId, $group->id]);
+        $discount = $discount[0]->discount;
+        //dd($discount);
 
         return view('student.group.group-details', [
             'studentId'=>$studentId,
             'group'=>$group,
             'number_of_lessons'=>$number_of_lessons[0]->number_of_lessons,
-            'attendances'=>$attendances
+            'attendances'=>$attendances,
+            'payments'=>$payments,
+            'coursePrice'=>$coursePrice,
+            'discount'=>$discount
         ]);
     }
 

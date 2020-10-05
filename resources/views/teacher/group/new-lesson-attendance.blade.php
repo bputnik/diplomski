@@ -5,24 +5,6 @@
 
         <script src="{{asset('vendor/jquery/jquery.js')}}"></script>
 
-
-
-
-{{--    <script>--}}
-{{--        $(document).ready(function()--}}
-{{--        {--}}
-{{--            $("button").click(function (){--}}
-{{--                $(this).slideUp();--}}
-{{--            });--}}
-{{--        });--}}
-
-
-
-
-{{--    </script>--}}
-
-
-
         @if(session()->has('lesson-created'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{session('lesson-created')}}
@@ -91,10 +73,9 @@
 
             </div>
 
-            <div class="form-group">
-                <button class="btn btn-primary">Izmeni</button>
-            </div>
-
+{{--            <div class="form-group">--}}
+{{--                <button class="btn btn-primary">Izmeni</button>--}}
+{{--            </div>--}}
         </form>
 
         <hr>

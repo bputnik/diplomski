@@ -19,7 +19,7 @@
 
         <div class="d-flex">
 
-            <div class="card shadow mr-5 mb-5" style="width: 18rem;">
+            <div class="card shadow mr-3 mb-5" style="width: 18rem;">
                 <div class="card-header">
                     Osnovni podaci
                 </div>
@@ -48,8 +48,8 @@
             </div>
 
 
-            <!-- DataTales Example -->
-            <div class="card shadow mb-4 ">
+            <!-- DataTales Odrzani casovi i prisustvo -->
+            <div class="card shadow mr-3 mb-4">
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary">Održani časovi i prisustvo</h6>
                 </div>
@@ -82,6 +82,49 @@
                                </tr>
                                @endif
                             @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- DataTales Uplate -->
+            <div class="card shadow mr-3 mb-4 ">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Uplate za ovaj kurs</h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th>Datum</th>
+                                <th>Način uplate</th>
+                                <th>Iznos</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr hidden>
+                                <td hidden>{{$uplate = 0}}</td>
+                            </tr>
+                            @foreach($payments as $payment)
+                                    <tr>
+                                        <td>{{$payment->created_at->format('d.m.Y')}}</td>
+                                        <td>{{$payment->payment_method}}</td>
+                                        <td>{{$payment->amount}}</td>
+                                        <td hidden>{{$uplate += $payment->amount}}</td>
+                                    </tr>
+                            @endforeach
+                            <tr>
+                               <td colspan="3" class="font-weight-bold text-primary">
+                                   Cena kursa: {{$coursePrice}} <br>
+                                   Popust: {{$discount}} % <br>
+                                   Ukupno uplaćeno: <strong style="color: green;" >{{$uplate}}</strong> <br>
+                                   Dug: <strong style="color: red;">{{$coursePrice - $uplate}}</strong> <br>
+                               </td>
+                            </tr>
                             </tbody>
                         </table>
                     </div>
