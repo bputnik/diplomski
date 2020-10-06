@@ -2,7 +2,7 @@
 <html lang="sh">
 
 <head>
-
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -28,8 +28,14 @@
 
 </head>
 
-<body>
+<style>
+    body {
+        font-family:"DeJaVu Sans Mono",monospace;
+        font-size: 12px;
+    }
+</style>
 
+<body>
 
         <h1>Izveštaj o dugovanjima polaznika</h1>
         <h3>Ime i prezime: <strong>{{$student->name}} {{$student->surname}} </strong></h3>
@@ -37,10 +43,10 @@
 
         @foreach($courses as $course)
 
-            <div  >
-                <div  >
-                    <div >
-                        <h3  >Uplate za kurs <strong>{{$course->name}}</strong>
+            <div>
+                <div>
+                    <div>
+                        <h3>Uplate za kurs <strong>{{$course->name}}</strong>
                             <br>
                             Cena kursa: <strong>{{$course->price}} </strong> RSD
                             <br>
@@ -59,12 +65,12 @@
                         </h3>
                     </div>
 
-                    <table  id="dataTable" width="90%" border="1px">
+                    <table  id="dataTable" width="95%">
                         <thead>
-                        <tr>
-                            <th>Datum uplate</th>
-                            <th lang="sr">Način uplate</th>
-                            <th>Iznos (RSD)</th>
+                        <tr style="border-bottom: 2px solid black;">
+                            <th style="border-bottom: 2px solid black;">Datum uplate</th>
+                            <th style="border-bottom: 2px solid black;">Na&#269;in uplate</th>
+                            <th style="border-bottom: 2px solid black;">Iznos (RSD)</th>
                         </tr>
                         </thead>
 
@@ -73,18 +79,19 @@
 
                             @if($course->id == $payment->course_id)
                                 <tr>
-                                    <td>{{$payment->created_at->format('d-m-Y')}}</td>
-                                    <td>{{$payment->payment_method}}</td>
-                                    <td>{{$payment->amount}}</td>
+                                    <td style="border-bottom: 1px solid black;">{{$payment->created_at->format('d-m-Y')}}</td>
+                                    <td style="border-bottom: 1px solid black;">{{$payment->payment_method}}</td>
+                                    <td style="border-bottom: 1px solid black;">{{$payment->amount}}</td>
+                                    <td hidden style="color: white; border: 0px white;">{{$uplate += $payment->amount}}</td>
                                 </tr>
-                                <tr hidden style="color:white;">
-                                    <td hidden>{{$uplate += $payment->amount}}</td>
-                                </tr>
+{{--                                <tr hidden style="color:white;">--}}
+{{--                                    --}}
+{{--                                </tr>--}}
                             @endif
                         @endforeach
                         <tr >
                             <td  colspan="3">
-                                Ukupno uplaćeno: <strong>{{$uplate}}</strong> RSD
+                                Ukupno upla&#263;eno: <strong>{{$uplate}}</strong> RSD
                                 <br>
                                 Ukupno dugovanje: <strong>{{$cenaKursaSaPopustom - $uplate}}</strong> RSD
                             </td>

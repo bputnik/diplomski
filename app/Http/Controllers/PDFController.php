@@ -36,6 +36,9 @@ class PDFController extends Controller
         $groups = DB::select('select * from `groups` where id in (select group_id from group_student where student_id=?)', [$student->id]);
         // dd($groups);
 
+        $serbianLatinSmall = ['č', 'ć', 'đ'];
+        $latinHTMLcodes = ['&#269;', '&#263;', '&#273;'];
+
         $data = [
             'payments'=>$payments,
             'student'=> $studenti[0],
@@ -45,11 +48,13 @@ class PDFController extends Controller
             'groups'=>$groups,
         ];
 
-//
-//
-//
+
+
+
+
 
         $pdf = PDF::loadView('admin.payments.generate-pdf', $data);
+
 
         $imeFajla = 'izvestaj_' . $studenti[0]->name . '_' . $studenti[0]->surname . '_' . date('d-m-Y') . '.pdf';
         return $pdf->download($imeFajla);
