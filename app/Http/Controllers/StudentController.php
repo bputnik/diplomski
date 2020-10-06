@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 class StudentController extends Controller
 {
@@ -82,7 +83,7 @@ class StudentController extends Controller
 //                'email'=>$trustee->email,
 //            ];
 //        }
-
+        StudentController::downloadCredential($request);
 
         Student::create($inputStudent);
         $studentId=Student::max('id');
@@ -100,6 +101,17 @@ class StudentController extends Controller
         session()->flash('student-added', 'Student je spešno dodat u bazu i upisan u grupu!');
         return redirect()->route('admin.students.show');
     }
+
+    public function downloadCredential(Request $request) {
+        // dd($request);
+        $data = json_encode(['name' => $request->get('name'),'surname' => $request->get('surname'),'email'=>$request->get('email'), 'password'=>$request->get('password')]);
+        $file = $request->get('name') .'_'. $request->get('surname') .'_file.json';   //bila je dodata u ime i time() funkcija
+        $destinationPath = public_path()."/upload/";
+        if (!is_dir($destinationPath)) {  mkdir($destinationPath,0777,true);  }
+        File::put($destinationPath.$file, $data);
+        return response()->download($destinationPath.$file);
+    }
+
 
     public function edit(Student $student){
 
