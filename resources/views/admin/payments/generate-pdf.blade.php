@@ -1,5 +1,5 @@
-<!doctype html>
-<html lang="sr">
+<!DOCTYPE html>
+<html lang="sh">
 
 <head>
 

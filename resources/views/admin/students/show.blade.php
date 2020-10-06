@@ -4,16 +4,16 @@
 
     @section('content')
 
-        @if(session()->has('teacher-created'))
+        @if(session()->has('student-created'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
-                {{session('teacher-created')}}
+                {{session('student-created')}}
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-        @elseif(session()->has('teacher-deleted'))
+        @elseif(session()->has('student-deleted'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
-                {{session('teacher-deleted')}}
+                {{session('student-deleted')}}
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

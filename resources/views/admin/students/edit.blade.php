@@ -16,6 +16,20 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+        @elseif(session()->has('student-updated'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{session('student-updated')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @elseif(session()->has('student-not-updated'))
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                {{session('student-not-updated')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
         @endif
 
         @if ($errors->any())
@@ -163,7 +177,7 @@
 
             <div class="form-group">
                 <button class="btn btn-success mb-3" type="button" data-toggle="collapse" data-target="#collapseParent" aria-expanded="false" aria-controls="collapseParent">
-                    Upišite polaznika na novi kurs
+                    <i class="fas fa-plus"></i> Upišite polaznika na novi kurs
                 </button>
 
                 <div class="collapse" id="collapseParent">

@@ -66,7 +66,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($attendances as $attendance)
+                            @foreach($attendances as $attendance)   {{-- ako je ucenik prebacen iz druge grupe, nece videti lekcije koje su odrzane dok on nije bio u grupi. Da bi se sve videle, treba ici preko lessons --}}
                                 @if($attendance->student_id == $studentId)
                                <tr>
                                    <td>{{$attendance->lesson->lesson_number}}</td>
@@ -108,6 +108,7 @@
                             <tbody>
                             <tr hidden>
                                 <td hidden>{{$uplate = 0}}</td>
+                                <td hidden>{{$discountPrice = 0}}</td>
                             </tr>
                             @foreach($payments as $payment)
                                     <tr>
@@ -120,9 +121,17 @@
                             <tr>
                                <td colspan="3" class="font-weight-bold text-primary">
                                    Cena kursa: {{$coursePrice}} <br>
-                                   Popust: {{$discount}} % <br>
+                                   Popust:
+                                        @if($discount == null || $discount == 0)
+                                            {{ 'bez popusta' }} <br>
+                                        @else
+                                            {{$discount}} % <br>
+                                        @endif
+
+                                   Ukupno za uplatu: {{$discountPrice = $coursePrice - ($coursePrice * $discount / 100)}} <br>
+
                                    Ukupno uplaćeno: <strong style="color: green;" >{{$uplate}}</strong> <br>
-                                   Dug: <strong style="color: red;">{{$coursePrice - $uplate}}</strong> <br>
+                                   Dug: <strong style="color: red;">{{$discountPrice - $uplate}}</strong> <br>
                                </td>
                             </tr>
                             </tbody>

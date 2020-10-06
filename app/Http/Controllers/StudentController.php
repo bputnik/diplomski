@@ -11,6 +11,7 @@ use App\Trustee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class StudentController extends Controller
 {
@@ -145,7 +146,36 @@ class StudentController extends Controller
     }
 
 
-    public function update(){}
+    public function update(Student $student){
+
+        $student->name = Str::ucfirst(request('name'));
+        $student->surname = Str::ucfirst(request('surname'));
+        $student->dob = request('dob');
+        $student->email = \request('email');
+        $student->phone = \request('phone');
+        $student->address = \request('address');
+
+        if($student->isDirty('name', 'surname', 'dob', 'email', 'phone', 'address'))
+        {
+            session()->flash('student-updated', 'Podaci su uspešno izmenjeni.');
+            $student->update();
+            return back();
+
+        } else {
+            session()->flash('student-not-updated', 'Nema izmena.');
+            return back();
+        }
+
+    }
+
+
+    public function destroy(Student $student){
+        $student->delete();
+        session()->flash('student-deleted', 'Polaznik ' . Str::ucfirst(request('name') . ' ' . Str::ucfirst(request('surname')) . ' je obrisan iz baze!'));
+        return back();
+    }
+
+
 
 //    ------------------------------- za auth -> student -------------------
 
