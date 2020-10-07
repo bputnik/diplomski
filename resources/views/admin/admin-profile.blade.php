@@ -113,6 +113,7 @@
 
             <div class="form-group">
                 <button class="btn btn-primary">Sačuvaj izmene</button>
+                <a href="{{route('admin.index')}}" class="btn btn-danger">Odustani</a>
             </div>
 
         </form>

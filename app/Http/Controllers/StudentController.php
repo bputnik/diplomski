@@ -186,13 +186,30 @@ class StudentController extends Controller
             'discount'=>'nullable'
         ]);
 
-        //dd($inputs);
-        $student->groups()->attach(request('group'), ['contract_number'=>request('contract_number'), 'discount'=>request('discount')]);
-        session()->flash('group-attached', 'Polaznik je upisan u grupu '. Group::findOrFail(request('group'))->name );
-        return redirect()->route('admin.students.edit',[
-                'student'=>$student,
-                'groups'=>Group::all()
-        ]);
+        $oldContractNumbers = OldStudent::all();
+        //dd($oldContractNumbers);
+
+        $contractNumberExist = 0;
+        foreach ($oldContractNumbers as $oldContractNumber) {
+            if($oldContractNumber->contract_number == \request('contract_number')) {
+                $contractNumberExist = 1;
+            }
+        }
+
+        if($contractNumberExist == 0) {
+
+
+            //dd($inputs);
+            $student->groups()->attach(request('group'), ['contract_number' => request('contract_number'), 'discount' => request('discount')]);
+            session()->flash('group-attached', 'Polaznik je upisan u grupu ' . Group::findOrFail(request('group'))->name);
+            return redirect()->route('admin.students.edit', [
+                'student' => $student,
+                'groups' => Group::all()
+            ]);
+        } else {
+            session()->flash('contract-number-exist', 'Ugovor pod brojem: ' . \request('contract_number') . ' već postoji!');
+            return back();
+        }
 
     }
 
