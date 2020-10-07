@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Attendance;
 use App\Course;
 use App\Group;
+use App\OldPayment;
+use App\OldStudent;
 use App\Payment;
 use App\Student;
 use App\Trustee;
@@ -83,6 +85,18 @@ class StudentController extends Controller
 //                'email'=>$trustee->email,
 //            ];
 //        }
+        $oldContractNumbers = OldStudent::all();
+        //dd($oldContractNumbers);
+
+        $contractNumberExist = 0;
+        foreach ($oldContractNumbers as $oldContractNumber) {
+            if($oldContractNumber->contract_number == $request->get('contract_number')) {
+                $contractNumberExist = 1;
+            }
+        }
+
+        if($contractNumberExist == 0) {
+
         StudentController::downloadCredential($request);
 
         Student::create($inputStudent);
@@ -100,6 +114,11 @@ class StudentController extends Controller
 
         session()->flash('student-added', 'Student je spešno dodat u bazu i upisan u grupu!');
         return redirect()->route('admin.students.show');
+
+        } else {
+            session()->flash('contract-number-exist', 'Ugovor pod brojem: ' . $request->get('contract_number') . ' već postoji!');
+            return back();
+        }
     }
 
     public function downloadCredential(Request $request) {
@@ -119,6 +138,7 @@ class StudentController extends Controller
 
         $notInGroup = DB::select('select * from `groups` where id not in (select group_id from group_student where student_id=?)',[$student->id]);
 
+
         //dd($notInGroup);
 
         return view('admin.students.edit', [
@@ -131,11 +151,30 @@ class StudentController extends Controller
 
 
     public function detach_group(Student $student){
-        $student->groups()->detach(request('group'));
-        session()->flash('group-detached', 'Polaznik je uklonjen iz grupe '. Group::findOrFail(request('group'))->name );
-        return redirect()->route('admin.students.edit',[
-            'student'=>$student
-        ]);
+
+        $groupId = Group::findOrFail(request('group'))->id;
+
+        $payments = DB::select('select sum(amount) as ukupno from payments where student_id=? and course_id in (select course_id from `groups` where id=?)', [$student->id, $groupId]);
+
+        $coursePrice = DB::select('select price from courses where id = (select course_id from `groups` where id = ?)', [$groupId]);
+
+        $dug = $coursePrice[0]->price - $payments[0]->ukupno;
+
+        if($dug == 0) {
+
+            $student->groups()->detach(request('group'));
+
+            DB::delete('delete from payments where student_id=? and course_id=(select course_id from `groups` where id=?)', [$student->id, $groupId]);
+
+            session()->flash('group-detached', 'Polaznik je uklonjen iz grupe ' . Group::findOrFail(request('group'))->name);
+            return redirect()->route('admin.students.edit', [
+                'student' => $student
+            ]);
+        } else {
+
+            session()->flash('group-not-detached', 'Da bi bio uklonjen iz grupe, polaznik mora izmiriti dugovanje od ' . $dug . ' RDS');
+            return back();
+        }
     }
 
 
@@ -182,9 +221,21 @@ class StudentController extends Controller
 
 
     public function destroy(Student $student){
-        $student->delete();
-        session()->flash('student-deleted', 'Polaznik ' . Str::ucfirst(request('name') . ' ' . Str::ucfirst(request('surname')) . ' je obrisan iz baze!'));
-        return back();
+
+        $idInGroup = DB::select('select * from group_student where student_id =?', [$student->id]);
+
+        //dd(empty($idInGroup));
+
+        if(empty($idInGroup)) {
+            $student->delete();
+            session()->flash('student-deleted', 'Polaznik ' . Str::ucfirst(request('name') . ' ' . Str::ucfirst(request('surname')) . ' je obrisan iz baze!'));
+            return back();
+        } else {
+            session()->flash('student-not-deleted', 'Polaznik ' . Str::ucfirst(request('name') . ' ' . Str::ucfirst(request('surname')) . ' mora biti prvo uklonjen iz svih grupa da bi bio izbrisan iz baze.'));
+            return back();
+        }
+
+
     }
 
 

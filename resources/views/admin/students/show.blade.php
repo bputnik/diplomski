@@ -18,6 +18,13 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+        @elseif(session()->has('student-not-deleted'))
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                {{session('student-not-deleted')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
         @endif
 
 

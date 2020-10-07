@@ -24,7 +24,6 @@ class CreateOldStudentsTable extends Migration
             $table->string('phone')->nullable();
             $table->date('dob')->nullable();
             $table->string('course');
-            $table->string('group');
             $table->string('contract_number')->unique();
             $table->string('trustee_name')->nullable();
             $table->string('trustee_surname')->nullable();

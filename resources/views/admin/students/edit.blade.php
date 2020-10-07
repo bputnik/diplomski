@@ -9,6 +9,13 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+        @elseif(session()->has('group-not-detached'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{session('group-not-detached')}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
         @elseif(session()->has('group-attached'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{session('group-attached')}}
@@ -122,7 +129,7 @@
 
         <h3>Grupe u koje je upisan polaznik</h3>
 
-            <!-- Tabela za pregled kurseva -->
+
             <div class="row">
                 <div class="form-group col-md-10">
                     <div class="row">
@@ -137,6 +144,7 @@
                                         <thead>
                                         <tr>
                                             <th>Naziv grupe</th>
+                                            <th>Broj ugovora</th>
                                             <th>Ukloni iz grupe</th>
                                         </tr>
                                         </thead>
@@ -147,6 +155,9 @@
                                                 @if($group->id == $student_group->id)
                                                     <tr>
                                                         <td>{{$group->name}}</td>
+{{--                                                        @foreach($group->students as $student)--}}
+                                                        <td>{{$student_group->pivot->contract_number}}</td>
+{{--                                                        @endforeach--}}
                                                         <td>
                                                             <form method="post" action="{{route('admin.students.detach_group', $student)}}">
                                                                 @csrf

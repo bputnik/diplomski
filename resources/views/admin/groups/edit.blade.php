@@ -162,7 +162,7 @@
                                                 <thead>
                                                 <tr>
                                                     <th>Ime i prezime</th>
-                                                    <th>Ukloni</th>
+{{--                                                    <th>Ukloni</th>--}}
                                                 </tr>
                                                 </thead>
 {{--                                                <tfoot>--}}
@@ -177,16 +177,16 @@
                                                     @if($student->id == $group_student->id)
                                                     <tr>
                                                         <td><strong><span style="color:darkorange">{{$student->name}} {{$student->surname}}</span></strong></td>
-                                                        <td>
-                                                            <form method="post" action="{{route('admin.groups.detach_student', $group)}}">
-                                                                @csrf
-                                                                @method('PUT')
+{{--                                                        <td>--}}
+{{--                                                            <form method="post" action="{{route('admin.groups.detach_student', $group)}}">--}}
+{{--                                                                @csrf--}}
+{{--                                                                @method('PUT')--}}
 
-                                                                <input type="hidden" name="student" value="{{$student->id}}">
+{{--                                                                <input type="hidden" name="student" value="{{$student->id}}">--}}
 
-                                                                <button class="btn btn-danger">Ukloni</button>
-                                                            </form>
-                                                        </td>
+{{--                                                                <button class="btn btn-danger">Ukloni</button>--}}
+{{--                                                            </form>--}}
+{{--                                                        </td>--}}
                                                     </tr>
                                                     @endif
                                                     @endforeach
