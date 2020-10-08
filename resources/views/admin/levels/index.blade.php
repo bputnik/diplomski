@@ -16,6 +16,13 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+        @elseif(session()->has('level-updated'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{session('level-updated')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
         @endif
 
 
@@ -49,7 +56,7 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                         <tr>
-                            <th>Id</th>
+{{--                            <th>Id</th>--}}
                             <th>Oznaka po CEF-u</th>
                             <th>Naziv nivoa</th>
                             <th>Opis</th>
@@ -58,7 +65,7 @@
                         </thead>
                         <tfoot>
                         <tr>
-                            <th>Id</th>
+{{--                            <th>Id</th>--}}
                             <th>Oznaka po CEF-u</th>
                             <th>Naziv nivoa</th>
                             <th>Opis</th>
@@ -68,8 +75,8 @@
                         <tbody>
                         @foreach($levels as $level)
                             <tr>
-                                <td>{{$level->id}}</td>
-                                <td>{{$level->label}}</td>
+{{--                                <td>{{$level->id}}</td>--}}
+                                <td style="color:orange; font-weight: bold;">{{$level->label}}</td>
                                 <td><a href="{{route('admin.levels.edit', $level->id)}}">{{$level->name}}</a></td>
                                 <td>{{$level->description}}</td>
                                 <td>

@@ -14,7 +14,7 @@ class LevelController extends Controller
 
 
         return view('admin.levels.index', [
-            'levels' => Level::all()
+            'levels' => Level::all()->sortBy('label')
         ]);
     }
 
@@ -63,11 +63,11 @@ class LevelController extends Controller
         if($level->isDirty('label', 'name', 'description'))
         {
             session()->flash('level-updated', 'Podaci su uspešno izmenjeni.');
-            $level->save();
-            return back();
+            $level->update();
+            return redirect()->route('admin.levels.index');
 
         } else {
-            session()->flash('level-not-updated', 'Nema izmena');
+            session()->flash('level-not-updated', 'Nema izmena.');
             return back();
         }
     }
