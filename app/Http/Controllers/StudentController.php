@@ -31,7 +31,7 @@ class StudentController extends Controller
         return view('admin.students.create',[
             'courses'=>Course::all(),
             'groups'=>Group::all(),
-            'trustees'=>Trustee::all()
+            'trustees'=>Trustee::all()->sortBy('surname')
 
         ]);
     }

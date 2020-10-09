@@ -98,7 +98,7 @@ class TeacherController extends Controller
 
     public function show(){
         return view('admin.teachers.show', [
-            'teachers'=>Teacher::all(),
+            'teachers'=>Teacher::all()->sortBy('name'),
         ]);
     }
 

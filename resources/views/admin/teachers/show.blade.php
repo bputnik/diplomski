@@ -33,7 +33,7 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                 <tr>
-                    <th>Id</th>
+{{--                    <th>Id</th>--}}
                     <th>Ime i prezime</th>
                     <th>Datum zaposlenja</th>
                     <th>Brisanje</th>
@@ -41,7 +41,7 @@
                 </thead>
                 <tfoot>
                 <tr>
-                    <th>Id</th>
+{{--                    <th>Id</th>--}}
                     <th>Ime i prezime</th>
                     <th>Datum zaposlenja</th>
                     <th>Brisanje</th>
@@ -50,7 +50,7 @@
                 <tbody>
                 @foreach($teachers as $teacher)
                     <tr>
-                        <td>{{$teacher->id}}</td>
+{{--                        <td>{{$teacher->id}}</td>--}}
                         <td><a href="{{route('admin.teachers.edit', $teacher->id)}}">{{$teacher->name}} {{$teacher->surname}}</a></td>
                         <td>{{$teacher->start_work->format('d-m-Y')}}</td>
                         <td>

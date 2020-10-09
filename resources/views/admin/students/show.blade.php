@@ -42,10 +42,8 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                             <tr>
-                                <th>Id</th>
+{{--                                <th>Id</th>--}}
                                 <th>Ime i prezime</th>
-
-
                                 <th>Grupa</th>
                                 <th>Datum upisa</th>
                                 <th>Staralac</th>
@@ -54,7 +52,7 @@
                             </thead>
                             <tfoot>
                             <tr>
-                                <th>Id</th>
+{{--                                <th>Id</th>--}}
                                 <th>Ime i prezime</th>
 
                                 <th>Grupa</th>
@@ -66,8 +64,8 @@
                             <tbody>
                             @foreach($students as $student)
                                 <tr>
-                                    <td>{{$student->id}}</td>
-                                    <td><a href="{{route('admin.students.edit', $student->id)}}">{{$student->name}} {{$student->surname}}</a></td>
+{{--                                    <td>{{$student->id}}</td>--}}
+                                    <td style="font-weight: bold;"><a href="{{route('admin.students.edit', $student->id)}}">{{$student->surname}} {{$student->name}}</a></td>
                                     <td>
                                         @foreach($student->groups as $group)
                                             {{$group->name}} <br>

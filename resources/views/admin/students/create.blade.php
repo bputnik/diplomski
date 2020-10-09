@@ -131,7 +131,7 @@
                         <option value=""> -- roditelj / staralac -- </option>
                         @foreach($trustees as $trustee)
                             <option value="{{$trustee->id}}">
-                                {{$trustee->name}} {{$trustee->surname}}, {{$trustee->address}}
+                              <span style="font-weight: bold;">{{$trustee->surname}} {{$trustee->name}}</span>, {{$trustee->address}}
                             </option>
                             @endforeach
                             </option>
