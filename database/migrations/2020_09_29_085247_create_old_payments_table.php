@@ -15,8 +15,11 @@ class CreateOldPaymentsTable extends Migration
     {
         Schema::create('old_payments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('student_id')->constrained();
-            $table->foreignId('course_id')->constrained();
+            $table->integer('student_id');
+            $table->string('name');
+            $table->string('surname');
+            $table->integer('course_id');
+            $table->string('course_name');
             $table->double('amount');
             $table->string('payment_method')->nullable();
             $table->text('note')->nullable();

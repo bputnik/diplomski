@@ -66,6 +66,8 @@
 
                         <div class="card" style="width:18rem">
                             <img class="img-profile rounded-circle mt-3 ml-auto mr-auto" height="150px" width="150px" src="{{$student->avatar}}">
+
+
                             <div class="card-body">
                                 <label for="avatar" class="h5 card-title">Izaberite sliku</label>
                                 <input type="file"

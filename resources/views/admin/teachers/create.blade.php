@@ -2,7 +2,23 @@
 
     @section('content')
 
-        @if ($errors->any())
+        <style>
+
+            [required] {
+                border: 1px solid red;
+            }
+        </style>
+
+
+
+        @if($errors->has('jmbg'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{'JMBG mora sadržati tačno 13 cifara!'}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @elseif ($errors->any())
             <div class="alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)

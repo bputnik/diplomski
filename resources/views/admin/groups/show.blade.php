@@ -35,7 +35,7 @@
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                 <tr>
-                                    <th>Id</th>
+{{--                                    <th>Id</th>--}}
                                     <th>Naziv grupe</th>
                                     <th>Jezik</th>
                                     <th>Kurs</th>
@@ -64,10 +64,10 @@
                                 <tbody>
                                 @foreach($groups as $group)
                                     <tr>
-                                        <td>{{$group->id}}</td>
-                                        <td><a href="{{route('admin.groups.edit', $group->id)}}">{{$group->name}}</a></td>
+{{--                                        <td>{{$group->id}}</td>--}}
+                                        <td style="font-weight: bold;"><a href="{{route('admin.groups.edit', $group->id)}}">{{$group->name}}</a></td>
                                         <td>{{$group->course->language->name}}</td>
-                                        <td>{{$group->course->name}}</td>
+                                        <td class="text-success">{{$group->course->name}}</td>
                                         <td>{{$group->teacher->name}} {{$group->teacher->surname}}</td>
                                         <td>{{$group->classroom}}</td>
                                         <td>

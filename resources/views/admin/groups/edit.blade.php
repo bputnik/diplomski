@@ -107,29 +107,29 @@
 
             <div class="form-group">
                 <label for="starting_date">Početak nastave</label>
-                <input type="date"
+                <input type="text"
                        name="starting_date"
-                       class="form-control col-lg-8"
+                       class="form-control col-lg-4"
                        id="starting_date"
-                        value=" @if($group->starting_date == null)
-                                {{''}}
-                                @elseif($group->starting_date != null)
-                                {{$group->starting_date->format('d-m-Y')}}"
-                                @endif>
+                        @if($group->starting_date == null)
+                            value="{{'nije određen'}}"
+                        @elseif($group->starting_date != null)
+                            value="{{$group->starting_date->format('d-m-Y')}}"
+                        @endif>
             </div>
 
 
             <div class="form-group">
                 <label for="ending_date">Kraj nastave</label>
-                <input type="date"
+                <input type="text"
                        name="ending_date"
-                       class="form-control col-lg-8"
+                       class="form-control col-lg-4"
                        id="ending_date"
-                        value="@if($group->ending_date == null)
-                        {{''}}
+                       @if($group->ending_date == null)
+                            value="{{'nije određen'}}"
                         @elseif($group->ending_date != null)
-                        {{$group->ending_date->format('d-m-Y')}}"
-                    @endif>">
+                            value="{{$group->ending_date->format('d-m-Y')}}"
+                    @endif>
             </div>
 
 
@@ -162,6 +162,7 @@
                                                 <thead>
                                                 <tr>
                                                     <th>Ime i prezime</th>
+                                                    <th>Broj ugovora</th>
 {{--                                                    <th>Ukloni</th>--}}
                                                 </tr>
                                                 </thead>
@@ -176,7 +177,8 @@
                                                     @foreach($group->students as $group_student)
                                                     @if($student->id == $group_student->id)
                                                     <tr>
-                                                        <td><strong><span style="color:darkorange">{{$student->name}} {{$student->surname}}</span></strong></td>
+                                                        <td><a style="text-decoration-color: darkorange;" href="{{route('admin.students.edit', $student->id)}}"><strong><span  style="color:darkorange;">{{$student->name}} {{$student->surname}}</span></strong></a></td>
+                                                        <td>{{$group_student->pivot->contract_number}}</td>
 {{--                                                        <td>--}}
 {{--                                                            <form method="post" action="{{route('admin.groups.detach_student', $group)}}">--}}
 {{--                                                                @csrf--}}

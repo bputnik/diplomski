@@ -28,10 +28,23 @@ class StudentController extends Controller
 
     public function create(){
 
+        $maxContractNumStudents = DB::select('select max(contract_number) as max_contract_number from group_student');
+        $maxOldContractNum = DB::select('select max(contract_number) as max_contract_number from old_students');
+        $maxContractNum = $maxContractNumStudents[0]->max_contract_number;
+
+
+        if($maxContractNum < $maxOldContractNum[0]->max_contract_number) {
+            $maxContractNum = $maxOldContractNum[0]->max_contract_number;
+        }
+
+
+        $nextContractNumber = $maxContractNum+1;
+
         return view('admin.students.create',[
             'courses'=>Course::all(),
             'groups'=>Group::all(),
-            'trustees'=>Trustee::all()->sortBy('surname')
+            'trustees'=>Trustee::all()->sortBy('surname'),
+            'nextContractNum'=>$nextContractNumber
 
         ]);
     }
@@ -61,6 +74,7 @@ class StudentController extends Controller
             'address'=>$request->get('address'),
             'phone'=>$request->get('phone'),
             'dob'=>$request->get('dob'),
+            'avatar'=>'images/default-user-avatar.png'
         ];
 
         $inputPivotStudentGroup = [
@@ -85,8 +99,9 @@ class StudentController extends Controller
 //                'email'=>$trustee->email,
 //            ];
 //        }
+
         $oldContractNumbers = OldStudent::all();
-        //dd($oldContractNumbers);
+
 
         $contractNumberExist = 0;
         foreach ($oldContractNumbers as $oldContractNumber) {
@@ -100,6 +115,7 @@ class StudentController extends Controller
         StudentController::downloadCredential($request);
 
         Student::create($inputStudent);
+
         $studentId=Student::max('id');
 
         $group = Group::find($request->get('group'));
@@ -222,6 +238,8 @@ class StudentController extends Controller
         $student->email = \request('email');
         $student->phone = \request('phone');
         $student->address = \request('address');
+
+
 
         if($student->isDirty('name', 'surname', 'dob', 'email', 'phone', 'address'))
         {

@@ -71,6 +71,7 @@ class TeacherController extends Controller
             'dob' => $request->get('dob'),
             'bank_account_number' => $request->get('bank-account'),
             'start_work' => $request->get('start-work'),
+            'avatar'=>'images/default-user-avatar.png'
         ];
 
             TeacherController::downloadCredential($request);

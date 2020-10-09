@@ -24,13 +24,12 @@ class CreateOldStudentsTable extends Migration
             $table->string('phone')->nullable();
             $table->date('dob')->nullable();
             $table->string('course');
-            $table->string('contract_number')->unique();
+            $table->integer('contract_number')->unique();
             $table->string('trustee_name')->nullable();
             $table->string('trustee_surname')->nullable();
             $table->string('trustee_email')->nullable();
             $table->string('trustee_address')->nullable();
             $table->string('trustee_phone')->nullable();
-            $table->date('deleted_at');
             $table->timestamps();
         });
     }

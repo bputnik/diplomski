@@ -32,7 +32,7 @@
                     <option value=""> -- izaberite polaznika -- </option>
                     @foreach($students as $student)
                         <option value="{{$student->id}}">
-                            {{$student->name}} {{$student->surname}}
+                            {{$student->surname}} {{$student->name}}
                         </option>
                         @endforeach
                         </option>

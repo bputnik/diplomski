@@ -12,8 +12,5 @@ class OldStudent extends Model
         'trustee_surname', 'trustee_email', 'trustee_address', 'trustee_phone'
     ];
 
-    protected $dates = [
-        'deleted_at'
-    ];
 
 }

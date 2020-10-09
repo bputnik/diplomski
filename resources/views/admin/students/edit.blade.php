@@ -83,11 +83,13 @@
                 <div class="row">
                 <div class="form-group col-md-3">
                      <label for="dob">Datum rođenja</label>
-                     <input type="text" id="dob" name="dob" class="form-control" readonly
+                     <input id="dob" name="dob" class="form-control"
                                 @if($student->dob == null)
-                                value="{{'nema podatka'}}"
+                                type="date"
                                 @else
-                                    value="{{$student->dob->format('d-m-Y')}}"
+                                typeof="text"
+                                value="{{$student->dob->format('d.m.Y.')}}"
+                                readonly
                                 @endif">
                 </div>
                 </div>
@@ -118,7 +120,7 @@
                 <div class="row">
                     <div class="form-group col-md-3">
                         <label for="start-work">Datum upisa</label>
-                        <input type="text" id="start-work" name="start-work" class="form-control" readonly value="{{$student->created_at->format('d-m-Y')}}">
+                        <input type="text" id="start-work" name="start-work" class="form-control" readonly value="{{$student->created_at->format('d.m.Y.')}}">
                     </div>
                 </div>
 

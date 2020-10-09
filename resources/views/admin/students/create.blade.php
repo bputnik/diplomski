@@ -2,6 +2,14 @@
 
     @section('content')
 
+        <style>
+
+            [required] {
+                border: 1px solid red;
+            }
+        </style>
+
+
         <h1 class="mb-3">Kreiranje novog profila polaznika</h1>
 
 {{--        @if($errors->has('email'))--}}
@@ -236,7 +244,7 @@
                 <div class="col">
                     <div class="form-group ">
                         <label for="group">Grupa u koju se upisuje</label>
-                        <select class="form-control" name="group" id="group"  >
+                        <select class="form-control" name="group" id="group" required >
                             <option value=""> -- izaberite grupu -- </option>
                             @foreach($groups as $group)
                                 <option value="{{$group->id}}">
@@ -254,7 +262,8 @@
                         <input type="text"
                                name="contract_number"
                                class="form-control col-lg-8"
-                               id="contract_number" required>
+                               id="contract_number"
+                               value="{{$nextContractNum}}" required>
                     </div>
                 </div>
 

@@ -25,7 +25,7 @@ class PaymentController extends Controller
     public  function create(){
 
         return view('admin.payments.create',[
-            'students'=>Student::all(),
+            'students'=>Student::all()->sortBy('surname'),
             'payments'=>Payment::all()
         ]);
 

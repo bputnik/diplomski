@@ -17,7 +17,7 @@ class CreateGroupsStudentsTable extends Migration
             $table->id();
             $table->foreignId('group_id')->constrained()->onDelete('cascade');
             $table->foreignId('student_id')->constrained()->onDelete('cascade');
-            $table->string('contract_number')->unique();
+            $table->integer('contract_number')->unique();
             $table->integer('discount')->nullable();
             $table->timestamps();
         });
