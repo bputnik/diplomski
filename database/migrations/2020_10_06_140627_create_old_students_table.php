@@ -30,6 +30,7 @@ class CreateOldStudentsTable extends Migration
             $table->string('trustee_email')->nullable();
             $table->string('trustee_address')->nullable();
             $table->string('trustee_phone')->nullable();
+            $table->boolean('deleted');
             $table->timestamps();
         });
     }

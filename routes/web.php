@@ -90,6 +90,10 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::put('/admin/students/{student}/update', 'StudentController@update')->name('admin.students.update');
     Route::delete('/admin/students/{student}/destroy', 'StudentController@destroy')->name('admin.students.destroy');
 
+    Route::get('/admin/students/old-students', 'OldStudentController@show')->name('admin.students.old-students');
+    Route::put('/admin/students/{oldStudent}/old-students/delete', 'OldStudentController@destroy')->name('admin.students.delete-old-student');
+
+
     Route::get('/admin/trustees/show', 'TrusteeController@show')->name('admin.trustees.show');
     Route::get('/admin/trustees/create', 'TrusteeController@create')->name('admin.trustees.create');
     Route::get('/admin/trustees/{trustee}/edit', 'TrusteeController@edit')->name('admin.trustees.edit');

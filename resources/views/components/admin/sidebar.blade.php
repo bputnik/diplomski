@@ -56,6 +56,7 @@
                 <a class="collapse-item" href="{{route('admin.students.create')}}" >Kreiranje novog profila</a>
                 <a class="collapse-item" href="{{route('admin.students.show')}}">Pregled, izmena, brisanje</a>
                 <a class="collapse-item" href="{{route('admin.trustees.show')}}">Roditelji / staraoci</a>
+                <a class="collapse-item text-primary" href="{{route('admin.students.old-students')}}">Stari studenti</a>
             </div>
         </div>
     </li>
