@@ -2,6 +2,12 @@
 
     @section('content')
 
+        <style>
+            [required] {
+                border: 1px solid red;
+            }
+        </style>
+
         <h1 class="mb-3">Kreiranje nove grupe</h1>
 
         @if($errors->has('name'))

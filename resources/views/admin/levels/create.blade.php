@@ -2,6 +2,13 @@
 
     @section('content')
 
+        <style>
+
+            [required] {
+                border: 1px solid red;
+            }
+        </style>
+
     <h1>Kreiranje novog jezičkog nivoa</h1>
 
         <div class="mt-3 mb-3">

@@ -2,6 +2,12 @@
 
     @section('content')
 
+        <style>
+            [required] {
+                border: 1px solid red;
+            }
+        </style>
+
         <h1 class="mb-3">Izmena podataka o grupi</h1>
 
         @if($errors->has('name'))
@@ -67,7 +73,7 @@
 
             <div class="form-group">
                 <label for="teaching_type">Tip nastave u grupi</label>
-                <select class="form-control col-lg-12" name="teaching_type" id="teaching_type" required>
+                <select class="form-control col-lg-6" name="teaching_type" id="teaching_type" required>
                     <option value="{{$group->teachingType->id}}"> {{$group->teachingType->name}} </option>
                     @foreach($teachingTypes as $teachingType)
                         <option value="{{$teachingType->id}}">

@@ -2,6 +2,13 @@
 
     @section('content')
 
+        <style>
+            [required] {
+                border: 1px solid red;
+            }
+        </style>
+
+
         @if(session()->has('course-not-updated'))
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 {{session('course-not-updated')}}

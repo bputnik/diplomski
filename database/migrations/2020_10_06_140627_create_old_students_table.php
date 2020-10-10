@@ -19,7 +19,7 @@ class CreateOldStudentsTable extends Migration
             $table->string('name');
             $table->string('surname');
             $table->text('avatar')->nullable();
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->string('address')->nullable();
             $table->string('phone')->nullable();
             $table->date('dob')->nullable();

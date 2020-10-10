@@ -26,7 +26,7 @@
             <ul class="list-group mt-3 mb-3">
                 <li class="list-group-item list-group-item-secondary">Deca</li>
                 @foreach($trustee->students as $student)
-                    <li class="list-group-item">{{$student->name}} {{$student->surname}}</li>
+                    <li class="list-group-item text-warning font-weight-bold">{{$student->name}} {{$student->surname}}</li>
 
                 @endforeach
             </ul>

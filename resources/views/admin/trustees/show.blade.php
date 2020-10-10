@@ -69,7 +69,14 @@
                                     @csrf
                                     @method('DELETE')
 
-                                    <button class="btn btn-danger">Obriši</button>
+                                    <button class="btn btn-danger"
+                                    @foreach($students as $student)
+                                        @if($trustee->id == $student->trustee_id)
+                                            disabled
+                                        @endif
+                                    @endforeach
+                                    >Obriši</button>
+
                                 </form>
                             </td>
 

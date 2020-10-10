@@ -1,9 +1,12 @@
 <x-admin.master>
 
-
-
-
     @section('content')
+
+        <style>
+            [required] {
+                border: 1px solid red;
+            }
+        </style>
 
         <script src="{{asset('vendor/jquery/jquery.js')}}"></script>
         <script src="{{asset('js/funkcije.js')}}"></script>

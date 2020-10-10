@@ -2,6 +2,13 @@
 
     @section('content')
 
+        <style>
+            [required] {
+                border: 1px solid red;
+            }
+        </style>
+
+
         @if(session()->has('group-detached'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{session('group-detached')}}
