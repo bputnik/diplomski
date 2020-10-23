@@ -37,11 +37,11 @@
                 <div class="col">
                     <div class="form-group ">
                         <label for="lesson_date">Datum</label>
-                        <input type="date"
+                        <input type="text"
                                name="lesson_date"
                                class="form-control col-lg-4"
                                id="lesson_date"
-                               value="{{$lesson->lesson_date->format('d-m-Y')}}" disabled>
+                               value="{{$lesson->lesson_date->format('d.m.Y.')}}" disabled>
                     </div>
                 </div>
             </div>

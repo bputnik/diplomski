@@ -12,14 +12,12 @@ class AttendanceController extends Controller
 {
 
     public function store(Request $request){
-
     }
 
 
     public function saveAttendance(Request $request){
 
-       // dd($request);
-        $inputs = [
+       $inputs = [
             'group_id'=>$request->group_id,
             'lesson_id'=>$request->lesson,
             'student_id'=>$request->student_id,
@@ -29,12 +27,10 @@ class AttendanceController extends Controller
         Attendance::create($inputs);
 
         return response('Učenik je prisutan na času.');
-
     }
 
     public function saveAbsence(Request $request){
 
-        // dd($request);
         $inputs = [
             'group_id'=>$request->group_id,
             'lesson_id'=>$request->lesson,
@@ -45,19 +41,16 @@ class AttendanceController extends Controller
         Attendance::create($inputs);
 
         return response('Učenik je odsutan sa časa.');
-
     }
 
 
     public function studentPresence(Group $group){
 
         $attendances = Attendance::where('group_id', $group->id)->get();
-        //dd($attendances);
 
         $studentsIds = DB::select('select student_id from group_student where group_id=?', [$group->id]);
 
         $dates = DB::select('select distinct lesson_date from lessons where id in (select lesson_id from attendances where group_id=?)', [$group->id]);
-        //dd($dates);
 
         return view('teacher.group.student-presence', [
             'group'=>$group,
@@ -66,8 +59,6 @@ class AttendanceController extends Controller
             'studentsIds'=>$studentsIds,
             'students'=>Student::all()
         ]);
-
-
     }
 
 }

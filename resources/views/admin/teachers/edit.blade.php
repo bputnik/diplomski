@@ -149,10 +149,10 @@
                                         <tr>
                                             <td>
                                                 <input type="checkbox"
-                                                       @foreach($teacher->languages as $teacher_language)
-                                                       @if($teacher_language->name == $language->name)
-                                                       checked
-                                                    @endif
+                                                    @foreach($teacher->languages as $teacher_language)
+                                                        @if($teacher_language->name == $language->name)
+                                                            checked
+                                                        @endif
                                                     @endforeach>
                                             </td>
                                             <td><strong>{{$language->name}}</strong></td>

@@ -157,13 +157,6 @@ $("#groups").change(function (e){
 
 //=========================
 
-function jebiSe() {
-
-    alert("jebi se");
-
-}
-
-
 
 function parentChosen()
 {
