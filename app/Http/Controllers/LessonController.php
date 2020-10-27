@@ -14,7 +14,7 @@ class LessonController extends Controller
 
         public function store(Request $request){
 
-            //dd($request);
+          //  dd(strtotime($request->get('lesson_date')));
 
             $request->validate([
                 'lesson_number' => 'required',
@@ -22,6 +22,20 @@ class LessonController extends Controller
                 'lesson_note'=>'nullable',
                 'lesson_date'=>'required'
             ]);
+
+            $dates = DB::select('select lesson_date from lessons where group_id=?', [(int)$request->get('group_id')]);
+
+            $dateUsed = 0;
+
+            foreach ($dates as $date) {
+                if (strtotime($date->lesson_date) == strtotime($request->get('lesson_date'))) {
+                    $dateUsed = 1;
+                }
+            }
+
+            //dd($dateUsed);
+
+            if($dateUsed == 0) {
 
             $inputs = [
                 'teacher_id'=>Auth::id(),
@@ -34,7 +48,7 @@ class LessonController extends Controller
 
 
             session()->flash('lesson-created', 'Uspešno ste upisali čas.');
-            //  DB::insert('insert into languages (name) values (?)', [$name]);
+
             Lesson::create($inputs);
 
 
@@ -43,13 +57,17 @@ class LessonController extends Controller
                 'group'=>$request->get('group_id')
             ]);
 
+            } else {
+
+                session()->flash('lesson-not-created', 'Čas je već upisan za uneti datum.');
+                return back();
+
+            }
+
         }
 
         public function show(Request $request, Group $group){
 
-
-           //dd($group->id);
-            //dd($request);
         $lesson = Lesson::where([
             ['lesson_number', $request->get('lesson_number')],
             ['group_id', $group->id]
