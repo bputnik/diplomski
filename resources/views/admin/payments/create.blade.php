@@ -24,6 +24,7 @@
 
 
         <h1>Nova uplata</h1>
+        <p class="text-danger" style="line-height:0.5"><small>*sva polja uokvirena crvenom bojom moraju biti popunjena</small></p>
 
 
         <form action="{{route('admin.payments.store')}}" method="post" >

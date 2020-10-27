@@ -9,6 +9,7 @@
         </style>
 
         <h1 class="mb-3">Kreiranje nove grupe</h1>
+        <p class="text-danger" style="line-height:0.5"><small>*sva polja uokvirena crvenom bojom moraju biti popunjena</small></p>
 
         @if($errors->has('name'))
             <div class="alert alert-danger">

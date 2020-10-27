@@ -9,6 +9,7 @@
         </style>
 
         <h1 class="mb-3">Kreiranje novog kursa</h1>
+        <p class="text-danger" style="line-height:0.5"><small>*sva polja uokvirena crvenom bojom moraju biti popunjena</small></p>
 
 
         <form action="{{route('admin.courses.store')}}" method="post" >

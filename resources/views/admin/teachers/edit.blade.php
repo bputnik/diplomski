@@ -43,6 +43,8 @@
         <h3>Profesor: <span style="color:#4e73df"> {{$teacher->name}} {{$teacher->surname}} </span></h3>
 
         <hr>
+        <p class="text-danger" style="line-height:0.5"><small>*sva polja uokvirena crvenom bojom moraju biti popunjena</small></p>
+
         <form action="{{route('admin.teachers.update', $teacher->id)}}" method="post">
             @csrf
             @method('PUT')
@@ -51,18 +53,18 @@
             <div class="row">
                 <div class="form-group col">
                     <label for="name">Ime</label>
-                    <input type="text" id="name" name="name" class="form-control" value="{{$teacher->name}}">
+                    <input type="text" id="name" name="name" class="form-control" value="{{$teacher->name}}" required>
                 </div>
                 <div class="form group col">
                     <label for="surname">Prezime</label>
-                    <input type="text" id="surname" name="surname" class="form-control" value="{{$teacher->surname}}">
+                    <input type="text" id="surname" name="surname" class="form-control" value="{{$teacher->surname}}" required>
                 </div>
             </div>
 
             <div class="row">
                   <div class="form-group col">
                       <label for="jmbg">JMBG</label>
-                      <input type="text" id="jmbg" name="jmbg" class="form-control"  readonly value="{{$teacher->jmbg}}">
+                      <input type="text" id="jmbg" name="jmbg" class="form-control"  readonly value="{{$teacher->jmbg}}" required>
                   </div>
                   <div class="form group col">
                       <label for="dob">Datum rođenja</label>
@@ -79,17 +81,17 @@
             <div class="row">
                 <div class="form-group col">
                     <label for="email">Email</label>
-                    <input type="text" id="email" name="email" class="form-control" value="{{$teacher->email}}">
+                    <input type="text" id="email" name="email" class="form-control" value="{{$teacher->email}}" required>
                 </div>
                 <div class="form-group col">
                     <label for="phone">Telefon</label>
-                    <input type="text" id="phone" name="phone" class="form-control" value="{{$teacher->phone}}">
+                    <input type="text" id="phone" name="phone" class="form-control" value="{{$teacher->phone}}" required>
                 </div>
             </div>
               <div class="row">
                   <div class="form-group col">
                       <label for="address">Adresa</label>
-                      <input type="text" id="address" name="address" class="form-control" value="{{$teacher->address}}">
+                      <input type="text" id="address" name="address" class="form-control" value="{{$teacher->address}}" required>
                   </div>
               </div>
               <div class="row">

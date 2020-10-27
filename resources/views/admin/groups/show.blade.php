@@ -49,7 +49,6 @@
                                 </thead>
                                 <tfoot>
                                 <tr>
-                                    <th>Id</th>
                                     <th>Naziv grupe</th>
                                     <th>Jezik</th>
                                     <th>Kurs</th>

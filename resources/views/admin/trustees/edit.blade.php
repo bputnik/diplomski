@@ -2,6 +2,13 @@
 
     @section('content')
 
+        <style>
+
+            [required] {
+                border: 1px solid red;
+            }
+        </style>
+
         @if(session()->has('trustee-updated'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{session('trustee-updated')}}
@@ -20,6 +27,7 @@
 
 
         <h1>Izmena podataka o staraocu</h1>
+        <p class="text-danger" style="line-height:0.5"><small>*sva polja uokvirena crvenom bojom moraju biti popunjena</small></p>
 
         <div class="row">
         <div class="col-lg-4">
@@ -27,7 +35,6 @@
                 <li class="list-group-item list-group-item-secondary">Deca</li>
                 @foreach($trustee->students as $student)
                     <li class="list-group-item text-warning font-weight-bold">{{$student->name}} {{$student->surname}}</li>
-
                 @endforeach
             </ul>
         </div>

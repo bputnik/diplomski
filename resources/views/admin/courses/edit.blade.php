@@ -30,6 +30,7 @@
 
 
         <h1 class="mb-3">Izmena podataka o kursu</h1>
+        <p class="text-danger" style="line-height:0.5"><small>*sva polja uokvirena crvenom bojom moraju biti popunjena</small></p>
 
 
         <form action="{{route('admin.courses.update', $course->id)}}" method="post" enctype="multipart/form-data" >

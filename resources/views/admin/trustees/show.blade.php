@@ -18,7 +18,7 @@
         <h1>Pregled podataka o roditeljima / staraocima</h1>
 
 
-        <div class="col-sm-9">
+        <div class="col-sm-12">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary">Roditelji / staraoci</h6>
@@ -59,7 +59,7 @@
                                 @foreach($students as $student)
                                     @if($student->trustee_id == $trustee->id)
                                         <a href="{{route('admin.students.edit', $student->id)}}">
-                                        {{$student->name}} {{$student->surname}}
+                                        {{$student->name}} {{$student->surname}} <br>
                                     @endif
                                 @endforeach
                                 </a>

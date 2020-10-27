@@ -71,6 +71,8 @@
         <h3>Polaznik: <span style="color:#4e73df"> {{$student->name}} {{$student->surname}} </span></h3>
 
         <hr>
+        <p class="text-danger" style="line-height:0.5"><small>*sva polja uokvirena crvenom bojom moraju biti popunjena</small></p>
+
         <form action="{{route('admin.students.update', $student->id)}}" method="post">
             @csrf
             @method('PUT')
@@ -79,11 +81,11 @@
                 <div class="row">
                     <div class="form-group col">
                         <label for="name">Ime</label>
-                        <input type="text" id="name" name="name" class="form-control" value="{{$student->name}}">
+                        <input type="text" id="name" name="name" class="form-control" value="{{$student->name}}" required>
                     </div>
                     <div class="form group col">
                         <label for="surname">Prezime</label>
-                        <input type="text" id="surname" name="surname" class="form-control" value="{{$student->surname}}">
+                        <input type="text" id="surname" name="surname" class="form-control" value="{{$student->surname}}" required>
                     </div>
                 </div>
 
