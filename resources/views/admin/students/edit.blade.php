@@ -244,7 +244,8 @@
                                         <input type="text"
                                                name="contract_number"
                                                class="form-control col-lg-8"
-                                               id="contract_number" required>
+                                               id="contract_number"
+                                               value="{{$nextContractNumber}}" required>
                                     </div>
                                 </div>
 

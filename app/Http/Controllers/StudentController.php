@@ -154,13 +154,23 @@ class StudentController extends Controller
 
         $notInGroup = DB::select('select * from `groups` where id not in (select group_id from group_student where student_id=?)',[$student->id]);
 
+        $maxContractNumStudents = DB::select('select max(contract_number) as max_contract_number from group_student');
+        $maxOldContractNum = DB::select('select max(contract_number) as max_contract_number from old_students');
+        $maxContractNum = $maxContractNumStudents[0]->max_contract_number;
 
-        //dd($notInGroup);
+
+        if($maxContractNum < $maxOldContractNum[0]->max_contract_number) {
+            $maxContractNum = $maxOldContractNum[0]->max_contract_number;
+        }
+
+
+        $nextContractNumber = $maxContractNum+1;
 
         return view('admin.students.edit', [
             'student'=>$student,
             'groups'=>Group::all(),
-            'notInGroup'=>$notInGroup
+            'notInGroup'=>$notInGroup,
+            'nextContractNumber'=> $nextContractNumber,
 
         ]);
     }

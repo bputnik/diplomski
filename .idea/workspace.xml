@@ -15,6 +15,10 @@
   <component name="ChangeListManager">
     <list default="true" id="b35680eb-e88a-4fce-908b-aec6e26bc4ee" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/upload/Milica_Trifković_file.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/upload/Milica_Trifković_file.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/students/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/students/edit.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -269,7 +273,8 @@
       <workItem from="1603487271052" duration="99000" />
       <workItem from="1603786822417" duration="5095000" />
       <workItem from="1603798933310" duration="3152000" />
-      <workItem from="1604612156417" duration="611000" />
+      <workItem from="1604612156417" duration="1909000" />
+      <workItem from="1604652226146" duration="3794000" />
     </task>
     <servers />
   </component>
@@ -348,11 +353,11 @@
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1600853306018" />
     <state x="346" y="73" key="SettingsEditor/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1603786858253" />
     <state x="2197" y="58" key="SettingsEditor/1920.0.1536.832/0.0.1920.1040@1920.0.1536.832" timestamp="1602747756351" />
-    <state x="382" y="158" key="Vcs.Push.Dialog.v2" timestamp="1603805491099">
+    <state x="382" y="158" key="Vcs.Push.Dialog.v2" timestamp="1604612819374">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="175" y="32" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.0.1536.824@0.0.1366.728" timestamp="1597589534287" />
-    <state x="382" y="158" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1603805491099" />
+    <state x="382" y="158" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1604612819374" />
     <state x="478" y="200" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1600961491854" />
     <state x="478" y="200" key="Vcs.Push.Dialog.v2/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1603790712455" />
     <state x="2302" y="160" key="Vcs.Push.Dialog.v2/1920.0.1536.832/0.0.1920.1040@1920.0.1536.832" timestamp="1603485975601" />

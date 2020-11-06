@@ -162,6 +162,9 @@ class TeacherController extends Controller
         return response()->download($destinationPath.$file);
     }
 
+
+//--------------------------------------- za Tecaher account
+
     public function showProfile(Teacher $teacher){
 
         return view('teacher.teacher-profile', [
@@ -201,8 +204,8 @@ class TeacherController extends Controller
         return back();
     }
 
-//--------------------------------------- za Tecaher account
-//
+
+
     public function index(){
 
         $teacherID = Auth::id();
