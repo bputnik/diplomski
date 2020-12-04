@@ -30,6 +30,8 @@ Copy `.env.example` to `.env`
 $ cp .env.example .env
 ```
 
+Delete existing public/storage folder
+
 Create storage link
 ```bash
 php artisan storage:link
