@@ -32,7 +32,7 @@ $ cp .env.example .env
 
 Delete existing public/storage folder
 
-Create storage link
+Create new storage link
 ```bash
 php artisan storage:link
 ```
